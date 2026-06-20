@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IA para psicólogos e estudantes · Entre Mentes</title>
+<meta name="description" content="A ferramenta é nova. O rigor é o de sempre. Guia gratuito de uso de inteligência artificial em psicologia: a tese, os cinco princípios do rigor e o método que produz o @psi.entre.mentes.">
+<meta name="author" content="Entre Mentes">
+<meta name="theme-color" content="#0c1f3a">
+<meta name="robots" content="index, follow">
+<!-- Configurado para GitHub Pages em https://psientrementespsi-alt.github.io/ia-com-rigor/
+     Se o repositorio NAO se chamar "ia-com-rigor", ajuste as 4 URLs abaixo (canonical, og:url, og:image, twitter:image). -->
+<link rel="canonical" href="https://psientrementespsi-alt.github.io/ia-com-rigor/">
+
+<!-- Open Graph / preview ao colar o link no direct e no WhatsApp -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Entre Mentes">
+<meta property="og:title" content="IA para psicólogos e estudantes · Entre Mentes">
+<meta property="og:description" content="A ferramenta é nova. O rigor é o de sempre. A tese, os cinco princípios e o método de usar IA em psicologia sem publicar ruído com cara de ciência.">
+<meta property="og:url" content="https://psientrementespsi-alt.github.io/ia-com-rigor/">
+<meta property="og:image" content="https://psientrementespsi-alt.github.io/ia-com-rigor/og-ia-com-rigor.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="IA para psicologos e estudantes, um guia do Entre Mentes">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="IA para psicólogos e estudantes · Entre Mentes">
+<meta name="twitter:description" content="A ferramenta é nova. O rigor é o de sempre. O método de usar IA em psicologia sem abrir mão do rigor.">
+<meta name="twitter:image" content="https://psientrementespsi-alt.github.io/ia-com-rigor/og-ia-com-rigor.png">
+
+<!-- Favicon (logo Entre Mentes) -->
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/favicon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --navy:#0c1f3a;
+    --navy-2:#102a4c;
+    --cream:#f6eddd;
+    --cream-2:#fbf5ea;
+    --ink:#16243d;
+    --ink-soft:#3a4a63;
+    --gold:#cf9f3c;
+    --gold-bright:#e3b14a;
+    --gold-deep:#856413;
+    --line:rgba(207,159,60,.32);
+    --maxw:1080px;
+    --r:16px;
+    --shadow:0 18px 50px -28px rgba(8,18,36,.55);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  section[id],[id]{scroll-margin-top:72px}
+  body{
+    font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;
+    color:var(--ink);
+    background:var(--cream);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+  }
+  h1,h2,h3,.serif{font-family:"Playfair Display",Georgia,"Times New Roman",serif}
+  img,svg{max-width:100%;display:block}
+  a{color:inherit}
+  ::selection{background:var(--gold);color:var(--navy)}
+
+  .wrap{width:100%;max-width:var(--maxw);margin-inline:auto;padding-inline:clamp(20px,5vw,40px)}
+  .eyebrow{
+    font-size:.74rem;letter-spacing:.28em;text-transform:uppercase;
+    font-weight:600;color:var(--gold-deep);margin-bottom:1.1rem
+  }
+  .section{padding:clamp(56px,9vw,108px) 0}
+  .section--navy{background:var(--navy);color:var(--cream)}
+  .section--navy .eyebrow,.hero .eyebrow{color:var(--gold-bright)}
+  .section--cream2{background:var(--cream-2)}
+  h2.title{font-size:clamp(1.9rem,5vw,3rem);font-weight:600;line-height:1.08;letter-spacing:-.01em}
+  .lede{font-size:clamp(1.05rem,2.2vw,1.22rem);color:var(--ink-soft);max-width:60ch;margin-top:1.2rem}
+  .section--navy .lede{color:rgba(246,237,221,.82)}
+
+  /* Skip link */
+  .skip{position:absolute;left:-999px;top:0;background:var(--gold);color:var(--navy);padding:.6rem 1rem;border-radius:0 0 8px 0;z-index:200}
+  .skip:focus{left:0}
+
+  /* Header */
+  header.nav{
+    position:sticky;top:0;z-index:100;
+    background:rgba(12,31,58,.86);backdrop-filter:blur(10px);
+    border-bottom:1px solid rgba(207,159,60,.18)
+  }
+  .nav-in{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding-block:.7rem}
+  .brand{display:flex;align-items:center;gap:.6rem;color:var(--cream);text-decoration:none;font-weight:600}
+  .brand .mark{width:54px;height:auto;flex:0 0 auto;display:block}
+  .brand b{font-family:"Playfair Display",serif;font-weight:600;font-size:1.05rem;letter-spacing:.01em}
+  .nav-cta{
+    font-size:.84rem;font-weight:600;letter-spacing:.02em;text-decoration:none;
+    color:var(--navy);background:var(--gold);padding:.7rem 1.15rem;border-radius:999px;
+    display:inline-flex;align-items:center;min-height:44px;
+    transition:transform .15s ease,background .2s ease;white-space:nowrap
+  }
+  .nav-cta:hover{background:var(--gold-bright);transform:translateY(-1px)}
+
+  /* Hero */
+  .hero{background:radial-gradient(120% 120% at 50% -10%,#163459 0%,var(--navy) 55%);color:var(--cream);text-align:center;position:relative;overflow:hidden}
+  .hero .wrap{padding-block:clamp(70px,13vw,140px)}
+  .hero .mark-lg{width:clamp(220px,58vw,320px);height:auto;display:block;margin:0 auto 1.3rem}
+  .hero h1{font-size:clamp(2.1rem,7vw,3.9rem);font-weight:700;line-height:1.02;letter-spacing:-.015em}
+  .hero h1 .em{color:var(--gold-bright);font-style:italic}
+  .hero .tagline{font-family:"Playfair Display",serif;font-style:italic;font-size:clamp(1.15rem,3.2vw,1.7rem);color:var(--cream);margin-top:1.3rem;opacity:.95}
+  .hero .sub{max-width:54ch;margin:1.5rem auto 0;color:rgba(246,237,221,.8);font-size:clamp(1rem,2.2vw,1.12rem)}
+  .cta-row{display:flex;flex-wrap:wrap;gap:.9rem;justify-content:center;margin-top:2.4rem}
+  .btn{
+    font:inherit;font-weight:600;letter-spacing:.01em;cursor:pointer;border:0;text-decoration:none;
+    padding:.95rem 1.7rem;border-radius:999px;transition:transform .15s ease,background .2s ease,box-shadow .2s ease;
+    display:inline-flex;align-items:center;gap:.5rem
+  }
+  .btn--primary{background:var(--gold);color:var(--navy);box-shadow:0 12px 30px -12px rgba(207,159,60,.6)}
+  .btn--primary:hover{background:var(--gold-bright);transform:translateY(-2px)}
+  .btn--ghost{background:transparent;color:var(--cream);border:1.5px solid rgba(246,237,221,.4)}
+  .btn--ghost:hover{border-color:var(--gold-bright);color:var(--gold-bright)}
+  .hero-meta{margin-top:2.2rem;font-size:.8rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(246,237,221,.55)}
+
+  /* Faixa de numeros (cruza com o ebook) */
+  .stats{background:var(--navy-2);color:var(--cream);border-top:1px solid rgba(207,159,60,.2);border-bottom:1px solid rgba(207,159,60,.2)}
+  .stats-in{display:flex;gap:1rem;justify-content:center;text-align:center;padding:1.7rem 0;flex-wrap:wrap}
+  .stats-in div{flex:1 1 170px;display:flex;flex-direction:column;gap:.25rem}
+  .stats-in b{font-family:"Playfair Display",serif;font-size:clamp(1.7rem,4vw,2.3rem);color:var(--gold-bright);line-height:1}
+  .stats-in span{font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(246,237,221,.72)}
+
+  /* Generic prose + grids */
+  .stack > * + *{margin-top:1.1rem}
+  .prose p{max-width:64ch;color:var(--ink-soft)}
+  .section--navy .prose p{color:rgba(246,237,221,.82)}
+  .prose p + p{margin-top:1rem}
+  .lead-line{font-family:"Playfair Display",serif;font-size:clamp(1.5rem,4vw,2.3rem);font-weight:600;line-height:1.18;letter-spacing:-.01em;max-width:20ch}
+  .section--navy .lead-line{color:var(--cream)}
+
+  .grid{display:grid;gap:clamp(16px,2.4vw,24px)}
+  .grid--2{grid-template-columns:repeat(2,1fr)}
+  .grid--3{grid-template-columns:repeat(3,1fr)}
+  @media(max-width:860px){.grid--3{grid-template-columns:1fr}.grid--2{grid-template-columns:1fr}}
+
+  /* Evidence cards */
+  .ev{background:rgba(246,237,221,.05);border:1px solid rgba(207,159,60,.22);border-radius:var(--r);padding:1.4rem}
+  .ev .src{font-size:.82rem;color:var(--gold-bright);font-weight:600;letter-spacing:.02em}
+  .ev p{margin-top:.55rem;color:rgba(246,237,221,.85);font-size:.98rem}
+  .ev .tag{display:inline-block;margin-top:.85rem;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(246,237,221,.55);border:1px solid rgba(246,237,221,.25);border-radius:999px;padding:.2rem .6rem}
+
+  /* Principles */
+  .pr{background:#fff;border:1px solid rgba(22,36,61,.08);border-radius:var(--r);padding:1.6rem;box-shadow:var(--shadow);position:relative;overflow:hidden}
+  .pr::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:linear-gradient(var(--gold),var(--gold-bright))}
+  .pr .n{font-family:"Playfair Display",serif;font-size:1.6rem;color:var(--gold-deep);font-weight:700;line-height:1}
+  .pr h3{font-size:1.16rem;font-weight:600;margin:.5rem 0 .5rem;letter-spacing:-.01em}
+  .pr p{font-size:.96rem;color:var(--ink-soft)}
+
+  /* Scales / cartao */
+  .scale{background:var(--navy-2);border:1px solid rgba(207,159,60,.25);border-radius:var(--r);padding:1.5rem}
+  .scale h3{color:var(--gold-bright);font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;font-family:Inter,sans-serif;font-weight:600;margin-bottom:.8rem}
+  .scale p{color:rgba(246,237,221,.9);font-size:1rem}
+  .scale b{color:var(--cream)}
+
+  /* Ecosystem families */
+  .fam{background:var(--cream-2);border:1px solid rgba(22,36,61,.08);border-radius:var(--r);padding:1.5rem}
+  .fam h3{font-size:1.1rem;font-weight:600;margin-bottom:.4rem}
+  .fam p{font-size:.94rem;color:var(--ink-soft)}
+  .fam .k{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-deep);font-weight:600;margin-bottom:.7rem}
+  .pipe{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.6rem;align-items:center}
+  .pipe .step{background:var(--navy);color:var(--cream);border-radius:10px;padding:.5rem .8rem;font-size:.82rem;font-weight:500}
+  .pipe .step.gold{background:var(--gold);color:var(--navy);font-weight:600}
+  .pipe .arrow{color:var(--gold);font-weight:700}
+
+  /* CTA final + form */
+  .cta-final{text-align:center}
+  .cta-final .title{max-width:18ch;margin-inline:auto}
+  form.waitlist{display:flex;gap:.6rem;max-width:480px;margin:2rem auto 0;flex-wrap:wrap}
+  form.waitlist input{
+    flex:1 1 220px;font:inherit;padding:.95rem 1.1rem;border-radius:999px;border:1.5px solid rgba(246,237,221,.35);
+    background:rgba(246,237,221,.06);color:var(--cream)
+  }
+  form.waitlist input::placeholder{color:rgba(246,237,221,.62)}
+  form.waitlist input:focus{outline:none;border-color:var(--gold-bright)}
+  form.waitlist input[aria-invalid="true"]{border-color:#ff9b9b;background:rgba(255,155,155,.08)}
+  form.waitlist .btn{flex:0 0 auto}
+  .form-note{margin-top:1rem;font-size:.85rem;color:rgba(246,237,221,.6)}
+  .form-ok{margin-top:1.2rem;color:var(--gold-bright);font-weight:600;min-height:1.2em}
+  .or{margin-top:1.6rem;font-size:.92rem;color:rgba(246,237,221,.7)}
+  .or a{color:var(--gold-bright);font-weight:600;text-decoration:none;border-bottom:1px solid var(--line)}
+
+  /* Footer */
+  footer{background:#081628;color:rgba(246,237,221,.7);padding:clamp(40px,7vw,72px) 0 2.5rem;font-size:.9rem}
+  footer .grid{align-items:start}
+  footer h4{color:var(--cream);font-family:Inter,sans-serif;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;margin-bottom:.8rem;font-weight:600}
+  footer a{color:var(--gold-bright);text-decoration:none}
+  footer .refs{font-size:.78rem;line-height:1.7;color:rgba(246,237,221,.55)}
+  footer .refs a{color:rgba(227,177,74,.85);word-break:break-word}
+  .disclaimer{margin-top:2.2rem;padding-top:1.6rem;border-top:1px solid rgba(207,159,60,.18);font-size:.82rem;color:rgba(246,237,221,.55);max-width:70ch}
+  .copy{margin-top:1.2rem;font-size:.78rem;color:rgba(246,237,221,.55)}
+
+  /* Premium polish */
+  .src-link{display:inline-block;margin-top:1rem;font-size:.82rem;font-weight:600;color:var(--gold-deep);text-decoration:none;border-bottom:1px solid var(--line)}
+  .src-link:hover{color:#6f520f;border-color:var(--gold-deep)}
+  .progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--gold),var(--gold-bright));z-index:300;transition:width .12s ease}
+  .pr,.ev,.scale,.fam{transition:transform .28s ease,box-shadow .28s ease,border-color .28s ease}
+  .pr:hover,.fam:hover{transform:translateY(-5px);box-shadow:0 26px 56px -30px rgba(8,18,36,.55)}
+  .ev:hover,.scale:hover{transform:translateY(-5px);border-color:var(--gold-bright)}
+  .hero::after{content:"";position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");opacity:.05;mix-blend-mode:overlay;pointer-events:none}
+  .hero .wrap{position:relative;z-index:1}
+  @keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+  .hero .wrap > *{animation:rise .7s cubic-bezier(.2,.7,.2,1) both}
+  .hero .mark-lg{animation-delay:.02s}
+  .hero .eyebrow{animation-delay:.10s}
+  .hero h1{animation-delay:.16s}
+  .hero .tagline{animation-delay:.24s}
+  .hero .sub{animation-delay:.32s}
+  .hero .cta-row{animation-delay:.40s}
+  .hero .hero-meta{animation-delay:.48s}
+
+  /* Reveal animation */
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.in{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    .reveal{opacity:1;transform:none;transition:none}
+    .btn,.nav-cta,.pr,.ev,.scale,.fam{transition:none}
+    .pr:hover,.fam:hover,.ev:hover,.scale:hover{transform:none}
+    .hero .wrap > *{animation:none}
+    .hero::after{display:none}
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<div class="progress" id="progress" aria-hidden="true"></div>
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="#topo" aria-label="Entre Mentes, início">
+      <img class="mark" src="assets/logo-icone.png" alt="" width="240" height="135">
+      <b>Entre Mentes</b>
+    </a>
+    <a class="nav-cta" href="#lista">Lista de espera</a>
+  </div>
+</header>
+
+<main id="conteudo">
+<span id="topo"></span>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <img class="mark-lg" src="assets/logo-completa.png" alt="Entre Mentes" width="900" height="579">
+    <p class="eyebrow">Prévia do curso</p>
+    <h1><span class="em">IA</span> para psicólogos e estudantes</h1>
+    <p class="tagline">A ferramenta é nova. O rigor é o de sempre.</p>
+    <p class="sub">É o método que eu uso pra produzir o @psi.entre.mentes todo dia, agora num guia gratuito.</p>
+    <div class="cta-row">
+      <a class="btn btn--primary" href="#lista">Receber o ebook grátis</a>
+      <a class="btn btn--ghost" href="#tese">Ler o guia</a>
+    </div>
+    <p class="hero-meta">Psicologia informada por evidências</p>
+  </div>
+</section>
+
+<!-- FAIXA DE NÚMEROS -->
+<section class="stats" aria-label="O ecossistema em números">
+  <div class="wrap stats-in">
+    <div><b>+30 mil</b><span>na comunidade</span></div>
+    <div><b>19</b><span>skills no ecossistema</span></div>
+    <div><b>2</b><span>pipelines verificados</span></div>
+  </div>
+</section>
+
+<!-- TESE -->
+<section class="section" id="tese">
+  <div class="wrap grid grid--2" style="align-items:center">
+    <div class="reveal">
+      <p class="eyebrow">A tese</p>
+      <p class="lead-line">A IA é andaime, não atalho.</p>
+    </div>
+    <div class="reveal prose stack">
+      <p>Quase todo conteúdo sobre IA na psicologia ensina a mesma coisa: peça um resumo, gere uma legenda. Funciona, até o dia em que o modelo te entrega um DOI que não existe, ou trata uma meta-análise e um chute com a mesma confiança. Numa área onde o que você escreve vira conduta, esse erro sai caro.</p>
+      <p>A virada é simples: você dita as regras, entrega as fontes e fica com as decisões. A IA faz o trabalho pesado de ler e cruzar referência dentro do que você permitiu. Quando essa ordem se inverte e ela começa a decidir no seu lugar, parou de ajudar e virou risco.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PRECO DO ATALHO -->
+<section class="section section--navy" id="evidencia">
+  <div class="wrap">
+    <div class="reveal" style="max-width:60ch">
+      <p class="eyebrow">O que a ciência diz</p>
+      <h2 class="title">O preço do atalho</h2>
+      <p class="lede">A IA não te deixa mais competente. Ela joga o esforço mental numa caixa-preta, e a conta chega depois. Na literatura isso tem nome: <span lang="en">offloading</span> cognitivo.</p>
+    </div>
+    <div class="grid grid--3" style="margin-top:2.6rem">
+      <div class="ev reveal">
+        <span class="src">Grinschgl et al. (2021)</span>
+        <p>Descarregar a tarefa numa ferramenta melhora o desempenho imediato e deteriora a memória posterior.</p>
+        <span class="tag">Experimental</span>
+      </div>
+      <div class="ev reveal">
+        <span class="src">Gerlich (2025) · 666 participantes</span>
+        <p>Correlação negativa entre uso frequente de IA e pensamento crítico, mediada pelo offloading.</p>
+        <span class="tag">Correlacional</span>
+      </div>
+      <div class="ev reveal">
+        <span class="src">Kosmyna et al. (2025, MIT) · 54 participantes</span>
+        <p>Com EEG, menor conectividade neural e 83% sem citar o próprio texto no grupo que escreveu com ChatGPT.</p>
+        <span class="tag">Preprint · com réplica</span>
+      </div>
+    </div>
+    <p class="prose reveal" style="margin-top:2rem;max-width:64ch">Os ganhos são reais, mas vêm com uma condição: a IA entra como apoio, com supervisão. No instante em que ela troca de lugar com o esforço, corrói justo a competência que o clínico precisa ter.</p>
+  </div>
+</section>
+
+<!-- RESPALDO INSTITUCIONAL -->
+<section class="section" id="norma">
+  <div class="wrap">
+    <div class="reveal" style="max-width:62ch">
+      <p class="eyebrow">No Brasil, virou norma</p>
+      <h2 class="title">Já não é questão de opinião</h2>
+      <p class="lede">O que este guia defende, as instituições brasileiras já começaram a cobrar. Supervisão humana e uso declarado de IA deixaram de ser conselho e viraram regra.</p>
+    </div>
+    <div class="grid grid--3" style="margin-top:2.6rem">
+      <article class="pr reveal">
+        <h3>Conselho Federal de Psicologia</h3>
+        <p>Em 2025, o CFP publicou um posicionamento e uma cartilha de boas práticas: a IA pode apoiar, mas não substitui o julgamento clínico, e seu uso pressupõe supervisão, sigilo e conformidade com a LGPD.</p>
+        <a class="src-link" href="https://site.cfp.org.br/cfp-divulga-posicionamento-sobre-inteligencia-artificial-no-contexto-da-pratica-psicologica/" target="_blank" rel="noopener">Posicionamento do CFP, 2025</a>
+      </article>
+      <article class="pr reveal">
+        <h3>CNPq, Portaria 2.664/2026</h3>
+        <p>A Portaria CNPq nº 2.664/2026 instituiu a Política de Integridade na Atividade Científica e passou a exigir a declaração de uso de IA generativa, da concepção à submissão, em dissertações, teses e artigos.</p>
+        <a class="src-link" href="https://memoria2.cnpq.br/web/guest/view/-/journal_content/56_INSTANCE_0oED/10157/23142775" target="_blank" rel="noopener">Portaria CNPq nº 2.664/2026</a>
+      </article>
+      <article class="pr reveal">
+        <h3>CAPES</h3>
+        <p>A CAPES vem promovendo diretrizes alinhadas ao CNPq para a pós-graduação, com relatório, grupo de trabalho e treinamentos sobre o uso de IA na pesquisa e no fomento.</p>
+        <a class="src-link" href="https://www.gov.br/capes/pt-br/centrais-de-conteudo/23042025_Relatorio_2575649_A_inteligencia_artificial_na_pesquisa_e_no_fomento.pdf" target="_blank" rel="noopener">Relatório da CAPES, 2025</a>
+      </article>
+    </div>
+    <p class="prose reveal" style="margin-top:2rem;max-width:64ch">A direção é a mesma deste guia: a IA entra declarada, supervisionada e sob a responsabilidade de uma pessoa.</p>
+  </div>
+</section>
+
+<!-- 5 PRINCIPIOS -->
+<section class="section section--cream2" id="principios">
+  <div class="wrap">
+    <div class="reveal" style="max-width:60ch">
+      <p class="eyebrow">O método</p>
+      <h2 class="title">Cinco princípios do rigor</h2>
+      <p class="lede">O núcleo do método. Valem em qualquer ferramenta, do ChatGPT ao Claude, e dá pra aplicar hoje sem instalar nada.</p>
+    </div>
+    <div class="grid grid--3" style="margin-top:2.6rem">
+      <article class="pr reveal"><div class="n">1</div><h3>Ancoragem na fonte</h3><p>A IA só afirma o que está nas fontes que você deu. Trabalha de livro fechado e diz "não consta" quando não acha.</p></article>
+      <article class="pr reveal"><div class="n">2</div><h3>DOI não se inventa</h3><p>Nenhuma citação entra sem você checar. DOI que não abre no artigo certo é tratado como inexistente, por mais convincente que pareça.</p></article>
+      <article class="pr reveal"><div class="n">3</div><h3>Calibração epistêmica</h3><p>O verbo é proporcional à evidência. "Demonstra" fica só pro que foi replicado ou tem meta-análise atrás. Um estudo piloto não demonstra nada.</p></article>
+      <article class="pr reveal"><div class="n">4</div><h3>Verificação adversarial</h3><p>Quem escreve não é quem aprova. Um segundo modelo, de outra família, lê o rascunho atrás do erro que escapou.</p></article>
+      <article class="pr reveal"><div class="n">5</div><h3>Responsabilidade humana</h3><p>A IA produz, uma pessoa aprova. Nada que tenha efeito fora da conversa sai sem alguém revisar, e quem assina é você.</p></article>
+      <article class="pr reveal" style="background:var(--navy);color:var(--cream)"><div class="n" style="color:var(--gold-bright)">∑</div><h3 style="color:var(--cream)">O teste dos 30 segundos</h3><p style="color:rgba(246,237,221,.82)">Resolva o DOI, confira os metadados na fonte, confirme que ela diz o que você afirmou. Falhou um, não entra.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- CARTAO DE RIGOR -->
+<section class="section section--navy" id="cartao">
+  <div class="wrap">
+    <div class="reveal" style="max-width:60ch">
+      <p class="eyebrow">Para levar</p>
+      <h2 class="title">As três escalas</h2>
+      <p class="lede">O cartão de rigor pra consultar antes de publicar qualquer coisa.</p>
+    </div>
+    <div class="grid grid--3" style="margin-top:2.4rem">
+      <div class="scale reveal">
+        <h3>Três classes de citação</h3>
+        <p><b>Sustentada:</b> existe e diz aquilo. <b>Não sustentada:</b> existe, mas não diz. <b>Não resolvível:</b> não dá para confirmar.</p>
+      </div>
+      <div class="scale reveal">
+        <h3>Hierarquia de evidência</h3>
+        <p>Meta-análise &gt; revisão sistemática &gt; ensaio randomizado &gt; observacional &gt; caso ou opinião. Cite a mais forte.</p>
+      </div>
+      <div class="scale reveal">
+        <h3>Calibração do verbo</h3>
+        <p><b>Sugere:</b> evidência fraca ou preliminar. <b>Indica:</b> moderada. <b>Demonstra:</b> replicada ou com meta-análise.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ECOSSISTEMA -->
+<section class="section" id="ecossistema">
+  <div class="wrap">
+    <div class="reveal" style="max-width:64ch">
+      <p class="eyebrow">O mapa</p>
+      <h2 class="title">O ecossistema, de cima</h2>
+      <p class="lede">Os princípios viram método quando entram num fluxo que se repete. O ecossistema é um punhado de skills no Claude, mais algumas ferramentas externas, tudo guiado por um framework clínico e pelas mesmas regras de rigor.</p>
+    </div>
+    <div class="grid grid--3" style="margin-top:2.4rem">
+      <div class="fam reveal"><p class="k">Produção</p><h3>Escreve</h3><p>Skills que rascunham posts, seções de artigo, pôster e material de estudo, sempre presas às fontes.</p></div>
+      <div class="fam reveal"><p class="k">Verificação e auditoria</p><h3>Confere e barra</h3><p>Camadas adversariais que checam cada referência, atacam o texto atrás de erro e podem bloquear a publicação.</p></div>
+      <div class="fam reveal"><p class="k">Pesquisa e infra</p><h3>Sustenta</h3><p>Levanta DOIs verificados, baixa o corpus de PDFs e prepara a leitura ancorada.</p></div>
+    </div>
+    <div class="prose reveal" style="margin-top:1.8rem">
+      <p>No centro, o Claude. Em volta, as ferramentas: o NotebookLM lê as fontes de livro fechado, as bases acadêmicas (Crossref, OpenAlex, DataCite) batem cada DOI, o Gamma monta o visual. Um hub de regras amarra tudo: mudei a regra ali, todas as skills herdam.</p>
+    </div>
+    <div class="pipe reveal" aria-label="Pipeline de posts, da ideia à publicação">
+      <span class="step">Tema</span><span class="arrow">→</span>
+      <span class="step">Pesquisa</span><span class="arrow">→</span>
+      <span class="step">Ancoragem</span><span class="arrow">→</span>
+      <span class="step">Produção</span><span class="arrow">→</span>
+      <span class="step">Verificação</span><span class="arrow">→</span>
+      <span class="step gold">Publicação</span>
+    </div>
+  </div>
+</section>
+
+<!-- CURSO -->
+<section class="section section--cream2" id="curso">
+  <div class="wrap grid grid--2" style="align-items:center">
+    <div class="reveal">
+      <p class="eyebrow">O curso</p>
+      <p class="lead-line">Você viu o mapa. No curso, você constrói.</p>
+    </div>
+    <div class="reveal prose stack">
+      <p>Aqui você viu o desenho e o porquê. O curso é a mão na massa: instalar o ecossistema no seu Claude, ligar as ferramentas e rodar os dois pipelines na sua rotina, com o mesmo rigor que sustenta um perfil de psicologia informada por evidências.</p>
+      <p>Serve pra qualquer psicólogo ou estudante montar o próprio, seja qual for a abordagem. O método é o crivo, o conteúdo é seu.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="section section--navy cta-final" id="lista">
+  <div class="wrap reveal">
+    <p class="eyebrow">O ebook é seu</p>
+    <h2 class="title">Receba o guia completo em PDF</h2>
+    <p class="lede" style="margin-inline:auto">Deixe seu e-mail e o ebook IA com Rigor cai no seu colo na hora, as 37 páginas completas. De quebra, você entra na lista de aviso do curso.</p>
+    <form class="waitlist" id="waitlist" novalidate>
+      <label for="email" class="skip">Seu e-mail</label>
+      <input type="email" id="email" name="email" placeholder="seu melhor e-mail" required autocomplete="email">
+      <button class="btn btn--primary" type="submit">Quero o ebook</button>
+    </form>
+    <p class="form-ok" id="formOk" role="status" aria-live="polite"></p>
+    <a class="btn btn--primary" id="dl" download="IA-com-Rigor-Entre-Mentes.pdf" hidden style="margin-top:1.2rem">Baixar o ebook em PDF</a>
+    <p class="form-note">Sem spam. O e-mail serve pra te mandar o ebook e avisar do curso.</p>
+    <p class="or">ou me chama no Instagram <a href="https://instagram.com/psi.entre.mentes" target="_blank" rel="noopener">@psi.entre.mentes</a></p>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap grid grid--3">
+    <div>
+      <h4>Entre Mentes</h4>
+      <p>Psicologia informada por evidências, no perfil principal e no dia a dia.<br><a href="https://instagram.com/psi.entre.mentes" target="_blank" rel="noopener">@psi.entre.mentes</a> · <a href="https://instagram.com/psi.nickolasdenegri" target="_blank" rel="noopener">@psi.nickolasdenegri</a></p>
+    </div>
+    <div>
+      <h4>Framework</h4>
+      <p style="color:rgba(246,237,221,.6)">Contextualismo funcional · <span lang="en">network approach</span> (Borsboom) · <span lang="en">Process-Based Therapy</span> (Hayes &amp; Hofmann).</p>
+    </div>
+    <div>
+      <h4>Referências</h4>
+      <p class="refs">
+        Risko &amp; Gilbert (2016). Trends in Cognitive Sciences. <a href="https://doi.org/10.1016/j.tics.2016.07.002" target="_blank" rel="noopener">doi.org/10.1016/j.tics.2016.07.002</a><br>
+        Grinschgl et al. (2021). Quarterly Journal of Experimental Psychology. <a href="https://doi.org/10.1177/17470218211008060" target="_blank" rel="noopener">doi.org/10.1177/17470218211008060</a><br>
+        Gerlich (2025). Societies. <a href="https://doi.org/10.3390/soc15010006" target="_blank" rel="noopener">doi.org/10.3390/soc15010006</a><br>
+        Kosmyna et al. (2025). arXiv:2506.08872 (preprint). <a href="https://arxiv.org/abs/2506.08872" target="_blank" rel="noopener">arxiv.org/abs/2506.08872</a><br>
+        Borsboom (2017). World Psychiatry. <a href="https://doi.org/10.1002/wps.20375" target="_blank" rel="noopener">doi.org/10.1002/wps.20375</a>
+      </p>
+    </div>
+  </div>
+  <div class="wrap">
+    <p class="disclaimer">Este material é educativo e não substitui supervisão clínica nem julgamento profissional. A IA é andaime; a decisão clínica e científica é sua. Nenhum dado identificável de paciente deve entrar em ferramentas de IA de uso geral.</p>
+    <p class="copy">© <span id="ano">2026</span> Entre Mentes · IA para psicólogos e estudantes</p>
+  </div>
+</footer>
+
+<script>
+  // Reveal on scroll (degrada gracioso se sem suporte)
+  (function(){
+    var els = document.querySelectorAll('.reveal');
+    if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return;}
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ if(en.isIntersecting){en.target.classList.add('in'); io.unobserve(en.target);} });
+    },{threshold:.12, rootMargin:'0px 0px -8% 0px'});
+    els.forEach(function(e){io.observe(e)});
+  })();
+
+  // Barra de progresso de leitura
+  var prog=document.getElementById('progress');
+  if(prog){
+    var upd=function(){var s=document.documentElement.scrollTop||document.body.scrollTop;var ht=document.documentElement.scrollHeight-document.documentElement.clientHeight;prog.style.width=(ht>0?(s/ht*100):0)+'%';};
+    window.addEventListener('scroll',upd,{passive:true}); upd();
+  }
+  // Stagger nos cards das grades
+  document.querySelectorAll('.grid').forEach(function(g){
+    Array.prototype.forEach.call(g.querySelectorAll('.reveal'),function(el,i){ el.style.transitionDelay=((i%3)*80)+'ms'; });
+  });
+
+  // Ano dinamico
+  document.getElementById('ano').textContent = new Date().getFullYear();
+
+  // Lista de espera
+  // PARA ATIVAR DE VERDADE: troque a linha ENDPOINT abaixo pelo seu endpoint
+  // (Formspree: https://formspree.io/f/SEU_ID  |  Tally / Mailchimp tambem servem).
+  var ENDPOINT = "https://formspree.io/f/mqeorvgv"; // Formspree, Lista IA com Rigor
+  var form = document.getElementById('waitlist');
+  var ok = document.getElementById('formOk');
+  var email = document.getElementById('email');
+  email.addEventListener('input', function(){ email.removeAttribute('aria-invalid'); });
+  function fail(msg){ ok.style.color="#ff9b9b"; ok.textContent=msg; }
+  function done(){ form.reset(); ok.style.color=""; ok.textContent="Pronto! Seu download vai começar. Também te aviso quando o curso abrir."; var dl=document.getElementById('dl'); if(dl){ dl.href='ebook-ia-com-rigor.pdf'; dl.hidden=false; try{dl.click();}catch(e){} } }
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var val = (email.value||"").trim();
+    var valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val);
+    if(!valid){ email.setAttribute('aria-invalid','true'); fail("Erro: confere o e-mail, parece incompleto."); email.focus(); return; }
+    if(!ENDPOINT){
+      // Sem endpoint configurado: NAO simula inscricao (senao o lead se perde). Manda pro contato real.
+      ok.style.color="";
+      ok.innerHTML='A lista ainda não está conectada aqui. Me chama no direct <a href="https://instagram.com/psi.entre.mentes" target="_blank" rel="noopener" style="color:var(--gold-bright);font-weight:600;text-decoration:underline">@psi.entre.mentes</a> que eu te aviso.';
+      return;
+    }
+    fetch(ENDPOINT,{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify({email:val})})
+      .then(function(r){ if(r.ok){done();} else {fail("Erro: algo falhou no envio. Tenta de novo em instantes.");} })
+      .catch(function(){ fail("Erro: sem conexão agora. Tenta de novo."); });
+  });
+</script>
+</body>
+</html>
