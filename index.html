@@ -155,6 +155,14 @@
   .pr .n{font-family:"Playfair Display",serif;font-size:1.6rem;color:var(--gold-deep);font-weight:700;line-height:1}
   .pr h3{font-size:1.16rem;font-weight:600;margin:.5rem 0 .5rem;letter-spacing:-.01em;color:var(--ink)}
   .pr p{font-size:.96rem;color:var(--ink-soft)}
+  #principios .pr{background:linear-gradient(180deg,#fff,#fdf8ee);border-color:rgba(207,159,60,.18)}
+  #principios .pr::before{transition:width .25s ease}
+  #principios .pr .n{display:flex;align-items:center;gap:.6rem}
+  #principios .pr .n::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,rgba(207,159,60,.55),rgba(207,159,60,0))}
+  #principios .pr:hover{border-color:rgba(207,159,60,.5)}
+  #principios .pr:hover::before{width:6px}
+  #principios .pr--cap{box-shadow:var(--shadow),inset 0 0 0 1px rgba(227,177,74,.22),0 0 34px -16px rgba(227,177,74,.5)}
+  #principios .pr--cap .n::after{background:linear-gradient(90deg,rgba(227,177,74,.6),rgba(227,177,74,0))}
 
   /* Scales / cartao */
   .scale{background:var(--navy-2);border:1px solid rgba(207,159,60,.25);border-radius:var(--r);padding:1.5rem}
@@ -360,7 +368,7 @@
       <article class="pr reveal"><div class="n">3</div><h3>Calibração epistêmica</h3><p>O verbo é proporcional à evidência. "Demonstra" fica só pro que foi replicado ou tem meta-análise atrás. Um estudo piloto não demonstra nada.</p></article>
       <article class="pr reveal"><div class="n">4</div><h3>Verificação adversarial</h3><p>Quem escreve não é quem aprova. Um segundo modelo, de outra família, lê o rascunho atrás do erro que escapou.</p></article>
       <article class="pr reveal"><div class="n">5</div><h3>Responsabilidade humana</h3><p>A IA produz, uma pessoa aprova. Nada que tenha efeito fora da conversa sai sem alguém revisar, e quem assina é você.</p></article>
-      <article class="pr reveal" style="background:var(--navy-2);color:var(--cream);border:1px solid var(--gold)"><div class="n" style="color:var(--gold-bright)">∑</div><h3 style="color:var(--cream)">O teste dos 30 segundos</h3><p style="color:rgba(246,237,221,.82)">Resolva o DOI, confira os metadados na fonte, confirme que ela diz o que você afirmou. Falhou um, não entra.</p></article>
+      <article class="pr reveal pr--cap" style="background:var(--navy-2);color:var(--cream);border:1px solid var(--gold)"><div class="n" style="color:var(--gold-bright)">∑</div><h3 style="color:var(--cream)">O teste dos 30 segundos</h3><p style="color:rgba(246,237,221,.82)">Resolva o DOI, confira os metadados na fonte, confirme que ela diz o que você afirmou. Falhou um, não entra.</p></article>
     </div>
   </div>
 </section>
