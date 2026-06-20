@@ -482,10 +482,10 @@
   // Ano dinamico
   document.getElementById('ano').textContent = new Date().getFullYear();
 
-  // Lista de espera
-  // PARA ATIVAR DE VERDADE: troque a linha ENDPOINT abaixo pelo seu endpoint
-  // (Formspree: https://formspree.io/f/SEU_ID  |  Tally / Mailchimp tambem servem).
-  var ENDPOINT = "https://formspree.io/f/mqeorvgv"; // Formspree, Lista IA com Rigor
+  // Lista de espera, captura via Splitforms (1.000/mes no plano free).
+  // Para trocar de servico, ajuste ENDPOINT e ACCESS_KEY abaixo.
+  var ENDPOINT = "https://splitforms.com/api/submit"; // Splitforms
+  var ACCESS_KEY = "2bbd629a65464799b3eea4bedd2bbb7d";
   var form = document.getElementById('waitlist');
   var ok = document.getElementById('formOk');
   var email = document.getElementById('email');
@@ -503,7 +503,7 @@
       ok.innerHTML='A lista ainda não está conectada aqui. Me chama no direct <a href="https://instagram.com/psi.entre.mentes" target="_blank" rel="noopener" style="color:var(--gold-bright);font-weight:600;text-decoration:underline">@psi.entre.mentes</a> que eu te aviso.';
       return;
     }
-    fetch(ENDPOINT,{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify({email:val})})
+    fetch(ENDPOINT,{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify({access_key:ACCESS_KEY, email:val, origem:"Lista IA com Rigor (site)"})})
       .then(function(r){ if(r.ok){done();} else {fail("Erro: algo falhou no envio. Tenta de novo em instantes.");} })
       .catch(function(){ fail("Erro: sem conexão agora. Tenta de novo."); });
   });
