@@ -433,16 +433,16 @@
 <!-- CTA FINAL -->
 <section class="section section--navy cta-final" id="lista">
   <div class="wrap reveal">
-    <p class="eyebrow">O ebook é seu</p>
-    <h2 class="title">Receba o guia completo em PDF</h2>
-    <p class="lede" style="margin-inline:auto">Deixe seu e-mail e o ebook IA com Rigor cai no seu colo na hora, as 37 páginas completas. De quebra, você entra na lista de aviso do curso.</p>
+    <p class="eyebrow">Lista de espera do curso</p>
+    <h2 class="title">Entre na lista e ganhe o ebook</h2>
+    <p class="lede" style="margin-inline:auto">Entre na lista de espera do curso completo e o ebook IA com Rigor já é seu, as 37 páginas, de graça e na hora. De quebra, você fica sabendo do lançamento e da condição de primeira turma.</p>
     <form class="waitlist" id="waitlist" novalidate>
       <label for="email" class="skip">Seu e-mail</label>
       <input type="email" id="email" name="email" placeholder="seu melhor e-mail" required autocomplete="email">
-      <button class="btn btn--primary" type="submit">Quero o ebook</button>
+      <button class="btn btn--primary" type="submit">Entrar na lista de espera</button>
     </form>
     <p class="form-ok" id="formOk" role="status" aria-live="polite"></p>
-    <a class="btn btn--primary" id="dl" download="IA-com-Rigor-Entre-Mentes.pdf" hidden style="margin-top:1.2rem">Baixar o ebook em PDF</a>
+    <a id="dl" download="IA-com-Rigor-Entre-Mentes.pdf" hidden aria-hidden="true"></a>
     <p class="form-note">Sem spam. O e-mail serve pra te mandar o ebook e avisar do curso.</p>
     <p class="or">ou me chama no Instagram <a href="https://instagram.com/psi.entre.mentes" target="_blank" rel="noopener">@psi.entre.mentes</a></p>
   </div>
@@ -510,7 +510,7 @@
   var email = document.getElementById('email');
   email.addEventListener('input', function(){ email.removeAttribute('aria-invalid'); });
   function fail(msg){ ok.style.color="#ff9b9b"; ok.textContent=msg; }
-  function done(){ form.reset(); ok.style.color=""; ok.textContent="Pronto! Seu download vai começar. Também te aviso quando o curso abrir."; var dl=document.getElementById('dl'); if(dl){ dl.href='ebook-ia-com-rigor.pdf'; dl.hidden=false; try{dl.click();}catch(e){} } }
+  function done(){ form.reset(); var dl=document.getElementById('dl'); if(dl){ dl.href='ebook-ia-com-rigor.pdf'; try{dl.click();}catch(e){} } ok.style.color=""; ok.innerHTML='Pronto! Você entrou na lista de espera, e o seu ebook já vai baixar. Se não começar sozinho, <a href="ebook-ia-com-rigor.pdf" download="IA-com-Rigor-Entre-Mentes.pdf" style="color:var(--gold-bright);font-weight:600;text-decoration:underline">toque aqui</a>.'; }
   form.addEventListener('submit', function(e){
     e.preventDefault();
     var val = (email.value||"").trim();
