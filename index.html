@@ -163,9 +163,11 @@
   .scale b{color:var(--cream)}
 
   /* Ecosystem families */
-  .fam{background:var(--cream-2);border:1px solid rgba(22,36,61,.08);border-radius:var(--r);padding:1.5rem}
+  .fam{background:#fff;border:0.5px solid rgba(22,36,61,.1);border-radius:var(--r);padding:1.5rem;box-shadow:var(--shadow)}
   .fam h3{font-size:1.1rem;font-weight:600;margin-bottom:.4rem}
   .fam p{font-size:.94rem;color:var(--ink-soft)}
+  .fam-sk{border-top:0.5px solid rgba(22,36,61,.14);margin-top:.85rem;padding-top:.7rem;font-size:.8rem;line-height:1.5;color:var(--ink-soft)}
+  .fam-sk span{display:block;font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-deep);font-weight:600;margin-bottom:.25rem}
   .fam .k{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-deep);font-weight:600;margin-bottom:.7rem}
   .pipe{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.6rem;align-items:center}
   .pipe .step{background:var(--navy);color:var(--cream);border-radius:10px;padding:.5rem .8rem;font-size:.82rem;font-weight:500}
@@ -346,7 +348,7 @@
 </section>
 
 <!-- 5 PRINCIPIOS -->
-<section class="section section--cream2" id="principios">
+<section class="section section--navy" id="principios">
   <div class="wrap">
     <div class="reveal" style="max-width:60ch">
       <p class="eyebrow">O método</p>
@@ -359,7 +361,7 @@
       <article class="pr reveal"><div class="n">3</div><h3>Calibração epistêmica</h3><p>O verbo é proporcional à evidência. "Demonstra" fica só pro que foi replicado ou tem meta-análise atrás. Um estudo piloto não demonstra nada.</p></article>
       <article class="pr reveal"><div class="n">4</div><h3>Verificação adversarial</h3><p>Quem escreve não é quem aprova. Um segundo modelo, de outra família, lê o rascunho atrás do erro que escapou.</p></article>
       <article class="pr reveal"><div class="n">5</div><h3>Responsabilidade humana</h3><p>A IA produz, uma pessoa aprova. Nada que tenha efeito fora da conversa sai sem alguém revisar, e quem assina é você.</p></article>
-      <article class="pr reveal" style="background:var(--navy);color:var(--cream)"><div class="n" style="color:var(--gold-bright)">∑</div><h3 style="color:var(--cream)">O teste dos 30 segundos</h3><p style="color:rgba(246,237,221,.82)">Resolva o DOI, confira os metadados na fonte, confirme que ela diz o que você afirmou. Falhou um, não entra.</p></article>
+      <article class="pr reveal" style="background:var(--navy-2);color:var(--cream);border:1px solid var(--gold)"><div class="n" style="color:var(--gold-bright)">∑</div><h3 style="color:var(--cream)">O teste dos 30 segundos</h3><p style="color:rgba(246,237,221,.82)">Resolva o DOI, confira os metadados na fonte, confirme que ela diz o que você afirmou. Falhou um, não entra.</p></article>
     </div>
   </div>
 </section>
@@ -373,9 +375,9 @@
       <p class="lede">Os princípios viram método quando entram num fluxo que se repete. O ecossistema é um punhado de skills no Claude, mais algumas ferramentas externas, tudo guiado por um framework clínico e pelas mesmas regras de rigor.</p>
     </div>
     <div class="grid grid--3" style="margin-top:2.4rem">
-      <div class="fam reveal"><p class="k">Produção</p><h3>Escreve</h3><p>Skills que rascunham posts, seções de artigo, pôster e material de estudo, sempre presas às fontes.</p></div>
-      <div class="fam reveal"><p class="k">Verificação e auditoria</p><h3>Confere e barra</h3><p>Camadas adversariais que checam cada referência, atacam o texto atrás de erro e podem bloquear a publicação.</p></div>
-      <div class="fam reveal"><p class="k">Pesquisa e infra</p><h3>Sustenta</h3><p>Levanta DOIs verificados, baixa o corpus de PDFs e prepara a leitura ancorada.</p></div>
+      <div class="fam reveal"><p class="k">Produção</p><h3>Escreve</h3><p>Rascunha o conteúdo comigo, sempre preso às fontes.</p><p class="fam-sk"><span>No pacote</span>Posts, artigos científicos, pôsteres, material de defesa e remoção de cara de IA.</p></div>
+      <div class="fam reveal"><p class="k">Verificação e auditoria</p><h3>Confere e barra</h3><p>Camadas adversariais que podem barrar o que não passa.</p><p class="fam-sk"><span>No pacote</span>Verificação de posts e de artigos, gate final de publicação, auditoria de pôster e de diagramas de mediação.</p></div>
+      <div class="fam reveal"><p class="k">Pesquisa e infra</p><h3>Sustenta</h3><p>Prepara o material antes de você escrever.</p><p class="fam-sk"><span>No pacote</span>Levantamento de DOIs e download do corpus de papers.</p></div>
     </div>
     <div class="prose reveal" style="margin-top:1.8rem">
       <p>No centro, o Claude. Em volta, as ferramentas: o NotebookLM lê as fontes de livro fechado, as bases acadêmicas (Crossref, OpenAlex, DataCite) batem cada DOI, o Gamma monta o visual. Um hub de regras amarra tudo: mudei a regra ali, todas as skills herdam.</p>
@@ -399,14 +401,14 @@
       <h2 class="title">Você viu o mapa. No curso, você constrói.</h2>
       <p class="lede">A mão na massa: instalar o ecossistema no seu Claude, ligar as ferramentas e rodar os pipelines na sua rotina, com o mesmo rigor que sustenta um perfil de psicologia informada por evidências. Serve pra qualquer psicólogo ou estudante, seja qual for a abordagem.</p>
     </div>
-    <p class="prose reveal" style="margin-top:1.8rem;font-weight:600;color:var(--ink)">O mesmo método, aplicado a cada formato que a vida acadêmica e clínica pede:</p>
+    <p class="prose reveal" style="margin-top:1.8rem;font-weight:600;color:var(--ink)">O mesmo método, nos formatos que você produz no dia a dia:</p>
     <div class="grid grid--2" style="margin-top:1.4rem">
-      <article class="pr reveal"><h3>Posts de Instagram</h3><p>Do tema à publicação: carrossel em prosa, legenda e referências conferidas, no padrão do perfil.</p></article>
-      <article class="pr reveal"><h3>Artigos científicos</h3><p>Da pergunta de pesquisa ao manuscrito: cada seção redigida e auditada em camadas antes de submeter.</p></article>
-      <article class="pr reveal"><h3>Pôsteres de congresso</h3><p>Do resumo ao arquivo final, com auditoria de conteúdo e de design para apresentar com segurança.</p></article>
-      <article class="pr reveal"><h3>Material de estudo</h3><p>Preparação para defesa e banca, com resumos ancorados nas fontes e recuperação ativa.</p></article>
+      <article class="pr reveal"><h3>Posts de Instagram</h3><p>Carrossel em prosa, legenda e referências conferidas, do tema ao post no ar.</p></article>
+      <article class="pr reveal"><h3>Artigos científicos</h3><p>Cada seção do manuscrito escrita e auditada em camadas antes de submeter.</p></article>
+      <article class="pr reveal"><h3>Pôsteres de congresso</h3><p>Do esqueleto ao arquivo final, com auditoria de conteúdo e de design.</p></article>
+      <article class="pr reveal"><h3>Material de estudo</h3><p>O que você precisa pra encarar a banca: resumos presos às fontes e flashcards pra fixar.</p></article>
     </div>
-    <p class="prose reveal" style="margin-top:1.8rem">O método é o crivo, o conteúdo é seu. Entre na lista de espera aqui embaixo para ser avisado quando abrir.</p>
+    <p class="prose reveal" style="margin-top:1.8rem">O método é o crivo, o conteúdo é seu. Entra na lista aqui embaixo que eu te aviso quando abrir.</p>
   </div>
 </section>
 
