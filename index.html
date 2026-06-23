@@ -139,7 +139,9 @@
   .hero h1 .em{color:var(--gold-bright);font-style:italic}
   .hero .tagline{font-family:"Playfair Display",serif;font-style:italic;font-size:clamp(1.15rem,3.2vw,1.7rem);color:var(--cream);margin-top:1.3rem;opacity:.95}
   .hero .sub{max-width:54ch;margin:1.5rem auto 0;color:rgba(246,237,221,.8);font-size:clamp(1rem,2.2vw,1.12rem)}
-  .cta-row{display:flex;flex-wrap:wrap;gap:.9rem;justify-content:center;margin-top:2.4rem}
+  .cta-row{display:flex;flex-wrap:wrap;gap:.9rem;justify-content:center;align-items:flex-start;margin-top:2.4rem}
+  .cta-stack{display:inline-flex;flex-direction:column;align-items:center;gap:.55rem}
+  .cta-cap{font-size:.72rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-bright)}
   .btn{
     font:inherit;font-weight:600;letter-spacing:.01em;cursor:pointer;border:0;text-decoration:none;
     padding:.95rem 1.7rem;border-radius:999px;transition:transform .15s ease,background .2s ease,box-shadow .2s ease;
@@ -487,7 +489,10 @@
     <p class="sub">Um método para usar IA com rigor na psicologia, do post no Instagram à pesquisa acadêmica, com cada referência verificada e cada afirmação conferida na fonte. Guia gratuito.</p>
     <div class="cta-row">
       <a class="btn btn--primary" href="#lista">Receber o ebook gratuito</a>
-      <a class="btn btn--ghost" href="#claude-do-zero">Claude do Zero</a>
+      <span class="cta-stack">
+        <a class="btn btn--ghost" href="#claude-do-zero">Começar do zero</a>
+        <span class="cta-cap">Kit inicial gratuito</span>
+      </span>
       <a class="btn btn--ghost" href="#curso">Ver os cursos</a>
     </div>
     <p class="hero-meta">Psicologia informada por evidências</p>
