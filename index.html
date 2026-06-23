@@ -855,7 +855,7 @@
     });
   })();
 
-  // Lista de espera, captura via Splitforms (1.000/mes no plano free).
+  // Lista de espera, captura via Splitforms (500/mes no plano free).
   // Para trocar de servico, ajuste ENDPOINT e ACCESS_KEY abaixo.
   var ENDPOINT = "https://splitforms.com/api/submit"; // Splitforms
   var ACCESS_KEY = "2bbd629a65464799b3eea4bedd2bbb7d";
@@ -912,4 +912,8 @@
       }
       requestAnimationFrame(loop);
     }
-    setTimeout(function(
+    setTimeout(function(){mk.style.animation='none';requestAnimationFrame(loop);},850);
+  }
+</script>
+</body>
+</html>
