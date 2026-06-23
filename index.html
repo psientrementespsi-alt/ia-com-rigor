@@ -930,9 +930,9 @@
     });
   })();
 
-  // Lista de espera, captura via Web3Forms.
+  // Lista de espera, captura via Splitforms.
   // Para trocar de servico, ajuste ENDPOINT e ACCESS_KEY abaixo.
-  var ENDPOINT = "https://api.web3forms.com/submit"; // Web3Forms
+  var ENDPOINT = "https://splitforms.com/api/submit"; // Splitforms
   var ACCESS_KEY = "2bbd629a65464799b3eea4bedd2bbb7d";
   var form = document.getElementById('waitlist');
   var ok = document.getElementById('formOk');
@@ -960,9 +960,9 @@
       .catch(function(){ fail("Erro: sem conexão no momento. Tente novamente."); });
   });
 
-  // Claude do Zero: mesma captura Web3Forms, dispara os dois downloads (ebook + kit) no sucesso
+  // Claude do Zero: mesma captura Splitforms, dispara os dois downloads (ebook + kit) no sucesso
   (function(){
-    var EP="https://api.web3forms.com/submit", AK="2bbd629a65464799b3eea4bedd2bbb7d";
+    var EP="https://splitforms.com/api/submit", AK="2bbd629a65464799b3eea4bedd2bbb7d";
     var f=document.getElementById('dzform'); if(!f) return;
     var ok=document.getElementById('dzOk'), em=document.getElementById('dzemail'), la=document.getElementById('dzloaded');
     if(la){ la.value=new Date().toISOString(); }
