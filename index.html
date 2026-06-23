@@ -766,6 +766,7 @@
       <label for="email" class="skip">Seu e-mail</label>
       <input type="email" id="email" name="email" placeholder="seu e-mail" required autocomplete="email">
       <input type="text" id="botcheck" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-5000px;width:1px;height:1px;opacity:0;pointer-events:none">
+      <input type="hidden" id="form_loaded_at" name="form_loaded_at" value="">
       <button class="btn btn--primary" type="submit">Entrar na lista de espera</button>
     </form>
     <p class="form-ok" id="formOk" role="status" aria-live="polite"></p>
@@ -861,6 +862,8 @@
   var form = document.getElementById('waitlist');
   var ok = document.getElementById('formOk');
   var email = document.getElementById('email');
+  var loadedAt = document.getElementById('form_loaded_at');
+  if(loadedAt){ loadedAt.value = new Date().toISOString(); }
   email.addEventListener('input', function(){ email.removeAttribute('aria-invalid'); });
   function fail(msg){ ok.style.color="#ff9b9b"; ok.textContent=msg; }
   function done(){ form.reset(); var dl=document.getElementById('dl'); if(dl){ dl.href='ebook-ia-com-rigor.pdf'; try{dl.click();}catch(e){} } ok.style.color=""; ok.innerHTML='Cadastro concluído. O download do ebook iniciará automaticamente. Caso não inicie, <a href="ebook-ia-com-rigor.pdf" download="IA-com-Rigor-Entre-Mentes.pdf" style="color:var(--gold-bright);font-weight:600;text-decoration:underline">clique aqui</a>.'; }
@@ -877,7 +880,7 @@
       ok.innerHTML='A lista ainda não está conectada. Entre em contato pelo direct <a href="https://instagram.com/psi.entre.mentes" target="_blank" rel="noopener" style="color:var(--gold-bright);font-weight:600;text-decoration:underline">@psi.entre.mentes</a>.';
       return;
     }
-    fetch(ENDPOINT,{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify({access_key:ACCESS_KEY, email:val, botcheck:"", origem:"Lista IA com Rigor (site)"})})
+    fetch(ENDPOINT,{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify({access_key:ACCESS_KEY, email:val, botcheck:"", form_loaded_at:(loadedAt&&loadedAt.value)||"", origem:"Lista IA com Rigor (site)"})})
       .then(function(r){ if(r.ok){done();} else {fail("Erro: falha no envio. Tente novamente em instantes.");} })
       .catch(function(){ fail("Erro: sem conexão no momento. Tente novamente."); });
   });
@@ -909,8 +912,4 @@
       }
       requestAnimationFrame(loop);
     }
-    setTimeout(function(){mk.style.animation='none';requestAnimationFrame(loop);},850);
-  }
-</script>
-</body>
-</html>
+    setTimeout(function(
