@@ -423,6 +423,38 @@
   .hero .mark-lg{will-change:transform}
   @media(prefers-reduced-motion:reduce){.hero .mark-lg{transition:none}}
 
+  /* ===== Link de navegação extra (materiais) ===== */
+  .nav-right{display:flex;align-items:center;gap:clamp(.9rem,2.4vw,1.5rem)}
+  .nav-link{font-size:.84rem;font-weight:600;letter-spacing:.02em;color:rgba(246,237,221,.82);text-decoration:none;white-space:nowrap;transition:color .2s ease}
+  .nav-link:hover{color:var(--gold-bright)}
+  @media(max-width:560px){.nav-link{display:none}}
+
+  /* ===== Claude do Zero (material gratuito, com captura de e-mail) ===== */
+  .dz-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(18px,3vw,30px);margin-top:clamp(2.4rem,5vw,3.4rem);align-items:stretch}
+  @media(max-width:820px){.dz-grid{grid-template-columns:1fr}}
+  .dz-book{background:var(--navy);color:var(--cream);border-radius:var(--r);padding:clamp(1.6rem,3vw,2.2rem);position:relative;overflow:hidden;border:1px solid rgba(207,159,60,.3);display:flex;flex-direction:column;box-shadow:var(--shadow)}
+  .dz-book::before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:linear-gradient(var(--gold-bright),var(--gold-deep))}
+  .dz-kicker{font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:var(--gold-bright);margin-bottom:.7rem}
+  .dz-title{font-family:"Playfair Display",serif;font-size:clamp(1.8rem,4.2vw,2.5rem);font-weight:700;line-height:1.04;color:var(--cream);letter-spacing:-.01em}
+  .dz-desc{color:rgba(246,237,221,.82);font-size:.98rem;margin:.9rem 0 1.3rem;max-width:42ch}
+  .dz-form{margin-top:auto;padding-top:.4rem}
+  .dz-form.waitlist{max-width:none;margin-bottom:0}
+  .dz-form.waitlist input{flex:1 1 100%}
+  .dz-form.waitlist .btn{flex:1 1 100%;justify-content:center}
+  .dz-book .form-ok{margin-top:1rem}
+  .dz-note{margin-top:.9rem;font-size:.8rem;color:rgba(246,237,221,.6);max-width:46ch}
+  .dz-kit{background:#fff;border:1px solid rgba(22,36,61,.08);border-radius:var(--r);padding:clamp(1.5rem,2.6vw,2rem);box-shadow:var(--shadow);display:flex;flex-direction:column}
+  .dz-kit .dz-kicker{color:var(--gold-deep);margin:0 0 .4rem;padding-bottom:1rem;border-bottom:1px solid var(--line)}
+  .dz-files{list-style:none;margin:0;padding:0}
+  .dz-files li{padding:.85rem 0;border-bottom:1px solid rgba(22,36,61,.07)}
+  .dz-files li:first-child{padding-top:.2rem}
+  .dz-files li:last-child{border-bottom:0;padding-bottom:0}
+  .dz-files .kf{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.9rem;font-weight:600;color:var(--ink);letter-spacing:0}
+  .dz-files .kd{font-size:.86rem;color:var(--ink-soft);line-height:1.5;margin-top:.18rem}
+  .dz-after{margin-top:clamp(1.8rem,3.5vw,2.4rem);font-size:.96rem;color:var(--ink-soft);max-width:64ch}
+  .dz-after a{color:var(--gold-deep);font-weight:600;text-decoration:none;border-bottom:1px solid var(--line)}
+  .dz-after a:hover{color:#6f520f;border-color:var(--gold-deep)}
+
 </style>
 </head>
 <body>
@@ -435,7 +467,10 @@
       <img class="mark" src="assets/logo-icone.png" alt="" width="240" height="135">
       <b>Entre Mentes</b>
     </a>
-    <a class="nav-cta" href="#lista">Lista de espera</a>
+    <div class="nav-right">
+      <a class="nav-link" href="#claude-do-zero">Materiais</a>
+      <a class="nav-cta" href="#lista">Lista de espera</a>
+    </div>
   </div>
 </header>
 
@@ -755,6 +790,47 @@
   </div>
 </section>
 
+<!-- CLAUDE DO ZERO (material gratuito) -->
+<section class="section section--cream2" id="claude-do-zero">
+  <div class="wrap">
+    <p class="eyebrow reveal">Material gratuito</p>
+    <h2 class="title reveal">Comece pelo Claude do Zero</h2>
+    <p class="lede reveal">O guia de primeiro contato, para quem ainda não usa IA com método na psicologia. São dezessete páginas com os primeiros passos, mais um kit de cinco arquivos prontos para colar nas instruções do Claude. Informe o e-mail e receba o ebook e o kit na hora, sem custo.</p>
+
+    <div class="dz-grid reveal">
+      <article class="dz-book">
+        <p class="dz-kicker">Guia de primeiro contato · 17 páginas · PDF</p>
+        <h3 class="dz-title">Claude do Zero</h3>
+        <p class="dz-desc">Os primeiros passos para usar inteligência artificial na psicologia sem abrir mão do rigor. A tese, o erro comum e o método, na linguagem de quem ainda está começando. Acompanha o kit ao lado.</p>
+        <form class="waitlist dz-form" id="dzform" novalidate>
+          <label for="dzemail" class="skip">Seu e-mail</label>
+          <input type="email" id="dzemail" name="email" placeholder="seu e-mail" required autocomplete="email">
+          <input type="text" id="dzbot" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-5000px;width:1px;height:1px;opacity:0;pointer-events:none">
+          <input type="hidden" id="dzloaded" name="form_loaded_at" value="">
+          <button class="btn btn--primary" type="submit">Receber o ebook e o kit</button>
+        </form>
+        <p class="form-ok" id="dzOk" role="status" aria-live="polite"></p>
+        <a id="dzdlPdf" download="Claude-do-Zero-Entre-Mentes.pdf" hidden aria-hidden="true"></a>
+        <a id="dzdlZip" download="claude-do-zero-kit.zip" hidden aria-hidden="true"></a>
+        <p class="dz-note">Sem spam. O e-mail é usado apenas para enviar o material e avisar sobre o curso, conforme a LGPD. Você pode pedir a remoção a qualquer momento pelo direct.</p>
+      </article>
+
+      <div class="dz-kit">
+        <p class="dz-kicker">No kit · 5 arquivos .md</p>
+        <ul class="dz-files">
+          <li><p class="kf">AGENT.md</p><p class="kd">Como o Claude deve se comportar com você. Vai colado nas instruções, em Settings, e vale para toda conversa.</p></li>
+          <li><p class="kf">MEMORY.md</p><p class="kd">Os fatos duráveis sobre você, para parar de se reapresentar a cada conversa.</p></li>
+          <li><p class="kf">CONTEXT.md</p><p class="kd">O contexto da tarefa da vez. Esse você troca a cada trabalho, post ou capítulo.</p></li>
+          <li><p class="kf">dados-pacientes.md</p><p class="kd">A linha que não se cruza: nenhum dado identificável de paciente em IA de uso geral.</p></li>
+          <li><p class="kf">regras-escrita-academica.md</p><p class="kd">Como escrever com literatura sem produzir o que tem cara de ciência e não é.</p></li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="dz-after reveal">Esse é o ponto de partida. Quando quiser ir além, o IA com Rigor traz o ecossistema inteiro em trinta e sete páginas, e fica logo abaixo, na <a href="#lista">lista de espera</a>.</p>
+  </div>
+</section>
+
 <!-- CTA FINAL -->
 <section class="section section--navy cta-final" id="lista">
   <div class="wrap reveal">
@@ -854,9 +930,9 @@
     });
   })();
 
-  // Lista de espera, captura via Splitforms (500/mes no plano free).
+  // Lista de espera, captura via Web3Forms.
   // Para trocar de servico, ajuste ENDPOINT e ACCESS_KEY abaixo.
-  var ENDPOINT = "https://splitforms.com/api/submit"; // Splitforms
+  var ENDPOINT = "https://api.web3forms.com/submit"; // Web3Forms
   var ACCESS_KEY = "2bbd629a65464799b3eea4bedd2bbb7d";
   var form = document.getElementById('waitlist');
   var ok = document.getElementById('formOk');
@@ -879,10 +955,39 @@
       ok.innerHTML='A lista ainda não está conectada. Entre em contato pelo direct <a href="https://instagram.com/psi.entre.mentes" target="_blank" rel="noopener" style="color:var(--gold-bright);font-weight:600;text-decoration:underline">@psi.entre.mentes</a>.';
       return;
     }
-    fetch(ENDPOINT,{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify({access_key:ACCESS_KEY, email:val, botcheck:"", form_loaded_at:(loadedAt&&loadedAt.value)||"", origem:"Lista IA com Rigor (site)"})})
+    fetch(ENDPOINT,{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify({access_key:ACCESS_KEY, email:val, botcheck:(bot&&bot.value)||"", form_loaded_at:(loadedAt&&loadedAt.value)||"", origem:"Lista IA com Rigor (site)"})})
       .then(function(r){ if(r.ok){done();} else {fail("Erro: falha no envio. Tente novamente em instantes.");} })
       .catch(function(){ fail("Erro: sem conexão no momento. Tente novamente."); });
   });
+
+  // Claude do Zero: mesma captura Web3Forms, dispara os dois downloads (ebook + kit) no sucesso
+  (function(){
+    var EP="https://api.web3forms.com/submit", AK="2bbd629a65464799b3eea4bedd2bbb7d";
+    var f=document.getElementById('dzform'); if(!f) return;
+    var ok=document.getElementById('dzOk'), em=document.getElementById('dzemail'), la=document.getElementById('dzloaded');
+    if(la){ la.value=new Date().toISOString(); }
+    em.addEventListener('input', function(){ em.removeAttribute('aria-invalid'); });
+    function fail(m){ ok.style.color="#ff9b9b"; ok.textContent=m; }
+    function fire(id){ var a=document.getElementById(id); if(a){ try{a.click();}catch(e){} } }
+    function done(){
+      f.reset();
+      var pdf=document.getElementById('dzdlPdf'); if(pdf){ pdf.href='claude-do-zero-entre-mentes.pdf'; }
+      var zip=document.getElementById('dzdlZip'); if(zip){ zip.href='kit/claude-do-zero-kit.zip'; }
+      fire('dzdlPdf');
+      setTimeout(function(){ fire('dzdlZip'); }, 700);
+      ok.style.color="";
+      ok.innerHTML='Cadastro concluído. O ebook e o kit começam a baixar automaticamente. Se algum não iniciar, baixe aqui: <a href="claude-do-zero-entre-mentes.pdf" download="Claude-do-Zero-Entre-Mentes.pdf" style="color:var(--gold-bright);font-weight:600;text-decoration:underline">ebook</a> e <a href="kit/claude-do-zero-kit.zip" download="claude-do-zero-kit.zip" style="color:var(--gold-bright);font-weight:600;text-decoration:underline">kit</a>.';
+    }
+    f.addEventListener('submit', function(e){
+      e.preventDefault();
+      var bot=document.getElementById('dzbot'); if(bot && bot.value){ done(); return; }
+      var v=(em.value||"").trim();
+      if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)){ em.setAttribute('aria-invalid','true'); fail("Erro: verifique o e-mail, parece incompleto."); em.focus(); return; }
+      fetch(EP,{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify({access_key:AK, email:v, botcheck:(bot&&bot.value)||"", form_loaded_at:(la&&la.value)||"", origem:"Claude do Zero (site)"})})
+        .then(function(r){ if(r.ok){done();} else {fail("Erro: falha no envio. Tente novamente em instantes.");} })
+        .catch(function(){ fail("Erro: sem conexão no momento. Tente novamente."); });
+    });
+  })();
 
   // Parallax sutil no hero (compositor thread via transform)
   const hi=document.querySelector('.hero-inner');
