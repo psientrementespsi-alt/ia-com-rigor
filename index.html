@@ -728,9 +728,9 @@
         <article class="mod"><p class="step-n">Etapa 4</p><h4>Redação</h4><p>Escreve uma seção por vez, a partir de um outline, nos modos empírico, revisão ou psicométrico, com verificação em cadeia embutida e sem preencher lacuna com memória do modelo.</p><div class="skills"><span class="sk-badge">fabrica-de-artigo</span></div></article>
         <article class="mod mod--ext"><p class="step-n">Etapa 4b</p><h4>NotebookLM, segunda passada</h4><p>Confronto do rascunho com as fontes, conferindo a correspondência entre cada afirmação e a passagem que a sustenta.</p><div class="skills"><span class="sk-badge sk-badge--ext">NotebookLM</span></div></article>
         <article class="mod mod--gate"><p class="step-n">Etapa 4.5 · Gate</p><h4>Auditoria do rascunho</h4><p>Primeira passagem do auditor-c, um revisor cego em modo de editor de periódico Q1, que audita a integridade do rascunho e devolve uma rubrica numérica com veredito.</p><div class="skills"><span class="sk-badge sk-badge--proj">auditor-c</span></div></article>
-        <article class="mod"><p class="step-n">Etapa 6</p><h4>Verificação</h4><p>Cinco camadas adversariais, da checagem automatizada de referências ao Reviewer 2 e ao Devil's Advocate, com rubrica de 0 a 100 e decisão. Em modo somente-leitura: produz relatório, nunca altera o manuscrito.</p><div class="skills"><span class="sk-badge">verificacao-artigo</span></div></article>
-        <article class="mod mod--gate"><p class="step-n">Etapa 7.5 · Gate</p><h4>Auditoria final</h4><p>Segunda passagem do auditor-c, o gate de integridade final, posterior à verificação e anterior à submissão. Mesmo revisor cego, mesma rubrica numérica.</p><div class="skills"><span class="sk-badge sk-badge--proj">auditor-c</span></div><p class="gate-return"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 10 4 15 9 20"/><path d="M20 4v7a4 4 0 0 1-4 4H4"/></svg><span><b>BLOCK</b> retorna à Etapa 4 · Redação</span></p></article>
-        <article class="mod mod--ext"><p class="step-n">Etapa 7</p><h4>Submissão</h4><p>Manuscrito pronto para submissão ao periódico.</p><div class="skills"><span class="sk-badge sk-badge--ext">manuscrito</span></div></article>
+        <article class="mod"><p class="step-n">Etapa 5</p><h4>Verificação</h4><p>Cinco camadas adversariais, da checagem automatizada de referências ao Reviewer 2 e ao Devil's Advocate, com rubrica de 0 a 100 e decisão. Em modo somente-leitura: produz relatório, nunca altera o manuscrito.</p><div class="skills"><span class="sk-badge">verificacao-artigo</span></div></article>
+        <article class="mod mod--gate"><p class="step-n">Etapa 5.5 · Gate</p><h4>Auditoria final</h4><p>Segunda passagem do auditor-c, o gate de integridade final, posterior à verificação e anterior à submissão. Mesmo revisor cego, mesma rubrica numérica.</p><div class="skills"><span class="sk-badge sk-badge--proj">auditor-c</span></div><p class="gate-return"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 10 4 15 9 20"/><path d="M20 4v7a4 4 0 0 1-4 4H4"/></svg><span><b>BLOCK</b> retorna à Etapa 4 · Redação</span></p></article>
+        <article class="mod mod--ext"><p class="step-n">Etapa 6</p><h4>Submissão</h4><p>Manuscrito pronto para submissão ao periódico.</p><div class="skills"><span class="sk-badge sk-badge--ext">manuscrito</span></div></article>
       </div>
 
       <p class="sub-track"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10M7 12h10M7 17h6"/></svg>Trilhas paralelas</p>
@@ -765,11 +765,12 @@
     <form class="waitlist" id="waitlist" novalidate>
       <label for="email" class="skip">Seu e-mail</label>
       <input type="email" id="email" name="email" placeholder="seu e-mail" required autocomplete="email">
+      <input type="text" id="botcheck" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-5000px;width:1px;height:1px;opacity:0;pointer-events:none">
       <button class="btn btn--primary" type="submit">Entrar na lista de espera</button>
     </form>
     <p class="form-ok" id="formOk" role="status" aria-live="polite"></p>
     <a id="dl" download="IA-com-Rigor-Entre-Mentes.pdf" hidden aria-hidden="true"></a>
-    <p class="form-note">Sem spam. O e-mail é usado para enviar o ebook e avisar sobre o curso.</p>
+    <p class="form-note">Sem spam. O e-mail é usado apenas para enviar o ebook e avisar sobre o curso, conforme a LGPD. Não compartilhamos seu e-mail com terceiros e você pode pedir a remoção a qualquer momento pelo direct.</p>
     <p class="or">ou entre em contato pelo Instagram <a href="https://instagram.com/psi.entre.mentes" target="_blank" rel="noopener">@psi.entre.mentes</a></p>
   </div>
 </section>
@@ -865,6 +866,8 @@
   function done(){ form.reset(); var dl=document.getElementById('dl'); if(dl){ dl.href='ebook-ia-com-rigor.pdf'; try{dl.click();}catch(e){} } ok.style.color=""; ok.innerHTML='Cadastro concluído. O download do ebook iniciará automaticamente. Caso não inicie, <a href="ebook-ia-com-rigor.pdf" download="IA-com-Rigor-Entre-Mentes.pdf" style="color:var(--gold-bright);font-weight:600;text-decoration:underline">clique aqui</a>.'; }
   form.addEventListener('submit', function(e){
     e.preventDefault();
+    var bot = document.getElementById('botcheck');
+    if(bot && bot.value){ done(); return; }
     var val = (email.value||"").trim();
     var valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val);
     if(!valid){ email.setAttribute('aria-invalid','true'); fail("Erro: verifique o e-mail, parece incompleto."); email.focus(); return; }
@@ -874,7 +877,7 @@
       ok.innerHTML='A lista ainda não está conectada. Entre em contato pelo direct <a href="https://instagram.com/psi.entre.mentes" target="_blank" rel="noopener" style="color:var(--gold-bright);font-weight:600;text-decoration:underline">@psi.entre.mentes</a>.';
       return;
     }
-    fetch(ENDPOINT,{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify({access_key:ACCESS_KEY, email:val, origem:"Lista IA com Rigor (site)"})})
+    fetch(ENDPOINT,{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify({access_key:ACCESS_KEY, email:val, botcheck:"", origem:"Lista IA com Rigor (site)"})})
       .then(function(r){ if(r.ok){done();} else {fail("Erro: falha no envio. Tente novamente em instantes.");} })
       .catch(function(){ fail("Erro: sem conexão no momento. Tente novamente."); });
   });
