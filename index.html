@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>IA para psicólogos e estudantes · Entre Mentes</title>
-<meta name="description" content="Guia gratuito de uso de inteligência artificial em psicologia: a tese, o jeito comum que dá errado e o método que produz o @psi.entre.mentes.">
+<meta name="description" content="Guia gratuito sobre o uso de inteligência artificial em psicologia: a tese, o erro comum e o método que produz o @psi.entre.mentes.">
 <meta name="author" content="Entre Mentes">
 <meta name="theme-color" content="#0c1f3a">
 <meta name="robots" content="index, follow">
@@ -17,16 +17,43 @@
 <meta property="og:locale" content="pt_BR">
 <meta property="og:site_name" content="Entre Mentes">
 <meta property="og:title" content="IA para psicólogos e estudantes · Entre Mentes">
-<meta property="og:description" content="A tese e o método de usar IA em psicologia sem publicar ruído com cara de ciência.">
+<meta property="og:description" content="A tese e o método de usar IA em psicologia sem divulgar ruído com aparência de ciência.">
 <meta property="og:url" content="https://psientrementespsi-alt.github.io/ia-com-rigor/">
 <meta property="og:image" content="https://psientrementespsi-alt.github.io/ia-com-rigor/og-ia-com-rigor.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="IA para psicologos e estudantes, um guia do Entre Mentes">
+<meta property="og:image:alt" content="IA para psicólogos e estudantes, um guia do Entre Mentes">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="IA para psicólogos e estudantes · Entre Mentes">
 <meta name="twitter:description" content="O método de usar IA em psicologia sem abrir mão do rigor.">
 <meta name="twitter:image" content="https://psientrementespsi-alt.github.io/ia-com-rigor/og-ia-com-rigor.png">
+
+<!-- Dados estruturados (Schema.org) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "name": "Entre Mentes",
+      "url": "https://psientrementespsi-alt.github.io/ia-com-rigor/",
+      "logo": "https://psientrementespsi-alt.github.io/ia-com-rigor/assets/logo-completa.png",
+      "description": "Psicologia informada por evidências. Método de uso de inteligência artificial em psicologia sem abrir mão do rigor.",
+      "sameAs": [
+        "https://instagram.com/psi.entre.mentes",
+        "https://instagram.com/psi.nickolasdenegri"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "name": "IA para psicólogos e estudantes · Entre Mentes",
+      "url": "https://psientrementespsi-alt.github.io/ia-com-rigor/",
+      "inLanguage": "pt-BR",
+      "publisher": { "@type": "Organization", "name": "Entre Mentes" }
+    }
+  ]
+}
+</script>
 
 <!-- Favicon (logo Entre Mentes) -->
 <link rel="icon" type="image/png" href="assets/favicon.png">
@@ -59,7 +86,7 @@
     font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;
     color:var(--ink);
     background:var(--cream);
-    line-height:1.6;
+    line-height:1.72;
     -webkit-font-smoothing:antialiased;
     text-rendering:optimizeLegibility;
   }
@@ -77,8 +104,8 @@
   .section--navy{background:var(--navy);color:var(--cream)}
   .section--navy .eyebrow,.hero .eyebrow{color:var(--gold-bright)}
   .section--cream2{background:var(--cream-2)}
-  h2.title{font-size:clamp(1.9rem,5vw,3rem);font-weight:600;line-height:1.08;letter-spacing:-.01em}
-  .lede{font-size:clamp(1.05rem,2.2vw,1.22rem);color:var(--ink-soft);max-width:60ch;margin-top:1.2rem}
+  h2.title{font-size:clamp(2rem,5.2vw,3.15rem);font-weight:700;line-height:1.06;letter-spacing:-.015em}
+  .lede{font-size:clamp(1.06rem,2.3vw,1.26rem);color:var(--ink-soft);max-width:60ch;margin-top:1.2rem}
   .section--navy .lede{color:rgba(246,237,221,.82)}
 
   /* Skip link */
@@ -227,8 +254,17 @@
   .hero .hero-meta{animation-delay:.48s}
 
   /* Reveal animation */
-  .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
-  .reveal.in{opacity:1;transform:none}
+/* Reveal aprimorado: blur-to-sharp + scale + stagger (padrão Awwwards 2026) */
+  .reveal{opacity:0;transform:translateY(28px) scale(.97);filter:blur(4px);transition:opacity .65s cubic-bezier(.22,1,.36,1),transform .65s cubic-bezier(.22,1,.36,1),filter .55s cubic-bezier(.22,1,.36,1)}
+  .reveal.in{opacity:1;transform:none;filter:none}
+  /* Stagger: cards na mesma seção aparecem em cascata */
+  .mods .reveal:nth-child(2){transition-delay:60ms}
+  .mods .reveal:nth-child(3){transition-delay:120ms}
+  .mods .reveal:nth-child(4){transition-delay:180ms}
+  .grid .reveal:nth-child(2){transition-delay:80ms}
+  .grid .reveal:nth-child(3){transition-delay:160ms}
+  .ev.reveal:nth-child(2){transition-delay:90ms}
+  .ev.reveal:nth-child(3){transition-delay:180ms}
   @media(prefers-reduced-motion:reduce){
     html{scroll-behavior:auto}
     .reveal{opacity:1;transform:none;transition:none}
@@ -237,6 +273,157 @@
     .hero .wrap > *{animation:none}
     .hero::after{display:none}
   }
+
+  /* ===== Trilhas do curso ===== */
+  .track{margin-top:clamp(2.6rem,5.5vw,3.8rem)}
+  .track-head{display:flex;align-items:baseline;gap:.85rem;flex-wrap:wrap;padding-bottom:1.05rem;border-bottom:1px solid var(--line);margin-bottom:1.8rem}
+  .track-tag{font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;font-weight:600;color:var(--navy);background:var(--gold);border-radius:999px;padding:.32rem .85rem;flex:0 0 auto}
+  .track-head h3{font-size:clamp(1.45rem,3.6vw,2.15rem);font-weight:600;letter-spacing:-.01em;color:var(--ink);font-family:"Playfair Display",serif}
+  .track-head > p{flex-basis:100%;color:var(--ink-soft);font-size:.99rem;max-width:72ch;margin-top:.15rem}
+  .mods{display:grid;gap:clamp(14px,2vw,20px);grid-template-columns:repeat(3,1fr)}
+  @media(max-width:860px){.mods{grid-template-columns:1fr}}
+  .mod{background:#fff;border:1px solid rgba(22,36,61,.08);border-radius:var(--r);padding:1.4rem;box-shadow:var(--shadow);position:relative;overflow:hidden;display:flex;flex-direction:column;transition:transform .28s ease,box-shadow .28s ease,border-color .28s ease}
+  .mod::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:linear-gradient(var(--gold),var(--gold-bright))}
+  .mod:hover{transform:translateY(-5px);box-shadow:0 26px 56px -30px rgba(8,18,36,.55)}
+  .mod .step-n{font-family:"Playfair Display",serif;font-size:1.2rem;color:var(--gold-deep);font-weight:700;letter-spacing:.03em;text-transform:uppercase;margin-bottom:.5rem}
+  .mod h4{font-size:1.08rem;font-weight:600;letter-spacing:-.01em;color:var(--ink);margin:0 0 .45rem;line-height:1.22}
+  .mod > p{font-size:.92rem;color:var(--ink-soft);flex:1;margin:0}
+  .skills{margin-top:1rem;display:flex;flex-wrap:wrap;gap:.4rem}
+  .sk-badge{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.7rem;letter-spacing:0;color:var(--gold-deep);background:rgba(207,159,60,.1);border:1px solid var(--line);border-radius:7px;padding:.24rem .52rem;white-space:nowrap}
+
+  /* Curso convidado (Henrique Dias) */
+  .mod--guest{grid-column:1 / -1;flex-direction:row;align-items:center;gap:1.6rem;background:linear-gradient(120deg,#fff 0%,#fbf2df 100%);border-color:rgba(207,159,60,.45)}
+  .mod--guest::before{background:linear-gradient(var(--gold-deep),var(--gold-bright));width:5px}
+  .mod--guest > div:first-child{flex:1 1 auto}
+  .mod--guest p{font-size:.94rem;color:var(--ink-soft);margin:0}
+  .guest-flag{display:inline-flex;align-items:center;gap:.35rem;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--gold-deep);margin-bottom:.55rem}
+  .guest-who{flex:0 0 auto;min-width:190px;border-left:1px solid var(--line);padding-left:1.6rem}
+  .guest-who .who-label{font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);margin:0}
+  .guest-who .who-name{font-family:"Playfair Display",serif;font-size:1.3rem;font-weight:600;color:var(--ink);margin:.15rem 0 .25rem;line-height:1.1}
+  .guest-who .who-note{font-size:.82rem;color:var(--ink-soft);margin:0}
+  @media(max-width:720px){.mod--guest{flex-direction:column;align-items:flex-start;gap:1.1rem}.guest-who{border-left:0;border-top:1px solid var(--line);padding-left:0;padding-top:1.1rem;width:100%}}
+  @media(prefers-reduced-motion:reduce){.mod{transition:none}.mod:hover{transform:none}}
+
+  /* Abas das trilhas */
+  .track-tabs{display:grid;grid-template-columns:1fr 1fr;gap:clamp(10px,1.6vw,16px);margin-top:clamp(2rem,4vw,2.8rem)}
+  @media(max-width:620px){.track-tabs{grid-template-columns:1fr}}
+  .track-tab{font:inherit;text-align:left;cursor:pointer;background:#fff;border:1.5px solid rgba(22,36,61,.12);border-radius:var(--r);padding:1.05rem 1.3rem;display:flex;flex-direction:column;gap:.18rem;transition:transform .18s ease,border-color .2s ease,box-shadow .2s ease,background .2s ease;box-shadow:0 8px 26px -22px rgba(8,18,36,.5)}
+  .track-tab:hover{transform:translateY(-2px);border-color:var(--gold)}
+  .track-tab .tt-tag{font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;font-weight:600;color:var(--gold-deep)}
+  .track-tab .tt-name{font-family:"Playfair Display",serif;font-size:clamp(1.1rem,2.6vw,1.4rem);font-weight:600;color:var(--ink);line-height:1.12}
+  .track-tab .tt-meta{font-size:.8rem;color:var(--ink-soft);margin-top:.15rem}
+  .track-tab[aria-selected="true"]{background:var(--navy);border-color:var(--navy);box-shadow:0 16px 40px -24px rgba(8,18,36,.7)}
+  .track-tab[aria-selected="true"] .tt-tag{color:var(--gold-bright)}
+  .track-tab[aria-selected="true"] .tt-name{color:var(--cream)}
+  .track-tab[aria-selected="true"] .tt-meta{color:rgba(246,237,221,.72)}
+  .track-tab:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+  .track-panel{margin-top:clamp(1.8rem,3.5vw,2.4rem)}
+  .track-panel[hidden]{display:none}
+
+  /* Faixa "inclui" (ebook + video aulas) */
+  .track-incl{display:flex;flex-wrap:wrap;gap:.5rem;margin:.2rem 0 1.7rem}
+  .incl{display:inline-flex;align-items:center;gap:.45rem;font-size:.82rem;font-weight:500;color:var(--ink);background:rgba(207,159,60,.1);border:1px solid var(--line);border-radius:999px;padding:.42rem .85rem}
+  .incl svg{width:15px;height:15px;flex:0 0 auto;stroke:var(--gold-deep)}
+
+  /* Camada claude.ai (Projects, fora das skills do Cowork) */
+  .layer-claude{margin-top:clamp(1.7rem,3vw,2.3rem);padding-top:1.5rem;border-top:1px dashed var(--line)}
+  .layer-label{display:inline-flex;align-items:center;gap:.45rem;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--ink-soft);margin:0 0 1rem}
+  .layer-label svg{width:14px;height:14px;flex:0 0 auto;stroke:var(--gold-deep)}
+  .proj-row{display:grid;gap:clamp(12px,1.8vw,16px);grid-template-columns:repeat(2,1fr)}
+  @media(max-width:680px){.proj-row{grid-template-columns:1fr}}
+  .proj{background:var(--navy);color:var(--cream);border-radius:var(--r);padding:1.2rem 1.3rem;position:relative;overflow:hidden;border:1px solid rgba(207,159,60,.28);transition:transform .28s ease,box-shadow .28s ease,border-color .28s ease}
+  .proj::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:linear-gradient(var(--gold-bright),var(--gold-deep))}
+  .proj:hover{transform:translateY(-4px);border-color:var(--gold-bright);box-shadow:0 22px 50px -28px rgba(8,18,36,.7)}
+  .proj .proj-tag{font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--gold-bright)}
+  .proj h5{font-family:"Playfair Display",serif;font-size:1.12rem;font-weight:600;color:var(--cream);margin:.32rem 0 .42rem;line-height:1.18}
+  .proj p{font-size:.88rem;color:rgba(246,237,221,.8);margin:0}
+  .proj .sk-badge{margin-top:.9rem;display:inline-block;color:var(--gold-bright);background:rgba(207,159,60,.16);border-color:rgba(207,159,60,.32)}
+  @media(prefers-reduced-motion:reduce){.proj{transition:none}.proj:hover{transform:none}}
+
+  /* Badges por camada (de acordo com o diagrama) */
+  .sk-badge--proj{color:var(--cream);background:var(--navy);border-color:rgba(207,159,60,.32)}
+  .sk-badge--ext{color:var(--ink-soft);background:transparent;border-color:var(--line)}
+
+  /* Cards de etapa por tipo de camada */
+  .mod--proj::before{background:linear-gradient(var(--navy),#34496c)}
+  .mod--proj .step-n{color:var(--navy)}
+  .mod--ext{background:#f7f6f2;box-shadow:0 6px 20px -18px rgba(8,18,36,.45)}
+  .mod--ext::before{background:linear-gradient(#cfd3da,#aeb3bc)}
+  .mod--ext .step-n{color:var(--ink-soft)}
+  .mod--ext h4{color:var(--ink-soft)}
+  .mod--gate{background:linear-gradient(180deg,#fff,#fdf2f1)}
+  .mod--gate::before{background:linear-gradient(#b23b3b,#d8736f);width:5px}
+  .mod--gate .step-n{color:#b23b3b}
+
+  /* Legenda de camadas */
+  .curso-legend{display:flex;flex-wrap:wrap;gap:.55rem 1.2rem;margin:1.5rem 0 0}
+  .lg{display:inline-flex;align-items:center;gap:.5rem;font-size:.8rem;color:var(--ink-soft)}
+  .lg .dot{width:11px;height:11px;border-radius:3px;flex:0 0 auto}
+  .dot--proj{background:var(--navy)}
+  .dot--skill{background:var(--gold)}
+  .dot--ext{background:transparent;border:1.5px solid var(--ink-soft)}
+  .dot--gate{background:#c0504d}
+
+  /* Sub-rótulo das trilhas paralelas */
+  .sub-track{display:inline-flex;align-items:center;gap:.5rem;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:var(--ink-soft);margin:clamp(1.8rem,3.5vw,2.4rem) 0 1.2rem}
+  .sub-track svg{width:14px;height:14px;flex:0 0 auto;stroke:var(--gold-deep)}
+
+  /* Retorno condicional do gate (linha tracejada, como no diagrama) */
+  .gate-return{flex:0 0 auto;margin-top:.85rem;padding-top:.65rem;border-top:1px dashed rgba(178,59,59,.55);font-size:.74rem;color:#b23b3b;display:flex;align-items:center;gap:.45rem;line-height:1.3}
+  .gate-return b{font-weight:700;letter-spacing:.02em}
+  .gate-return svg{width:14px;height:14px;flex:0 0 auto;stroke:#b23b3b}
+
+  /* Resultados / prova social */
+  .proof-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(268px,1fr));gap:1rem;margin-top:2.4rem}
+  .proof{display:flex;flex-direction:column;justify-content:space-between;gap:1.2rem;background:rgba(246,237,221,.045);border:1px solid rgba(207,159,60,.22);border-radius:var(--r);padding:1.4rem 1.5rem;text-decoration:none;transition:transform .2s ease,border-color .2s ease,background .2s ease;min-height:176px}
+  .proof:hover{transform:translateY(-3px);border-color:rgba(207,159,60,.55);background:rgba(246,237,221,.07)}
+  .proof-t{font-family:"Playfair Display",serif;font-weight:600;font-size:1.04rem;line-height:1.24;color:var(--cream)}
+  .proof-hero{display:flex;flex-direction:column;margin-bottom:.85rem}
+  .proof-hero b{font-size:1.7rem;font-weight:700;color:var(--gold-bright);line-height:1;letter-spacing:-.01em}
+  .proof-hero span{font-size:.71rem;color:rgba(246,237,221,.6);margin-top:.34rem;text-transform:uppercase;letter-spacing:.09em}
+  .proof-sub{display:flex;flex-wrap:wrap;gap:.4rem .9rem;margin-bottom:.85rem}
+  .proof-sub span{font-size:.82rem;color:rgba(246,237,221,.72)}
+  .proof-sub b{color:var(--cream);font-weight:700}
+  .proof-go{font-size:.74rem;color:rgba(246,237,221,.55);display:inline-flex;align-items:center;gap:.35rem}
+  .proof-go svg{width:14px;height:14px;stroke:currentColor}
+  .proof:hover .proof-go{color:var(--gold-bright)}
+  .proof-note{font-size:.8rem;color:rgba(246,237,221,.5);margin-top:1.5rem}
+
+  /* Ritmo visual: seções de argumento compactas, de conversão espaçosas */
+  #tese{padding:clamp(44px,7vw,84px) 0}
+  #evidencia{padding:clamp(48px,7.5vw,88px) 0}
+  #norma{padding:clamp(44px,7vw,84px) 0}
+  #jeito-comum{padding:clamp(38px,6vw,72px) 0}
+  #ecossistema{padding:clamp(52px,8vw,96px) 0}
+  #resultados{padding:clamp(64px,10vw,120px) 0}
+  #curso{padding:clamp(64px,10vw,120px) 0}
+  .cta-final{padding:clamp(64px,10vw,120px) 0}
+
+  /* Parallax sutil no texto do hero via scroll */
+  .hero-inner{will-change:transform}
+
+  /* Noise grain sutil nas seções claras (quebra a planura) */
+  .section:not(.section--navy):not(.hero)::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.028;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-repeat:repeat;background-size:180px 180px}
+  .section:not(.section--navy):not(.hero){position:relative}
+
+  /* Prova social: hover mais polido com glow sutil */
+  .proof{backdrop-filter:blur(2px)}
+  .proof:hover{box-shadow:0 8px 32px -12px rgba(207,159,60,.18)}
+
+
+  /* Setas de sequência entre os cards do pipeline (chevron na calha) */
+  .mods--flow{position:relative}
+  .mods--flow .mod::after{content:"";position:absolute;top:50%;right:-1rem;width:11px;height:11px;border-top:2.5px solid var(--gold);border-right:2.5px solid var(--gold);transform:translateY(-50%) rotate(45deg);opacity:.6;pointer-events:none;z-index:4}
+  .mods--flow .mod:nth-child(3n)::after,.mods--flow .mod:last-child::after{display:none}
+  @media(max-width:860px){
+    .mods--flow .mod::after{top:auto;right:auto;bottom:-1rem;left:50%;transform:translateX(-50%) rotate(135deg)}
+    .mods--flow .mod:nth-child(3n)::after{display:block}
+    .mods--flow .mod:last-child::after{display:none}
+  }
+  /* Logo do hero segue o mouse (suave) */
+  .hero .mark-lg{will-change:transform}
+  @media(prefers-reduced-motion:reduce){.hero .mark-lg{transition:none}}
+
 </style>
 </head>
 <body>
@@ -258,14 +445,14 @@
 
 <!-- HERO -->
 <section class="hero">
-  <div class="wrap">
+  <div class="wrap hero-inner">
     <img class="mark-lg" src="assets/logo-completa.png" alt="Entre Mentes" width="900" height="579">
     <p class="eyebrow">Prévia do curso</p>
     <h1><span class="em">IA</span> para psicólogos e estudantes</h1>
-    <p class="sub">É o método que eu uso pra produzir o @psi.entre.mentes todo dia, agora num guia gratuito.</p>
+    <p class="sub">Um método para usar IA com rigor na psicologia, do post no Instagram à pesquisa acadêmica, com cada referência verificada e cada afirmação conferida na fonte. Guia gratuito.</p>
     <div class="cta-row">
-      <a class="btn btn--primary" href="#lista">Receber o ebook grátis</a>
-      <a class="btn btn--ghost" href="#tese">Ler o guia</a>
+      <a class="btn btn--primary" href="#lista">Receber o ebook gratuito</a>
+      <a class="btn btn--ghost" href="#curso">Ver os cursos</a>
     </div>
     <p class="hero-meta">Psicologia informada por evidências</p>
   </div>
@@ -288,8 +475,8 @@
       <p class="lead-line">A IA é andaime, não atalho.</p>
     </div>
     <div class="reveal prose stack">
-      <p>Quase todo conteúdo sobre IA na psicologia ensina a mesma coisa: peça um resumo, gere uma legenda. Funciona, até o dia em que o modelo te entrega um DOI que não existe, ou trata uma meta-análise e um chute com a mesma confiança. Numa área onde o que você escreve vira conduta, esse erro sai caro.</p>
-      <p>A virada é simples: você dita as regras, entrega as fontes e fica com as decisões. A IA faz o trabalho pesado de ler e cruzar referência dentro do que você permitiu. Quando essa ordem se inverte e ela começa a decidir no seu lugar, parou de ajudar e virou risco.</p>
+      <p>Quase todo conteúdo sobre IA na psicologia ensina a mesma rotina: peça um resumo, gere uma legenda. Funciona até o momento em que o modelo apresenta um DOI inexistente ou trata uma meta-análise e uma suposição com a mesma confiança. Em uma área na qual o texto se converte em conduta, esse erro tem custo alto.</p>
+      <p>A correção é simples: você define as regras, fornece as fontes e mantém as decisões. A IA executa a leitura e o cruzamento das referências dentro do que foi autorizado. Quando essa ordem se inverte e o modelo passa a decidir no seu lugar, deixa de ser apoio e se torna risco.</p>
     </div>
   </div>
 </section>
@@ -300,12 +487,12 @@
     <div class="reveal" style="max-width:60ch">
       <p class="eyebrow">O que a ciência diz</p>
       <h2 class="title">O preço do atalho</h2>
-      <p class="lede">A IA não te deixa mais competente. Ela joga o esforço mental numa caixa-preta, e a conta chega depois. Na literatura isso tem nome: <span lang="en">offloading</span> cognitivo.</p>
+      <p class="lede">A IA não torna ninguém mais competente. Ela assume o esforço que constrói a competência, e a perda aparece quando a ferramenta não está por perto. A literatura chama isso de <span lang="en">offloading</span> cognitivo.</p>
     </div>
     <div class="grid grid--3" style="margin-top:2.6rem">
       <div class="ev reveal">
         <span class="src">Grinschgl et al. (2021)</span>
-        <p>Descarregar a tarefa numa ferramenta melhora o desempenho imediato e deteriora a memória posterior.</p>
+        <p>Transferir a tarefa para uma ferramenta melhora o desempenho imediato e prejudica a memória posterior.</p>
         <span class="tag">Experimental</span>
       </div>
       <div class="ev reveal">
@@ -315,11 +502,11 @@
       </div>
       <div class="ev reveal">
         <span class="src">Kosmyna et al. (2025, MIT) · 54 participantes</span>
-        <p>Com EEG, menor conectividade neural e 83% sem citar o próprio texto no grupo que escreveu com ChatGPT.</p>
+        <p>No EEG, menor conectividade neural e 83% dos participantes incapazes de citar o próprio texto no grupo que escreveu com ChatGPT.</p>
         <span class="tag">Preprint · com réplica</span>
       </div>
     </div>
-    <p class="prose reveal" style="margin-top:2rem;max-width:64ch">Os ganhos são reais, mas vêm com uma condição: a IA entra como apoio, com supervisão. No instante em que ela troca de lugar com o esforço, corrói justo a competência que o clínico precisa ter.</p>
+    <p class="prose reveal" style="margin-top:2rem;max-width:64ch">Os ganhos existem quando a IA fica no papel de apoio supervisionado. Quando substitui o esforço, corrói a competência que o profissional precisa manter.</p>
   </div>
 </section>
 
@@ -328,19 +515,19 @@
   <div class="wrap">
     <div class="reveal" style="max-width:62ch">
       <p class="eyebrow">No Brasil, virou norma</p>
-      <h2 class="title">Já não é questão de opinião</h2>
-      <p class="lede">O que este guia defende, as instituições brasileiras já começaram a cobrar. Supervisão humana e uso declarado de IA deixaram de ser conselho e viraram regra.</p>
+      <h2 class="title">O que as instituições já exigem</h2>
+      <p class="lede">O que este guia defende, as instituições brasileiras já passaram a exigir. Supervisão humana e uso declarado de IA deixaram de ser recomendação e passaram a ser norma.</p>
     </div>
     <div class="grid grid--3" style="margin-top:2.6rem">
       <article class="pr reveal">
         <h3>Conselho Federal de Psicologia</h3>
-        <p>Em 2025, o CFP publicou um posicionamento e uma cartilha de boas práticas: a IA pode apoiar, mas não substitui o julgamento clínico, e seu uso pressupõe supervisão, sigilo e conformidade com a LGPD.</p>
+        <p>Em 2025, o CFP publicou uma nota de posicionamento e uma cartilha de boas práticas: a IA pode apoiar, mas não substitui o julgamento clínico, e seu uso exige supervisão, sigilo e conformidade com a LGPD.</p>
         <a class="src-link" href="https://site.cfp.org.br/cfp-divulga-posicionamento-sobre-inteligencia-artificial-no-contexto-da-pratica-psicologica/" target="_blank" rel="noopener">Posicionamento do CFP, 2025</a>
       </article>
       <article class="pr reveal">
         <h3>CNPq, Portaria 2.664/2026</h3>
         <p>A Portaria CNPq nº 2.664/2026 instituiu a Política de Integridade na Atividade Científica e passou a exigir a declaração de uso de IA generativa, da concepção à submissão, em dissertações, teses e artigos.</p>
-        <a class="src-link" href="https://memoria2.cnpq.br/web/guest/view/-/journal_content/56_INSTANCE_0oED/10157/23142775" target="_blank" rel="noopener">Portaria CNPq nº 2.664/2026</a>
+        <a class="src-link" href="https://www.gov.br/cnpq/pt-br/assuntos/noticias/cnpq-em-acao/cnpq-publica-portaria-que-institui-politica-de-integridade-na-atividade-cientifica" target="_blank" rel="noopener">Portaria CNPq nº 2.664/2026</a>
       </article>
       <article class="pr reveal">
         <h3>CAPES</h3>
@@ -348,7 +535,7 @@
         <a class="src-link" href="https://www.gov.br/capes/pt-br/centrais-de-conteudo/23042025_Relatorio_2575649_A_inteligencia_artificial_na_pesquisa_e_no_fomento.pdf" target="_blank" rel="noopener">Relatório da CAPES, 2025</a>
       </article>
     </div>
-    <p class="prose reveal" style="margin-top:2rem;max-width:64ch">A direção é a mesma deste guia: a IA entra declarada, supervisionada e sob a responsabilidade de uma pessoa.</p>
+    <p class="prose reveal" style="margin-top:2rem;max-width:64ch">Na prática, isso significa registrar onde a IA entrou no trabalho e manter uma pessoa responsável por cada decisão.</p>
   </div>
 </section>
 
@@ -359,12 +546,12 @@
     <ul class="strike reveal" aria-label="Falhas do jeito comum de usar IA">
       <li>prompt genérico</li>
       <li>aceitar a primeira resposta</li>
-      <li>a IA te dá razão em tudo</li>
-      <li>revisão no olho</li>
+      <li>a IA concorda com tudo</li>
+      <li>revisão sem critério</li>
       <li>referência inventada</li>
       <li>informação inventada</li>
-      <li>texto com cara de IA</li>
-      <li>zero rastro do que rodou</li>
+      <li>texto com marcas de IA</li>
+      <li>sem registro do que foi executado</li>
     </ul>
     <p class="strike-pay reveal">tudo isso o sistema <span>resolve</span></p>
   </div>
@@ -375,16 +562,16 @@
   <div class="wrap">
     <div class="reveal" style="max-width:64ch">
       <p class="eyebrow">O mapa</p>
-      <h2 class="title">O ecossistema, de cima</h2>
-      <p class="lede">Esse é o sistema que resolve isso: um punhado de skills no Claude, mais algumas ferramentas externas, tudo guiado por um framework clínico e por regras de rigor que não se dobram. Cada falha ali em cima encontra um ponto do fluxo que a barra.</p>
+      <h2 class="title">Visão geral do ecossistema</h2>
+      <p class="lede">O sistema reúne skills no Cowork e Projects no claude.ai, com ferramentas externas e regras de rigor inegociáveis.</p>
     </div>
     <div class="grid grid--3" style="margin-top:2.4rem">
-      <div class="fam reveal"><p class="k">Produção</p><h3>Escreve</h3><p>Rascunha o conteúdo comigo, sempre preso às fontes.</p><p class="fam-sk"><span>No pacote</span>Posts, artigos científicos, pôsteres, material de defesa e remoção de cara de IA.</p></div>
-      <div class="fam reveal"><p class="k">Verificação e auditoria</p><h3>Confere e barra</h3><p>Camadas adversariais que podem barrar o que não passa.</p><p class="fam-sk"><span>No pacote</span>Verificação de posts e de artigos, gate final de publicação, auditoria de pôster e de diagramas de mediação.</p></div>
-      <div class="fam reveal"><p class="k">Pesquisa e infra</p><h3>Sustenta</h3><p>Prepara o material antes de você escrever.</p><p class="fam-sk"><span>No pacote</span>Levantamento de DOIs e download do corpus de papers.</p></div>
+      <div class="fam reveal"><p class="k">Produção</p><h3>Escreve</h3><p>Redige o conteúdo em conjunto, sempre ancorado nas fontes.</p><p class="fam-sk"><span>No pacote</span>Posts, artigos científicos, pôsteres, material de defesa e remoção de marcas de IA.</p></div>
+      <div class="fam reveal"><p class="k">Verificação e auditoria</p><h3>Confere e bloqueia</h3><p>Camadas adversariais que bloqueiam o que não atende ao critério.</p><p class="fam-sk"><span>No pacote</span>Verificação de posts e de artigos, gate final de publicação, auditoria de pôster.</p></div>
+      <div class="fam reveal"><p class="k">Pesquisa e infra</p><h3>Sustenta</h3><p>Prepara o material antes da redação.</p><p class="fam-sk"><span>No pacote</span>Levantamento de DOIs e download do corpus de papers.</p></div>
     </div>
     <div class="prose reveal" style="margin-top:1.8rem">
-      <p>No centro, o Claude. Em volta, as ferramentas: o NotebookLM lê as fontes de livro fechado, as bases acadêmicas (Crossref, OpenAlex, DataCite) batem cada DOI, o Gamma monta o visual. Um hub de regras amarra tudo: mudei a regra ali, todas as skills herdam.</p>
+      <p>No centro está o Claude, e ao redor as ferramentas externas. Um hub de regras integra tudo: muda a regra ali, e todas as skills herdam.</p>
     </div>
     <div class="pipe reveal" aria-label="Pipeline de posts, da ideia à publicação">
       <span class="step">Tema</span><span class="arrow">→</span>
@@ -397,22 +584,175 @@
   </div>
 </section>
 
+<!-- RESULTADOS -->
+<section class="section section--navy" id="resultados">
+  <div class="wrap">
+    <div class="reveal" style="max-width:66ch">
+      <p class="eyebrow">Resultados reais</p>
+      <h2 class="title">Os posts saíram desse sistema</h2>
+      <p class="lede">Os carrosséis abaixo passaram por esse fluxo de produção, do tema verificado à publicação. Juntos, ultrapassam um milhão de visualizações.</p>
+    </div>
+    <div class="proof-grid">
+      <a class="proof" href="https://www.instagram.com/psi.entre.mentes/p/DVdp6CBEZ9X/" target="_blank" rel="noopener">
+        <p class="proof-t">As 10 ideias que sabotaram a psicologia</p>
+        <div>
+          <div class="proof-hero"><b>281 mil</b><span>visualizações</span></div>
+          <div class="proof-sub"><span><b>27 mil</b> curtidas</span><span><b>11 mil</b> enviados</span><span><b>14 mil</b> salvos</span></div>
+          <span class="proof-go">ver post <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="proof" href="https://www.instagram.com/psi.entre.mentes/p/DWcMBEAkYQJ/" target="_blank" rel="noopener">
+        <p class="proof-t">10 ferramentas de IA para psicólogos</p>
+        <div>
+          <div class="proof-hero"><b>240 mil</b><span>visualizações</span></div>
+          <div class="proof-sub"><span><b>8,4 mil</b> curtidas</span><span><b>13 mil</b> enviados</span><span><b>13 mil</b> salvos</span></div>
+          <span class="proof-go">ver post <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="proof" href="https://www.instagram.com/psi.entre.mentes/p/DWpMObrkZk0/" target="_blank" rel="noopener">
+        <p class="proof-t">10 pseudociências da red pill</p>
+        <div>
+          <div class="proof-hero"><b>179 mil</b><span>visualizações</span></div>
+          <div class="proof-sub"><span><b>9,1 mil</b> curtidas</span><span><b>5,4 mil</b> enviados</span><span><b>3,4 mil</b> salvos</span></div>
+          <span class="proof-go">ver post <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="proof" href="https://www.instagram.com/psi.entre.mentes/p/DU8X4TKkX2J/" target="_blank" rel="noopener">
+        <p class="proof-t">10 cientistas que nenhum psicólogo jamais leu, mas deveria</p>
+        <div>
+          <div class="proof-hero"><b>139 mil</b><span>visualizações</span></div>
+          <div class="proof-sub"><span><b>7,8 mil</b> curtidas</span><span><b>5,5 mil</b> enviados</span><span><b>6,7 mil</b> salvos</span></div>
+          <span class="proof-go">ver post <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="proof" href="https://www.instagram.com/psi.entre.mentes/p/DVuKIMFEYun/" target="_blank" rel="noopener">
+        <p class="proof-t">11 áreas que todo psicólogo deveria estudar, mas não estuda</p>
+        <div>
+          <div class="proof-hero"><b>132 mil</b><span>visualizações</span></div>
+          <div class="proof-sub"><span><b>5,6 mil</b> curtidas</span><span><b>3,5 mil</b> enviados</span><span><b>4,3 mil</b> salvos</span></div>
+          <span class="proof-go">ver post <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="proof" href="https://www.instagram.com/psi.entre.mentes/p/DV4Q2l4ETiJ/" target="_blank" rel="noopener">
+        <p class="proof-t">12 filósofos que definiram o que a psicologia entende por ciência</p>
+        <div>
+          <div class="proof-hero"><b>121 mil</b><span>visualizações</span></div>
+          <div class="proof-sub"><span><b>7,8 mil</b> curtidas</span><span><b>3,4 mil</b> enviados</span><span><b>4,9 mil</b> salvos</span></div>
+          <span class="proof-go">ver post <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="proof" href="https://www.instagram.com/psi.entre.mentes/p/DWyyeVSkREn/" target="_blank" rel="noopener">
+        <p class="proof-t">10 conceitos que a psicologia usa errado</p>
+        <div>
+          <div class="proof-hero"><b>102 mil</b><span>visualizações</span></div>
+          <div class="proof-sub"><span><b>4,4 mil</b> curtidas</span><span><b>2,5 mil</b> enviados</span><span><b>3,4 mil</b> salvos</span></div>
+          <span class="proof-go">ver post <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+    </div>
+    <p class="proof-note">Dados do Instagram Insights de @psi.entre.mentes. Toque em um card para abrir o post.</p>
+  </div>
+</section>
+
 <!-- CURSO -->
 <section class="section section--cream2" id="curso">
   <div class="wrap">
-    <div class="reveal" style="max-width:66ch">
-      <p class="eyebrow">O curso</p>
-      <h2 class="title">Você viu o mapa. No curso, você constrói.</h2>
-      <p class="lede">A mão na massa: instalar o ecossistema no seu Claude, ligar as ferramentas e rodar os pipelines na sua rotina, com o mesmo rigor que sustenta um perfil de psicologia informada por evidências. Serve pra qualquer psicólogo ou estudante, seja qual for a abordagem.</p>
+    <div class="reveal" style="max-width:70ch">
+      <p class="eyebrow">Os cursos</p>
+      <h2 class="title">Duas trilhas. Escolha a sua.</h2>
+      <p class="lede">São dois pipelines, e a sequência abaixo segue o fluxo real de produção, etapa por etapa. Cada etapa é apoiada por uma ferramenta específica, e a cor indica a camada a que ela pertence. Cada curso inclui ebook próprio e videoaulas, e atende qualquer psicólogo ou estudante, independentemente da abordagem.</p>
+      <div class="curso-legend">
+        <span class="lg"><span class="dot dot--proj"></span>Project do claude.ai</span>
+        <span class="lg"><span class="dot dot--skill"></span>Skill do Cowork</span>
+        <span class="lg"><span class="dot dot--ext"></span>Ferramenta externa</span>
+        <span class="lg"><span class="dot dot--gate"></span>Gate de auditoria</span>
+      </div>
     </div>
-    <p class="prose reveal" style="margin-top:1.8rem;font-weight:600;color:var(--ink)">O mesmo método, nos formatos que você produz no dia a dia:</p>
-    <div class="grid grid--2" style="margin-top:1.4rem">
-      <article class="pr reveal"><h3>Posts de Instagram</h3><p>Carrossel em prosa, legenda e referências conferidas, do tema ao post no ar.</p></article>
-      <article class="pr reveal"><h3>Artigos científicos</h3><p>Cada seção do manuscrito escrita e auditada em camadas antes de submeter.</p></article>
-      <article class="pr reveal"><h3>Pôsteres de congresso</h3><p>Do esqueleto ao arquivo final, com auditoria de conteúdo e de design.</p></article>
-      <article class="pr reveal"><h3>Material de estudo</h3><p>O que você precisa pra encarar a banca: resumos presos às fontes e flashcards pra fixar.</p></article>
+
+    <!-- BOTOES DAS TRILHAS -->
+    <div class="track-tabs reveal" role="tablist" aria-label="Trilhas do curso">
+      <button class="track-tab" id="tab-1" role="tab" aria-selected="true" aria-controls="trilha-1" tabindex="0" type="button">
+        <span class="tt-tag">Trilha 1</span>
+        <span class="tt-name">Conteúdo para Instagram</span>
+        <span class="tt-meta">Do tema à publicação · 9 etapas</span>
+      </button>
+      <button class="track-tab" id="tab-2" role="tab" aria-selected="false" aria-controls="trilha-2" tabindex="-1" type="button">
+        <span class="tt-tag">Trilha 2</span>
+        <span class="tt-name">Pesquisa científica e acadêmica</span>
+        <span class="tt-meta">Da literatura à submissão · 6 etapas + 2 gates</span>
+      </button>
     </div>
-    <p class="prose reveal" style="margin-top:1.8rem">O método é o crivo, o conteúdo é seu. Entra na lista aqui embaixo que eu te aviso quando abrir.</p>
+
+    <!-- PAINEL TRILHA 1 -->
+    <div class="track-panel" id="trilha-1" role="tabpanel" aria-labelledby="tab-1" tabindex="0">
+      <div class="track-head">
+        <h3>Conteúdo para Instagram</h3>
+        <p>O pipeline de posts em nove etapas, da pesquisa do tema à publicação. Nada é publicado sem passar pelos pontos de verificação. Ao fim, você produz conteúdo que aguenta o escrutínio de quem confere fontes.</p>
+      </div>
+      <div class="track-incl">
+        <span class="incl"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5a2 2 0 0 1 2-2h6v16H6a2 2 0 0 0-2 2V5Z"/><path d="M20 5a2 2 0 0 0-2-2h-6v16h6a2 2 0 0 1 2 2V5Z"/></svg>Ebook do curso</span>
+        <span class="incl"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M10 8.5 16 12l-6 3.5v-7Z"/></svg>Videoaulas</span>
+        <span class="incl"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 3 8l9 5 9-5-9-5Z"/><path d="M3 13l9 5 9-5"/></svg>Pipeline de 9 etapas</span>
+      </div>
+      <div class="mods mods--flow">
+        <article class="mod mod--proj"><p class="step-n">Etapa 0</p><h4>Pesquisa de temas</h4><p>Avalia temas candidatos e consulta o Notion para não repetir o que já foi publicado. Prioriza assuntos com tensão interna e entrega um briefing em que cada referência já passou por triangulação determinística.</p><div class="skills"><span class="sk-badge sk-badge--proj">pesquisa-temas-posts</span><span class="sk-badge sk-badge--ext">Notion</span></div></article>
+        <article class="mod mod--ext"><p class="step-n">Etapa 1</p><h4>Deep Research</h4><p>Levantamento amplo da literatura pelo Consensus, em modo de descoberta. Nenhum DOI daqui é tratado como confiável antes da verificação.</p><div class="skills"><span class="sk-badge sk-badge--ext">Consensus</span></div></article>
+        <article class="mod mod--proj"><p class="step-n">Etapa 2</p><h4>Pesquisa acadêmica</h4><p>Levanta as referências e confere cada DOI por triangulação em Crossref, OpenAlex e Semantic Scholar, com regra de duas fontes em três e checagem de retratação. Meta-análises e ensaios têm prioridade sobre estudos observacionais.</p><div class="skills"><span class="sk-badge sk-badge--proj">pesquisa-academica-posts</span><span class="sk-badge">pesquisa-academica</span></div></article>
+        <article class="mod"><p class="step-n">Etapa 2b</p><h4>Corpus</h4><p>Baixa os PDFs por DOI percorrendo uma cadeia de dezesseis estratégias de acesso aberto, converte cada um em Markdown e gera os arquivos prontos para o NotebookLM.</p><div class="skills"><span class="sk-badge">baixar-papers</span></div></article>
+        <article class="mod mod--ext"><p class="step-n">Etapa 3</p><h4>NotebookLM em modo extração</h4><p>Camada de fidelidade em livro-fechado: de 15 a 20 conceitos por notebook, cada um em até 80 palavras, com citação inline da passagem exata e o dado empírico separado do teórico. Nenhum framework entra aqui; ele só aparece depois, no Claude.</p><div class="skills"><span class="sk-badge sk-badge--ext">NotebookLM</span></div></article>
+        <article class="mod"><p class="step-n">Etapa 4</p><h4>Fábrica de posts</h4><p>Monta o carrossel em prosa, a legenda, as referências com DOIs e o prompt de capa, restritos ao que as fontes sustentam, sem preencher lacuna com memória do modelo.</p><div class="skills"><span class="sk-badge">fabrica-de-posts</span></div></article>
+        <article class="mod mod--ext"><p class="step-n">Etapa 5</p><h4>NotebookLM, segunda passada</h4><p>Confronto do rascunho com as fontes, conferindo a correspondência entre cada afirmação e a passagem que a sustenta.</p><div class="skills"><span class="sk-badge sk-badge--ext">NotebookLM</span></div></article>
+        <article class="mod"><p class="step-n">Etapa 6</p><h4>Verificação</h4><p>Seis etapas adversariais. Cada DOI é conferido individualmente, cada alegação é confrontada com a fonte e a calibração retórica é medida contra a força real da evidência.</p><div class="skills"><span class="sk-badge">verificacao-posts</span></div></article>
+        <article class="mod"><p class="step-n">Etapa 6a</p><h4>Remoção de marcas de IA</h4><p>Passagem do humanizer sobre o texto já verificado: remove os padrões de escrita de IA catalogados no guia da Wikipédia e preserva a voz, antes do gate.</p><div class="skills"><span class="sk-badge">humanizer</span></div></article>
+        <article class="mod mod--gate"><p class="step-n">Etapa 6b · Gate</p><h4>Gate de publicação</h4><p>Filtro classificatório final em Opus, que lê o post e o relatório da verificação e devolve um único veredito: PUBLISH, REVISE ou BLOCK.</p><div class="skills"><span class="sk-badge">auditor-p</span></div><p class="gate-return"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 10 4 15 9 20"/><path d="M20 4v7a4 4 0 0 1-4 4H4"/></svg><span><b>BLOCK</b> retorna à Etapa 4 · Fábrica de posts</span></p></article>
+        <article class="mod mod--ext"><p class="step-n">Etapa 7</p><h4>Diagramação</h4><p>Montagem visual do carrossel, com a identidade do perfil preservada.</p><div class="skills"><span class="sk-badge sk-badge--ext">Gamma</span></div></article>
+        <article class="mod mod--ext"><p class="step-n">Etapa 8</p><h4>Publicação</h4><p>Publicação no Instagram e registro no quadro do Notion.</p><div class="skills"><span class="sk-badge sk-badge--ext">Instagram</span><span class="sk-badge sk-badge--ext">Notion</span></div></article>
+      </div>
+    </div>
+
+    <!-- PAINEL TRILHA 2 -->
+    <div class="track-panel" id="trilha-2" role="tabpanel" aria-labelledby="tab-2" tabindex="0" hidden>
+      <div class="track-head">
+        <h3>Pesquisa científica e acadêmica</h3>
+        <p>O pipeline de artigos em seis etapas e dois gates bloqueantes, da pesquisa bibliográfica ao manuscrito pronto para submissão. Em seguida, as trilhas paralelas: pôster, defesa e análise de dados. Ao fim, você submete um manuscrito com cada referência auditada e cada alegação rastreável à fonte.</p>
+      </div>
+      <div class="track-incl">
+        <span class="incl"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5a2 2 0 0 1 2-2h6v16H6a2 2 0 0 0-2 2V5Z"/><path d="M20 5a2 2 0 0 0-2-2h-6v16h6a2 2 0 0 1 2 2V5Z"/></svg>Ebook do curso</span>
+        <span class="incl"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M10 8.5 16 12l-6 3.5v-7Z"/></svg>Videoaulas</span>
+        <span class="incl"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 3 8l9 5 9-5-9-5Z"/><path d="M3 13l9 5 9-5"/></svg>6 etapas + 2 gates</span>
+      </div>
+      <div class="mods mods--flow">
+        <article class="mod mod--proj"><p class="step-n">Etapa 1</p><h4>Tema e levantamento</h4><p>Reúne os três primeiros estágios do pipeline: tema, deep research e a checagem dirigida de citações que antecede a redação. Nenhum item entra sem verificação determinística do DOI.</p><div class="skills"><span class="sk-badge sk-badge--proj">pipeline-artigos</span><span class="sk-badge">pesquisa-academica</span><span class="sk-badge sk-badge--ext">Consensus</span></div></article>
+        <article class="mod"><p class="step-n">Etapa 2</p><h4>Corpus</h4><p>Baixa os PDFs por DOI percorrendo uma cadeia de dezesseis estratégias de acesso aberto, converte cada um em Markdown e gera os arquivos prontos para o NotebookLM.</p><div class="skills"><span class="sk-badge">baixar-papers</span></div></article>
+        <article class="mod mod--ext"><p class="step-n">Etapa 3</p><h4>NotebookLM em modo extração</h4><p>Camada de fidelidade em livro-fechado: de 15 a 20 conceitos por notebook, cada um em até 80 palavras, com citação inline da passagem exata e o dado empírico separado do teórico. Nenhum framework entra aqui; ele só aparece depois, no Claude.</p><div class="skills"><span class="sk-badge sk-badge--ext">NotebookLM</span></div></article>
+        <article class="mod"><p class="step-n">Etapa 4</p><h4>Redação</h4><p>Escreve uma seção por vez, a partir de um outline, nos modos empírico, revisão ou psicométrico, com verificação em cadeia embutida e sem preencher lacuna com memória do modelo.</p><div class="skills"><span class="sk-badge">fabrica-de-artigo</span></div></article>
+        <article class="mod mod--ext"><p class="step-n">Etapa 4b</p><h4>NotebookLM, segunda passada</h4><p>Confronto do rascunho com as fontes, conferindo a correspondência entre cada afirmação e a passagem que a sustenta.</p><div class="skills"><span class="sk-badge sk-badge--ext">NotebookLM</span></div></article>
+        <article class="mod mod--gate"><p class="step-n">Etapa 4.5 · Gate</p><h4>Auditoria do rascunho</h4><p>Primeira passagem do auditor-c, um revisor cego em modo de editor de periódico Q1, que audita a integridade do rascunho e devolve uma rubrica numérica com veredito.</p><div class="skills"><span class="sk-badge sk-badge--proj">auditor-c</span></div></article>
+        <article class="mod"><p class="step-n">Etapa 6</p><h4>Verificação</h4><p>Cinco camadas adversariais, da checagem automatizada de referências ao Reviewer 2 e ao Devil's Advocate, com rubrica de 0 a 100 e decisão. Em modo somente-leitura: produz relatório, nunca altera o manuscrito.</p><div class="skills"><span class="sk-badge">verificacao-artigo</span></div></article>
+        <article class="mod mod--gate"><p class="step-n">Etapa 7.5 · Gate</p><h4>Auditoria final</h4><p>Segunda passagem do auditor-c, o gate de integridade final, posterior à verificação e anterior à submissão. Mesmo revisor cego, mesma rubrica numérica.</p><div class="skills"><span class="sk-badge sk-badge--proj">auditor-c</span></div><p class="gate-return"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 10 4 15 9 20"/><path d="M20 4v7a4 4 0 0 1-4 4H4"/></svg><span><b>BLOCK</b> retorna à Etapa 4 · Redação</span></p></article>
+        <article class="mod mod--ext"><p class="step-n">Etapa 7</p><h4>Submissão</h4><p>Manuscrito pronto para submissão ao periódico.</p><div class="skills"><span class="sk-badge sk-badge--ext">manuscrito</span></div></article>
+      </div>
+
+      <p class="sub-track"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10M7 12h10M7 17h6"/></svg>Trilhas paralelas</p>
+      <div class="mods">
+        <article class="mod"><p class="step-n">Pôster</p><h4>Pôster de congresso</h4><p>Do esqueleto estratégico ao PPTX final, com auditoria do painel em oito domínios antes da impressão.</p><div class="skills"><span class="sk-badge">poster-estrategista</span><span class="sk-badge">poster-auditor</span></div></article>
+        <article class="mod"><p class="step-n">Defesa</p><h4>Material de defesa</h4><p>O material para a defesa oral, ancorado em trechos literais dos PDFs: visão geral, um documento por construto, o método e um caderno de flashcards, cada peça antecipando as perguntas da banca. Sai em PDF e em deck Anki.</p><div class="skills"><span class="sk-badge">fabrica-material-estudo</span></div></article>
+        <article class="mod mod--guest">
+          <div>
+            <span class="guest-flag">★ Curso extra</span>
+            <h4>IA para análise de dados</h4>
+            <p>Limpeza e estruturação de dados, testes e modelos em R ou Python, e checagem de pressupostos com a IA conferindo cada passo, sem terceirizar o julgamento estatístico. Módulo à parte, com ebook e videoaulas próprios.</p>
+          </div>
+          <div class="guest-who">
+            <p class="who-label">Com</p>
+            <p class="who-name">Henrique Dias</p>
+            <p class="who-note">Convidado da trilha acadêmica</p>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <p class="prose reveal" style="margin-top:2.4rem">O método é o crivo; o conteúdo é seu. Cadastre-se na lista abaixo para ser avisado na abertura.</p>
   </div>
 </section>
 
@@ -420,30 +760,26 @@
 <section class="section section--navy cta-final" id="lista">
   <div class="wrap reveal">
     <p class="eyebrow">Lista de espera do curso</p>
-    <h2 class="title">Entre na lista e ganhe o ebook</h2>
-    <p class="lede" style="margin-inline:auto">Deixa seu e-mail. O ebook IA com Rigor, as 37 páginas, baixa na hora e de graça. E quando o curso abrir, você sabe antes de todo mundo, com a condição especial de primeira turma.</p>
+    <h2 class="title">Cadastre-se na lista e receba o ebook</h2>
+    <p class="lede" style="margin-inline:auto">Informe seu e-mail. O ebook IA com Rigor, com 37 páginas, é baixado imediatamente e sem custo. Na abertura do curso, você é avisado com prioridade e recebe a condição especial de primeira turma.</p>
     <form class="waitlist" id="waitlist" novalidate>
       <label for="email" class="skip">Seu e-mail</label>
-      <input type="email" id="email" name="email" placeholder="seu melhor e-mail" required autocomplete="email">
+      <input type="email" id="email" name="email" placeholder="seu e-mail" required autocomplete="email">
       <button class="btn btn--primary" type="submit">Entrar na lista de espera</button>
     </form>
     <p class="form-ok" id="formOk" role="status" aria-live="polite"></p>
     <a id="dl" download="IA-com-Rigor-Entre-Mentes.pdf" hidden aria-hidden="true"></a>
-    <p class="form-note">Sem spam. O e-mail serve pra te mandar o ebook e avisar do curso.</p>
-    <p class="or">ou me chama no Instagram <a href="https://instagram.com/psi.entre.mentes" target="_blank" rel="noopener">@psi.entre.mentes</a></p>
+    <p class="form-note">Sem spam. O e-mail é usado para enviar o ebook e avisar sobre o curso.</p>
+    <p class="or">ou entre em contato pelo Instagram <a href="https://instagram.com/psi.entre.mentes" target="_blank" rel="noopener">@psi.entre.mentes</a></p>
   </div>
 </section>
 </main>
 
 <footer>
-  <div class="wrap grid grid--3">
+  <div class="wrap grid grid--2">
     <div>
       <h4>Entre Mentes</h4>
-      <p>Psicologia informada por evidências, no perfil principal e no dia a dia.<br><a href="https://instagram.com/psi.entre.mentes" target="_blank" rel="noopener">@psi.entre.mentes</a> · <a href="https://instagram.com/psi.nickolasdenegri" target="_blank" rel="noopener">@psi.nickolasdenegri</a></p>
-    </div>
-    <div>
-      <h4>Framework</h4>
-      <p style="color:rgba(246,237,221,.6)">Contextualismo funcional · <span lang="en">network approach</span> (Borsboom) · <span lang="en">Process-Based Therapy</span> (Hayes &amp; Hofmann).</p>
+      <p>Psicologia informada por evidências, no perfil principal e no cotidiano.<br><a href="https://instagram.com/psi.entre.mentes" target="_blank" rel="noopener">@psi.entre.mentes</a> · <a href="https://instagram.com/psi.nickolasdenegri" target="_blank" rel="noopener">@psi.nickolasdenegri</a></p>
     </div>
     <div>
       <h4>Referências</h4>
@@ -451,8 +787,7 @@
         Risko &amp; Gilbert (2016). Trends in Cognitive Sciences. <a href="https://doi.org/10.1016/j.tics.2016.07.002" target="_blank" rel="noopener">doi.org/10.1016/j.tics.2016.07.002</a><br>
         Grinschgl et al. (2021). Quarterly Journal of Experimental Psychology. <a href="https://doi.org/10.1177/17470218211008060" target="_blank" rel="noopener">doi.org/10.1177/17470218211008060</a><br>
         Gerlich (2025). Societies. <a href="https://doi.org/10.3390/soc15010006" target="_blank" rel="noopener">doi.org/10.3390/soc15010006</a><br>
-        Kosmyna et al. (2025). arXiv:2506.08872 (preprint). <a href="https://arxiv.org/abs/2506.08872" target="_blank" rel="noopener">arxiv.org/abs/2506.08872</a><br>
-        Borsboom (2017). World Psychiatry. <a href="https://doi.org/10.1002/wps.20375" target="_blank" rel="noopener">doi.org/10.1002/wps.20375</a>
+        Kosmyna et al. (2025). arXiv:2506.08872 (preprint). <a href="https://arxiv.org/abs/2506.08872" target="_blank" rel="noopener">arxiv.org/abs/2506.08872</a>
       </p>
     </div>
   </div>
@@ -487,6 +822,37 @@
   // Ano dinamico
   document.getElementById('ano').textContent = new Date().getFullYear();
 
+  // Abas das trilhas (acessivel, sem storage)
+  (function(){
+    var tabs = Array.prototype.slice.call(document.querySelectorAll('.track-tab'));
+    if(!tabs.length) return;
+    function activate(tab, focus){
+      tabs.forEach(function(t){
+        var on = t === tab;
+        t.setAttribute('aria-selected', on ? 'true' : 'false');
+        t.tabIndex = on ? 0 : -1;
+        var panel = document.getElementById(t.getAttribute('aria-controls'));
+        if(panel){
+          panel.hidden = !on;
+          if(on){ Array.prototype.forEach.call(panel.querySelectorAll('.reveal'), function(el){ el.classList.add('in'); }); }
+        }
+      });
+      if(focus){ tab.focus(); }
+    }
+    tabs.forEach(function(t, i){
+      t.addEventListener('click', function(){ activate(t, false); });
+      t.addEventListener('keydown', function(e){
+        var n = tabs.length, j = i;
+        if(e.key==='ArrowRight'||e.key==='ArrowDown'){ j=(i+1)%n; }
+        else if(e.key==='ArrowLeft'||e.key==='ArrowUp'){ j=(i-1+n)%n; }
+        else if(e.key==='Home'){ j=0; }
+        else if(e.key==='End'){ j=n-1; }
+        else { return; }
+        e.preventDefault(); activate(tabs[j], true);
+      });
+    });
+  })();
+
   // Lista de espera, captura via Splitforms (1.000/mes no plano free).
   // Para trocar de servico, ajuste ENDPOINT e ACCESS_KEY abaixo.
   var ENDPOINT = "https://splitforms.com/api/submit"; // Splitforms
@@ -496,22 +862,52 @@
   var email = document.getElementById('email');
   email.addEventListener('input', function(){ email.removeAttribute('aria-invalid'); });
   function fail(msg){ ok.style.color="#ff9b9b"; ok.textContent=msg; }
-  function done(){ form.reset(); var dl=document.getElementById('dl'); if(dl){ dl.href='ebook-ia-com-rigor.pdf'; try{dl.click();}catch(e){} } ok.style.color=""; ok.innerHTML='Pronto! Você entrou na lista de espera, e o seu ebook já vai baixar. Se não começar sozinho, <a href="ebook-ia-com-rigor.pdf" download="IA-com-Rigor-Entre-Mentes.pdf" style="color:var(--gold-bright);font-weight:600;text-decoration:underline">toque aqui</a>.'; }
+  function done(){ form.reset(); var dl=document.getElementById('dl'); if(dl){ dl.href='ebook-ia-com-rigor.pdf'; try{dl.click();}catch(e){} } ok.style.color=""; ok.innerHTML='Cadastro concluído. O download do ebook iniciará automaticamente. Caso não inicie, <a href="ebook-ia-com-rigor.pdf" download="IA-com-Rigor-Entre-Mentes.pdf" style="color:var(--gold-bright);font-weight:600;text-decoration:underline">clique aqui</a>.'; }
   form.addEventListener('submit', function(e){
     e.preventDefault();
     var val = (email.value||"").trim();
     var valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val);
-    if(!valid){ email.setAttribute('aria-invalid','true'); fail("Erro: confere o e-mail, parece incompleto."); email.focus(); return; }
+    if(!valid){ email.setAttribute('aria-invalid','true'); fail("Erro: verifique o e-mail, parece incompleto."); email.focus(); return; }
     if(!ENDPOINT){
       // Sem endpoint configurado: NAO simula inscricao (senao o lead se perde). Manda pro contato real.
       ok.style.color="";
-      ok.innerHTML='A lista ainda não está conectada aqui. Me chama no direct <a href="https://instagram.com/psi.entre.mentes" target="_blank" rel="noopener" style="color:var(--gold-bright);font-weight:600;text-decoration:underline">@psi.entre.mentes</a> que eu te aviso.';
+      ok.innerHTML='A lista ainda não está conectada. Entre em contato pelo direct <a href="https://instagram.com/psi.entre.mentes" target="_blank" rel="noopener" style="color:var(--gold-bright);font-weight:600;text-decoration:underline">@psi.entre.mentes</a>.';
       return;
     }
     fetch(ENDPOINT,{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify({access_key:ACCESS_KEY, email:val, origem:"Lista IA com Rigor (site)"})})
-      .then(function(r){ if(r.ok){done();} else {fail("Erro: algo falhou no envio. Tenta de novo em instantes.");} })
-      .catch(function(){ fail("Erro: sem conexão agora. Tenta de novo."); });
+      .then(function(r){ if(r.ok){done();} else {fail("Erro: falha no envio. Tente novamente em instantes.");} })
+      .catch(function(){ fail("Erro: sem conexão no momento. Tente novamente."); });
   });
+
+  // Parallax sutil no hero (compositor thread via transform)
+  const hi=document.querySelector('.hero-inner');
+  if(hi&&!window.matchMedia('(prefers-reduced-motion:reduce)').matches){
+    window.addEventListener('scroll',()=>{requestAnimationFrame(()=>{hi.style.transform='translateY('+window.scrollY*.12+'px)'})},{passive:true});
+  }
+
+  // Logo do hero: segue o mouse (toda a tela) + flutuar contínuo via rAF; respeita reduced-motion
+  const mk=document.querySelector('.hero .mark-lg');
+  const hsec=document.querySelector('.hero');
+  if(mk&&hsec&&!matchMedia('(prefers-reduced-motion:reduce)').matches){
+    let tx=0,ty=0,cx=0,cy=0,vis=true;
+    if(matchMedia('(hover:hover)').matches){
+      window.addEventListener('mousemove',function(e){
+        const r=hsec.getBoundingClientRect();
+        tx=Math.max(-1,Math.min(1,(e.clientX-(r.left+r.width/2))/(r.width/2)));
+        ty=Math.max(-1,Math.min(1,(e.clientY-(r.top+r.height/2))/(r.height/2)));
+      },{passive:true});
+    }
+    new IntersectionObserver(function(es){vis=es[0].isIntersecting;},{rootMargin:'120px'}).observe(hsec);
+    function loop(t){
+      if(vis){
+        cx+=(tx-cx)*0.09; cy+=(ty-cy)*0.09;
+        const fx=Math.sin(t/1300)*5.5, fy=Math.cos(t/1000)*5.5;
+        mk.style.transform='translate('+(cx*30+fx).toFixed(1)+'px,'+(cy*21+fy).toFixed(1)+'px) rotate('+(cx*3).toFixed(2)+'deg)';
+      }
+      requestAnimationFrame(loop);
+    }
+    setTimeout(function(){mk.style.animation='none';requestAnimationFrame(loop);},850);
+  }
 </script>
 </body>
 </html>
