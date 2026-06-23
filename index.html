@@ -184,8 +184,7 @@
   .pr p{font-size:.96rem;color:var(--ink-soft)}
   /* Lista riscada (jeito comum) */
   .strike{list-style:none;padding:0;margin:2.6rem 0 0}
-  .strike li{display:block;width:fit-content;margin:.5rem auto;position:relative;font-family:"Playfair Display",serif;font-weight:500;font-size:clamp(1.45rem,4.4vw,2.35rem);line-height:1.2;color:var(--cream)}
-  .strike li::after{content:"";position:absolute;left:-.18em;right:-.18em;top:54%;height:3px;border-radius:2px;background:#c8482f;transform:rotate(-.6deg)}
+  .strike li{display:block;width:fit-content;max-width:100%;margin:.5rem auto;text-align:center;font-family:"Playfair Display",serif;font-weight:500;font-size:clamp(1.45rem,4.4vw,2.35rem);line-height:1.2;color:var(--cream);text-decoration:line-through;text-decoration-color:#c8482f;-webkit-text-decoration-color:#c8482f;text-decoration-thickness:3px;text-decoration-skip-ink:none}
   .strike-pay{text-align:center;font-family:"Playfair Display",serif;font-weight:600;font-size:clamp(1.7rem,5.2vw,2.9rem);line-height:1.14;color:var(--cream);margin:2.6rem auto 0}
   .strike-pay span{color:var(--gold-bright)}
 
