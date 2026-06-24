@@ -446,6 +446,8 @@
   .dz-form.waitlist .btn{flex:1 1 100%;justify-content:center}
   .dz-book .form-ok{margin-top:1rem}
   .dz-note{margin-top:.9rem;font-size:.8rem;color:rgba(246,237,221,.6);max-width:46ch}
+  .dz-dl{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:1rem}
+  .dz-dl .btn{flex:1 1 auto;justify-content:center}
   .dz-kit{background:#fff;border:1px solid rgba(22,36,61,.08);border-radius:var(--r);padding:clamp(1.5rem,2.6vw,2rem);box-shadow:var(--shadow);display:flex;flex-direction:column}
   .dz-kit .dz-kicker{color:var(--gold-deep);margin:0 0 .4rem;padding-bottom:1rem;border-bottom:1px solid var(--line)}
   .dz-files{list-style:none;margin:0;padding:0}
@@ -817,8 +819,10 @@
           <button class="btn btn--primary" type="submit">Receber o ebook e o kit</button>
         </form>
         <p class="form-ok" id="dzOk" role="status" aria-live="polite"></p>
-        <a id="dzdlPdf" download="Claude-do-Zero-Entre-Mentes.pdf" hidden aria-hidden="true"></a>
-        <a id="dzdlZip" download="claude-do-zero-kit.zip" hidden aria-hidden="true"></a>
+        <div class="dz-dl" id="dzdl" hidden>
+          <a class="btn btn--primary" id="dzdlPdf" href="claude-do-zero-entre-mentes.pdf" download="Claude-do-Zero-Entre-Mentes.pdf">Baixar o ebook</a>
+          <a class="btn btn--ghost" id="dzdlZip" href="kit/claude-do-zero-kit.zip" download="claude-do-zero-kit.zip">Baixar o kit</a>
+        </div>
         <p class="dz-note">Sem spam. O e-mail é usado apenas para enviar o material e avisar sobre o curso, conforme a LGPD. Você pode pedir a remoção a qualquer momento pelo direct.</p>
       </article>
 
@@ -978,12 +982,11 @@
     function fire(id){ var a=document.getElementById(id); if(a){ try{a.click();}catch(e){} } }
     function done(){
       f.reset();
-      var pdf=document.getElementById('dzdlPdf'); if(pdf){ pdf.href='claude-do-zero-entre-mentes.pdf'; }
-      var zip=document.getElementById('dzdlZip'); if(zip){ zip.href='kit/claude-do-zero-kit.zip'; }
-      fire('dzdlPdf');
-      setTimeout(function(){ fire('dzdlZip'); }, 700);
+      var box=document.getElementById('dzdl'); if(box){ box.hidden=false; }
+      var isSafari=/^((?!chrome|android|crios|fxios).)*safari/i.test(navigator.userAgent);
+      if(!isSafari){ fire('dzdlPdf'); setTimeout(function(){ fire('dzdlZip'); }, 700); }
       ok.style.color="";
-      ok.innerHTML='Cadastro concluído. O ebook e o kit começam a baixar automaticamente. Se algum não iniciar, baixe aqui: <a href="claude-do-zero-entre-mentes.pdf" download="Claude-do-Zero-Entre-Mentes.pdf" style="color:var(--gold-bright);font-weight:600;text-decoration:underline">ebook</a> e <a href="kit/claude-do-zero-kit.zip" download="claude-do-zero-kit.zip" style="color:var(--gold-bright);font-weight:600;text-decoration:underline">kit</a>.';
+      ok.innerHTML='Cadastro concluído. O download deve começar sozinho. Se não começar, toque nos botões abaixo para baixar o ebook e o kit.';
     }
     f.addEventListener('submit', function(e){
       e.preventDefault();
