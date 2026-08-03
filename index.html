@@ -471,6 +471,43 @@
   .dz-after a{color:var(--gold-deep);font-weight:600;text-decoration:none;border-bottom:1px solid var(--line)}
   .dz-after a:hover{color:#6f520f;border-color:var(--gold-deep)}
 
+
+  /* ===== Compra (Trilha 1) ===== */
+  .buy-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:clamp(18px,3vw,30px);margin-top:clamp(2.2rem,4.5vw,3rem);align-items:stretch}
+  @media(max-width:820px){.buy-grid{grid-template-columns:1fr}}
+  .buy-card{background:var(--navy-2);border:1px solid rgba(207,159,60,.32);border-radius:var(--r);padding:clamp(1.7rem,3vw,2.3rem);display:flex;flex-direction:column;position:relative;overflow:hidden;box-shadow:var(--shadow)}
+  .buy-card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:linear-gradient(var(--gold-bright),var(--gold-deep))}
+  .buy-kicker{font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:var(--gold-bright);margin-bottom:.8rem}
+  .buy-price{display:flex;align-items:baseline;gap:.5rem;flex-wrap:wrap}
+  .buy-price b{font-family:"Playfair Display",serif;font-size:clamp(2.6rem,7vw,3.6rem);font-weight:700;line-height:1;color:var(--cream);letter-spacing:-.02em}
+  .buy-price span{font-size:.95rem;color:rgba(246,237,221,.7)}
+  .buy-parc{margin:.7rem 0 1.4rem;font-size:.95rem;color:rgba(246,237,221,.78)}
+  .buy-card .btn{width:100%;justify-content:center;font-size:1.02rem;padding:.95rem 1.3rem}
+  .buy-pay{margin-top:1rem;font-size:.84rem;color:rgba(246,237,221,.62);line-height:1.6}
+  .buy-seal{margin-top:auto;padding-top:1.4rem;display:flex;gap:.7rem;align-items:flex-start;font-size:.88rem;color:rgba(246,237,221,.8);line-height:1.55}
+  .buy-seal svg{width:20px;height:20px;flex:0 0 auto;stroke:var(--gold-bright);margin-top:.1rem}
+  .buy-list{background:rgba(246,237,221,.05);border:1px solid rgba(207,159,60,.2);border-radius:var(--r);padding:clamp(1.5rem,2.6vw,2rem)}
+  .buy-list h3{font-family:"Playfair Display",serif;font-size:1.25rem;font-weight:600;color:var(--cream);margin:0 0 1rem}
+  .buy-items{list-style:none;margin:0;padding:0}
+  .buy-items li{display:flex;gap:.75rem;padding:.8rem 0;border-bottom:1px solid rgba(246,237,221,.1);font-size:.95rem;color:rgba(246,237,221,.85);line-height:1.55}
+  .buy-items li:last-child{border-bottom:0;padding-bottom:0}
+  .buy-items svg{width:18px;height:18px;flex:0 0 auto;stroke:var(--gold-bright);margin-top:.18rem}
+  .buy-items b{color:var(--cream);font-weight:600}
+  .buy-note{margin-top:clamp(1.6rem,3vw,2.2rem);font-size:.9rem;color:rgba(246,237,221,.62);max-width:70ch}
+  .buy-tag{display:inline-flex;align-items:center;gap:.5rem;background:linear-gradient(var(--gold-bright),var(--gold-deep));color:var(--navy);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;padding:.4rem .8rem;border-radius:999px;margin-bottom:1rem;align-self:flex-start}
+  .buy-from{font-size:1rem;color:rgba(246,237,221,.55);margin-bottom:.15rem}
+  .buy-from s{text-decoration-thickness:2px;text-decoration-color:rgba(207,159,60,.85)}
+  .buy-save{font-size:.9rem;font-weight:600;color:var(--gold-bright);margin:.55rem 0 0}
+  .buy-timer{margin:1.1rem 0 1.3rem;padding:.85rem 1rem;border:1px solid rgba(207,159,60,.35);border-radius:12px;background:rgba(207,159,60,.09);text-align:center}
+  .buy-timer .bt-label{display:block;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:rgba(246,237,221,.7);margin-bottom:.4rem}
+  .buy-timer .bt-clock{font-family:"Playfair Display",serif;font-size:clamp(1.5rem,4.5vw,1.9rem);font-weight:700;color:var(--cream);letter-spacing:.02em;font-variant-numeric:tabular-nums}
+  .bt-off,.count-off{display:block;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:#ff4438;text-shadow:0 0 4px rgba(255,68,56,.95),0 0 12px rgba(255,68,56,.75),0 0 26px rgba(255,68,56,.5),0 0 48px rgba(255,68,56,.3);animation:neon-pulse 1.4s ease-in-out infinite}
+  .bt-off{font-size:.82rem;margin-top:.55rem}
+  .count-off{font-size:.74rem;margin-top:.5rem}
+  @keyframes neon-pulse{0%,100%{opacity:1;text-shadow:0 0 4px rgba(255,68,56,.95),0 0 12px rgba(255,68,56,.75),0 0 26px rgba(255,68,56,.5),0 0 48px rgba(255,68,56,.3)}50%{opacity:.72;text-shadow:0 0 3px rgba(255,68,56,.6),0 0 8px rgba(255,68,56,.4),0 0 16px rgba(255,68,56,.25)}}
+  @media (prefers-reduced-motion: reduce){.bt-off,.count-off{animation:none}}
+  .buy-timer.bt-done .bt-clock{font-size:1rem;font-family:Inter,system-ui,sans-serif;font-weight:600;color:var(--gold-bright);line-height:1.5;display:block}
+
 </style>
 </head>
 <body>
@@ -485,7 +522,7 @@
     </a>
     <div class="nav-right">
       <a class="nav-link" href="#claude-do-zero">Começar do zero</a>
-      <a class="nav-cta" href="#lista">Lista de espera</a>
+      <a class="nav-cta" href="#comprar">Comprar o curso</a>
     </div>
   </div>
 </header>
@@ -497,7 +534,7 @@
 <section class="hero">
   <div class="wrap hero-inner">
     <div class="hero-count" id="hero-count" role="timer" aria-live="off">
-      <span class="count-label">Lançamento</span>
+      <span class="count-label">Oferta termina em</span>
       <span class="count-units">
         <span class="count-unit"><b id="cd-d">13</b><span>dias</span></span>
         <span class="count-sep" aria-hidden="true">:</span>
@@ -507,18 +544,20 @@
         <span class="count-sep" aria-hidden="true">:</span>
         <span class="count-unit"><b id="cd-s">00</b><span>seg</span></span>
       </span>
+      <span class="count-off">+50% de desconto</span>
     </div>
     <img class="mark-lg" src="assets/logo-completa.png" alt="Entre Mentes" width="900" height="579">
-    <p class="eyebrow">Lançamento em 3 de agosto</p>
+    <p class="eyebrow">No ar hoje &middot; desconto de lan&ccedil;amento por 24 horas</p>
     <h1><span class="em">IA</span> para psicólogos e estudantes</h1>
     <p class="sub">Um método para usar IA com rigor na psicologia, do post no Instagram à pesquisa acadêmica, com cada referência verificada e cada afirmação conferida na fonte. Guia gratuito.</p>
     <div class="cta-row">
-      <a class="btn btn--primary" href="#lista">Receber o ebook gratuito</a>
+      <a class="btn btn--primary" href="#comprar">Comprar por R$ 97,90 <span style="opacity:.72;font-weight:500">(de R$ 199,90)</span></a>
       <span class="cta-stack">
         <a class="btn btn--ghost" href="#claude-do-zero">Começar do zero</a>
         <span class="cta-cap">Kit inicial gratuito</span>
       </span>
       <a class="btn btn--ghost" href="#curso">Ver os cursos</a>
+      <a class="btn btn--ghost" href="#lista">Receber o ebook gratuito</a>
     </div>
     <p class="hero-meta">Psicologia informada por evidências</p>
   </div>
@@ -530,6 +569,222 @@
     <div><b>+30 mil</b><span>na comunidade</span></div>
     <div><b>19</b><span>skills no ecossistema</span></div>
     <div><b>2</b><span>pipelines verificados</span></div>
+  </div>
+</section>
+
+<!-- COMPRA -->
+<section class="section section--navy" id="comprar">
+  <div class="wrap">
+    <div class="reveal" style="max-width:70ch">
+      <p class="eyebrow">Trilha 1 &middot; dispon&iacute;vel agora</p>
+      <h2 class="title">Conte&uacute;do para Instagram, o sistema completo</h2>
+      <p class="lede">O pipeline de nove etapas que produz o @psi.entre.mentes, entregue como manual de instala&ccedil;&atilde;o e opera&ccedil;&atilde;o. Voc&ecirc; n&atilde;o recebe uma apostila sobre IA: recebe as skills prontas, as regras e os pontos de verifica&ccedil;&atilde;o que impedem um post de sair sem fonte conferida.</p>
+    </div>
+
+    <div class="buy-grid reveal">
+      <article class="buy-card">
+        <p class="buy-tag">Desconto de lan&ccedil;amento &middot; 24 horas</p>
+        <p class="buy-kicker">Acesso imediato e vital&iacute;cio</p>
+        <p class="buy-from">de <s>R$&nbsp;199,90</s> por</p>
+        <p class="buy-price"><b>R$&nbsp;97,90</b><span>&agrave; vista</span></p>
+        <p class="buy-save">Economia de R$&nbsp;102,00 nas primeiras 24 horas.</p>
+        <p class="buy-parc">ou parcelado em at&eacute; 12x no cart&atilde;o. Pix e cart&atilde;o liberam o acesso na hora.</p>
+        <div class="buy-timer" id="buy-timer" role="timer" aria-live="off">
+          <span class="bt-label">A oferta de lan&ccedil;amento termina em</span>
+          <span class="bt-clock"><b id="bt-h">24</b>h <b id="bt-m">00</b>m <b id="bt-s">00</b>s</span>
+          <span class="bt-off">Oferta de +50% de desconto</span>
+        </div>
+        <a class="btn btn--primary" href="https://pay.kiwify.com.br/lq3A0Fp" target="_blank" rel="noopener">Garantir por R$&nbsp;97,90</a>
+        <p class="buy-pay">Pagamento processado pela Kiwify. Assim que o pagamento &eacute; aprovado, voc&ecirc; recebe por e-mail o acesso &agrave; &aacute;rea de membros com todos os arquivos.</p>
+        <p class="buy-seal"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v6c0 4.4-3 7.6-7 9-4-1.4-7-4.6-7-9V6l7-3Z"/><path d="m9 12 2 2 4-4"/></svg><span>Garantia incondicional de 7 dias. N&atilde;o gostou, pede o reembolso integral, conforme o C&oacute;digo de Defesa do Consumidor.</span></p>
+      </article>
+
+      <div class="buy-list">
+        <h3>O que est&aacute; inclu&iacute;do</h3>
+        <ul class="buy-items">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12.5 5 5L20 6.5"/></svg><span><b>8 ebooks em PDF, 131 páginas.</b> Volume 1 O Método, 2 Do Tema ao Briefing, 3 Referências que Existem, 4 Corpus e Extração Grounded, 5 A Fábrica de Posts, 6 Verificação, 7 O Gate Final, 8 Publicação.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12.5 5 5L20 6.5"/></svg><span><b>7 skills prontas em ZIP.</b> regras-comuns, pesquisa-academica, baixar-papers, fabrica-de-posts, verificacao-posts, humanizer e auditor-p, prontas para subir no Claude.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12.5 5 5L20 6.5"/></svg><span><b>Template do Notion.</b> As duas bases do sistema, para duplicar em um clique.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12.5 5 5L20 6.5"/></svg><span><b>Kit de extração do NotebookLM.</b> A persona e os prompts das camadas de extração e verificação.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12.5 5 5L20 6.5"/></svg><span><b>Modelos preenchíveis.</b> Perfil do autor, chaves das ferramentas e log de posts publicados.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12.5 5 5L20 6.5"/></svg><span><b>Videoaulas até 20 de agosto.</b> Entram no mesmo acesso, sem pagar de novo, assim como o que for adicionado depois.</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="buy-note reveal">O sistema roda no Claude, que exige plano pago &agrave; parte e n&atilde;o est&aacute; inclu&iacute;do neste pre&ccedil;o. As ferramentas de verifica&ccedil;&atilde;o de refer&ecirc;ncias (Crossref, OpenAlex e Semantic Scholar) s&atilde;o gratuitas. Voc&ecirc; n&atilde;o precisa programar: sobe arquivos prontos e conversa em portugu&ecirc;s. A Trilha 2, de pesquisa cient&iacute;fica e acad&ecirc;mica, &eacute; outro produto e ainda n&atilde;o abriu. Passadas as 24 horas do lan&ccedil;amento, o curso volta ao pre&ccedil;o de R$&nbsp;199,90, com o mesmo conte&uacute;do e as mesmas atualiza&ccedil;&otilde;es inclusas.</p>
+  </div>
+</section>
+
+<!-- CURSO -->
+<section class="section section--cream2" id="curso">
+  <div class="wrap">
+    <div class="reveal" style="max-width:70ch">
+      <p class="eyebrow">Os cursos</p>
+      <h2 class="title">Duas trilhas. Escolha a sua.</h2>
+      <p class="lede">São dois pipelines, e a sequência abaixo segue o fluxo real de produção, etapa por etapa. Cada etapa é apoiada por uma ferramenta específica, e a cor indica a camada a que ela pertence. A Trilha 1 inclui os 8 volumes do ebook do curso e videoaulas, e atende qualquer psicólogo ou estudante, independentemente da abordagem.</p>
+      <div class="curso-legend">
+        <span class="lg"><span class="dot dot--proj"></span>Project do claude.ai</span>
+        <span class="lg"><span class="dot dot--skill"></span>Skill do Cowork</span>
+        <span class="lg"><span class="dot dot--ext"></span>Ferramenta externa</span>
+        <span class="lg"><span class="dot dot--gate"></span>Gate de auditoria</span>
+      </div>
+    </div>
+
+    <!-- BOTOES DAS TRILHAS -->
+    <div class="track-tabs reveal" role="tablist" aria-label="Trilhas do curso">
+      <button class="track-tab" id="tab-1" role="tab" aria-selected="true" aria-controls="trilha-1" tabindex="0" type="button">
+        <span class="tt-tag">Trilha 1</span>
+        <span class="tt-name">Conteúdo para Instagram</span>
+        <span class="tt-meta">Do tema à publicação · 9 etapas</span>
+      </button>
+      <button class="track-tab" id="tab-2" role="tab" aria-selected="false" aria-controls="trilha-2" tabindex="-1" type="button">
+        <span class="tt-tag">Trilha 2</span>
+        <span class="tt-name">Pesquisa científica e acadêmica</span>
+        <span class="tt-meta">Outro produto · em breve</span>
+      </button>
+    </div>
+
+    <!-- PAINEL TRILHA 1 -->
+    <div class="track-panel" id="trilha-1" role="tabpanel" aria-labelledby="tab-1" tabindex="0">
+      <div class="track-head">
+        <h3>Conteúdo para Instagram</h3>
+        <p>O pipeline de posts em nove etapas, da pesquisa do tema à publicação. Nada é publicado sem passar pelos pontos de verificação. Ao fim, você produz conteúdo que aguenta o escrutínio de quem confere fontes. Já está disponível: R$ 97,90 nas primeiras 24 horas, depois R$ 199,90. A compra entrega na hora os 8 volumes do ebook e o kit de skills. As videoaulas entram até 20 de agosto no mesmo acesso, sem pagar de novo, e o que for adicionado depois também entra.</p>
+      </div>
+      <div class="track-incl">
+        <span class="incl"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5a2 2 0 0 1 2-2h6v16H6a2 2 0 0 0-2 2V5Z"/><path d="M20 5a2 2 0 0 0-2-2h-6v16h6a2 2 0 0 1 2 2V5Z"/></svg>8 volumes de ebook · entrega imediata</span>
+        <span class="incl"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M10 8.5 16 12l-6 3.5v-7Z"/></svg>Videoaulas até 20/08 · inclusas</span>
+        <span class="incl"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 3 8l9 5 9-5-9-5Z"/><path d="M3 13l9 5 9-5"/></svg>Pipeline de 9 etapas</span>
+      </div>
+      <div class="mods mods--flow">
+        <article class="mod mod--proj"><p class="step-n">Etapa 0</p><h4>Pesquisa de temas</h4><p>Avalia temas candidatos e consulta o Notion para não repetir o que já foi publicado. Prioriza assuntos com tensão interna e entrega um briefing com as referências-candidatas nomeadas; a triangulação determinística de cada DOI acontece na Etapa 2, antes de qualquer referência virar compromisso.</p><div class="skills"><span class="sk-badge sk-badge--proj">pesquisa-temas-posts</span><span class="sk-badge sk-badge--ext">Notion</span></div></article>
+        <article class="mod mod--ext"><p class="step-n">Etapa 1</p><h4>Deep Research</h4><p>Levantamento amplo da literatura pelo Consensus, em modo de descoberta. Nenhum DOI daqui é tratado como confiável antes da verificação.</p><div class="skills"><span class="sk-badge sk-badge--ext">Consensus</span></div></article>
+        <article class="mod mod--proj"><p class="step-n">Etapa 2</p><h4>Pesquisa acadêmica</h4><p>Levanta as referências e confere cada DOI por triangulação em Crossref, OpenAlex e Semantic Scholar, com regra de duas fontes em três e checagem de retratação. Meta-análises e ensaios têm prioridade sobre estudos observacionais.</p><div class="skills"><span class="sk-badge sk-badge--proj">pesquisa-academica-posts</span><span class="sk-badge">pesquisa-academica</span></div></article>
+        <article class="mod"><p class="step-n">Etapa 2b</p><h4>Corpus</h4><p>Baixa os PDFs por DOI percorrendo uma cadeia de dezesseis estratégias de acesso aberto, converte cada um em Markdown e gera os arquivos prontos para o NotebookLM.</p><div class="skills"><span class="sk-badge">baixar-papers</span></div></article>
+        <article class="mod mod--ext"><p class="step-n">Etapa 3</p><h4>NotebookLM em modo extração</h4><p>Camada de fidelidade em livro-fechado: de 15 a 20 conceitos por notebook, cada um em até 80 palavras, com citação inline da passagem exata e o dado empírico separado do teórico. Nenhum framework entra aqui; ele só aparece depois, no Claude.</p><div class="skills"><span class="sk-badge sk-badge--ext">NotebookLM</span></div></article>
+        <article class="mod"><p class="step-n">Etapa 4</p><h4>Fábrica de posts</h4><p>Monta o carrossel em prosa, a legenda, as referências com DOIs e o prompt de capa, restritos ao que as fontes sustentam, sem preencher lacuna com memória do modelo.</p><div class="skills"><span class="sk-badge">fabrica-de-posts</span></div></article>
+        <article class="mod mod--ext"><p class="step-n">Etapa 5</p><h4>NotebookLM, segunda passada</h4><p>Confronto do rascunho com as fontes, conferindo a correspondência entre cada afirmação e a passagem que a sustenta.</p><div class="skills"><span class="sk-badge sk-badge--ext">NotebookLM</span></div></article>
+        <article class="mod"><p class="step-n">Etapa 6</p><h4>Verificação</h4><p>Seis etapas adversariais. Cada DOI é conferido individualmente, cada alegação é confrontada com a fonte e a calibração retórica é medida contra a força real da evidência.</p><div class="skills"><span class="sk-badge">verificacao-posts</span></div></article>
+        <article class="mod"><p class="step-n">Etapa 6a</p><h4>Remoção de marcas de IA</h4><p>Passagem do humanizer sobre o texto já verificado: remove os padrões de escrita de IA catalogados no guia da Wikipédia e preserva a voz, antes do gate.</p><div class="skills"><span class="sk-badge">humanizer</span></div></article>
+        <article class="mod mod--gate"><p class="step-n">Etapa 6b · Gate</p><h4>Gate de publicação</h4><p>Filtro classificatório final em Opus, que lê o post e o relatório da verificação e devolve um único veredito: PUBLISH, REVISE ou BLOCK.</p><div class="skills"><span class="sk-badge">auditor-p</span></div><p class="gate-return"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 10 4 15 9 20"/><path d="M20 4v7a4 4 0 0 1-4 4H4"/></svg><span><b>BLOCK</b> retorna à Etapa 4 · Fábrica de posts</span></p></article>
+        <article class="mod mod--ext"><p class="step-n">Etapa 7</p><h4>Diagramação</h4><p>Montagem visual do carrossel, com a identidade do perfil preservada.</p><div class="skills"><span class="sk-badge sk-badge--ext">Gamma</span></div></article>
+        <article class="mod mod--ext"><p class="step-n">Etapa 8</p><h4>Publicação</h4><p>Publicação no Instagram e registro no quadro do Notion.</p><div class="skills"><span class="sk-badge sk-badge--ext">Instagram</span><span class="sk-badge sk-badge--ext">Notion</span></div></article>
+      </div>
+    </div>
+
+    <!-- PAINEL TRILHA 2 -->
+    <div class="track-panel" id="trilha-2" role="tabpanel" aria-labelledby="tab-2" tabindex="0" hidden>
+      <div class="track-head">
+        <h3>Pesquisa científica e acadêmica</h3>
+        <p>O pipeline de artigos em seis etapas e dois gates bloqueantes, da pesquisa bibliográfica ao manuscrito pronto para submissão. Em seguida, as trilhas paralelas: pôster, defesa e análise de dados. Ao fim, você submete um manuscrito com cada referência auditada e cada alegação rastreável à fonte. Essa trilha é outro produto e ainda não tem data de abertura. Quem está na lista fica sabendo primeiro quando ela abrir.</p>
+      </div>
+      <div class="track-incl">
+        <span class="incl"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5a2 2 0 0 1 2-2h6v16H6a2 2 0 0 0-2 2V5Z"/><path d="M20 5a2 2 0 0 0-2-2h-6v16h6a2 2 0 0 1 2 2V5Z"/></svg>Ebook do curso</span>
+        <span class="incl"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M10 8.5 16 12l-6 3.5v-7Z"/></svg>Videoaulas</span>
+        <span class="incl"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 3 8l9 5 9-5-9-5Z"/><path d="M3 13l9 5 9-5"/></svg>6 etapas + 2 gates</span>
+      </div>
+      <div class="mods mods--flow">
+        <article class="mod mod--proj"><p class="step-n">Etapa 1</p><h4>Tema e levantamento</h4><p>Reúne os três primeiros estágios do pipeline: tema, deep research e a checagem dirigida de citações que antecede a redação. Nenhum item entra sem verificação determinística do DOI.</p><div class="skills"><span class="sk-badge sk-badge--proj">pipeline-artigos</span><span class="sk-badge">pesquisa-academica</span><span class="sk-badge sk-badge--ext">Consensus</span></div></article>
+        <article class="mod"><p class="step-n">Etapa 2</p><h4>Corpus</h4><p>Baixa os PDFs por DOI percorrendo uma cadeia de dezesseis estratégias de acesso aberto, converte cada um em Markdown e gera os arquivos prontos para o NotebookLM.</p><div class="skills"><span class="sk-badge">baixar-papers</span></div></article>
+        <article class="mod mod--ext"><p class="step-n">Etapa 3</p><h4>NotebookLM em modo extração</h4><p>Camada de fidelidade em livro-fechado: de 15 a 20 conceitos por notebook, cada um em até 80 palavras, com citação inline da passagem exata e o dado empírico separado do teórico. Nenhum framework entra aqui; ele só aparece depois, no Claude.</p><div class="skills"><span class="sk-badge sk-badge--ext">NotebookLM</span></div></article>
+        <article class="mod"><p class="step-n">Etapa 4</p><h4>Redação</h4><p>Escreve uma seção por vez, a partir de um outline, nos modos empírico, revisão ou psicométrico, com verificação em cadeia embutida e sem preencher lacuna com memória do modelo.</p><div class="skills"><span class="sk-badge">fabrica-de-artigo</span></div></article>
+        <article class="mod mod--ext"><p class="step-n">Etapa 4b</p><h4>NotebookLM, segunda passada</h4><p>Confronto do rascunho com as fontes, conferindo a correspondência entre cada afirmação e a passagem que a sustenta.</p><div class="skills"><span class="sk-badge sk-badge--ext">NotebookLM</span></div></article>
+        <article class="mod mod--gate"><p class="step-n">Etapa 4.5 · Gate</p><h4>Auditoria do rascunho</h4><p>Primeira passagem do auditor-c, um revisor cego em modo de editor de periódico Q1, que audita a integridade do rascunho e devolve uma rubrica numérica com veredito.</p><div class="skills"><span class="sk-badge sk-badge--proj">auditor-c</span></div></article>
+        <article class="mod"><p class="step-n">Etapa 5</p><h4>Verificação</h4><p>Cinco camadas adversariais, da checagem automatizada de referências ao Reviewer 2 e ao Devil's Advocate, com rubrica de 0 a 100 e decisão. Em modo somente-leitura: produz relatório, nunca altera o manuscrito.</p><div class="skills"><span class="sk-badge">verificacao-artigo</span></div></article>
+        <article class="mod mod--gate"><p class="step-n">Etapa 5.5 · Gate</p><h4>Auditoria final</h4><p>Segunda passagem do auditor-c, o gate de integridade final, posterior à verificação e anterior à submissão. Mesmo revisor cego, mesma rubrica numérica.</p><div class="skills"><span class="sk-badge sk-badge--proj">auditor-c</span></div><p class="gate-return"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 10 4 15 9 20"/><path d="M20 4v7a4 4 0 0 1-4 4H4"/></svg><span><b>BLOCK</b> retorna à Etapa 4 · Redação</span></p></article>
+        <article class="mod mod--ext"><p class="step-n">Etapa 6</p><h4>Submissão</h4><p>Manuscrito pronto para submissão ao periódico.</p><div class="skills"><span class="sk-badge sk-badge--ext">manuscrito</span></div></article>
+      </div>
+
+      <p class="sub-track"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10M7 12h10M7 17h6"/></svg>Trilhas paralelas</p>
+      <div class="mods">
+        <article class="mod"><p class="step-n">Pôster</p><h4>Pôster de congresso</h4><p>Do esqueleto estratégico ao PPTX final, com auditoria do painel em oito domínios antes da impressão.</p><div class="skills"><span class="sk-badge">poster-estrategista</span><span class="sk-badge">poster-auditor</span></div></article>
+        <article class="mod"><p class="step-n">Defesa</p><h4>Material de defesa</h4><p>O material para a defesa oral, ancorado em trechos literais dos PDFs: visão geral, um documento por construto, o método e um caderno de flashcards, cada peça antecipando as perguntas da banca. Sai em PDF e em deck Anki.</p><div class="skills"><span class="sk-badge">fabrica-material-estudo</span></div></article>
+        <article class="mod mod--guest">
+          <div>
+            <span class="guest-flag">★ Curso extra</span>
+            <h4>IA para análise de dados na ciência</h4>
+            <p>Como usar um assistente de IA para executar análises no JASP e Python, interpretar outputs, checar pressupostos e redigir resultados em padrão APA 7, sem abrir mão do julgamento metodológico. Módulo à parte, com ebook e videoaulas próprios.</p>
+          </div>
+          <div class="guest-who">
+            <p class="who-label">Com</p>
+            <p class="who-name">Henrique Dias</p>
+            <p class="who-note">Convidado da trilha acadêmica</p>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <p class="prose reveal" style="margin-top:2.4rem">O método é o crivo; o conteúdo é seu. Cadastre-se na lista abaixo para ser avisado na abertura.</p>
+  </div>
+</section>
+
+<!-- RESULTADOS -->
+<section class="section section--navy" id="resultados">
+  <div class="wrap">
+    <div class="reveal" style="max-width:66ch">
+      <p class="eyebrow">Resultados reais</p>
+      <h2 class="title">Os posts saíram desse sistema</h2>
+      <p class="lede">Os carrosséis abaixo passaram por esse fluxo de produção, do tema verificado à publicação. Juntos, ultrapassam um milhão de visualizações.</p>
+    </div>
+    <div class="proof-grid">
+      <a class="proof" href="https://www.instagram.com/psi.entre.mentes/p/DVdp6CBEZ9X/" target="_blank" rel="noopener">
+        <p class="proof-t">As 10 ideias que sabotaram a psicologia</p>
+        <div>
+          <div class="proof-hero"><b>281 mil</b><span>visualizações</span></div>
+          <div class="proof-sub"><span><b>27 mil</b> curtidas</span><span><b>11 mil</b> enviados</span><span><b>14 mil</b> salvos</span></div>
+          <span class="proof-go">ver post <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="proof" href="https://www.instagram.com/psi.entre.mentes/p/DWcMBEAkYQJ/" target="_blank" rel="noopener">
+        <p class="proof-t">10 ferramentas de IA para psicólogos</p>
+        <div>
+          <div class="proof-hero"><b>240 mil</b><span>visualizações</span></div>
+          <div class="proof-sub"><span><b>8,4 mil</b> curtidas</span><span><b>13 mil</b> enviados</span><span><b>13 mil</b> salvos</span></div>
+          <span class="proof-go">ver post <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="proof" href="https://www.instagram.com/psi.entre.mentes/p/DWpMObrkZk0/" target="_blank" rel="noopener">
+        <p class="proof-t">10 pseudociências da red pill</p>
+        <div>
+          <div class="proof-hero"><b>179 mil</b><span>visualizações</span></div>
+          <div class="proof-sub"><span><b>9,1 mil</b> curtidas</span><span><b>5,4 mil</b> enviados</span><span><b>3,4 mil</b> salvos</span></div>
+          <span class="proof-go">ver post <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="proof" href="https://www.instagram.com/psi.entre.mentes/p/DU8X4TKkX2J/" target="_blank" rel="noopener">
+        <p class="proof-t">10 cientistas que nenhum psicólogo jamais leu, mas deveria</p>
+        <div>
+          <div class="proof-hero"><b>139 mil</b><span>visualizações</span></div>
+          <div class="proof-sub"><span><b>7,8 mil</b> curtidas</span><span><b>5,5 mil</b> enviados</span><span><b>6,7 mil</b> salvos</span></div>
+          <span class="proof-go">ver post <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="proof" href="https://www.instagram.com/psi.entre.mentes/p/DVuKIMFEYun/" target="_blank" rel="noopener">
+        <p class="proof-t">11 áreas que todo psicólogo deveria estudar, mas não estuda</p>
+        <div>
+          <div class="proof-hero"><b>132 mil</b><span>visualizações</span></div>
+          <div class="proof-sub"><span><b>5,6 mil</b> curtidas</span><span><b>3,5 mil</b> enviados</span><span><b>4,3 mil</b> salvos</span></div>
+          <span class="proof-go">ver post <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="proof" href="https://www.instagram.com/psi.entre.mentes/p/DV4Q2l4ETiJ/" target="_blank" rel="noopener">
+        <p class="proof-t">12 filósofos que definiram o que a psicologia entende por ciência</p>
+        <div>
+          <div class="proof-hero"><b>121 mil</b><span>visualizações</span></div>
+          <div class="proof-sub"><span><b>7,8 mil</b> curtidas</span><span><b>3,4 mil</b> enviados</span><span><b>4,9 mil</b> salvos</span></div>
+          <span class="proof-go">ver post <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="proof" href="https://www.instagram.com/psi.entre.mentes/p/DWyyeVSkREn/" target="_blank" rel="noopener">
+        <p class="proof-t">10 conceitos que a psicologia usa errado</p>
+        <div>
+          <div class="proof-hero"><b>102 mil</b><span>visualizações</span></div>
+          <div class="proof-sub"><span><b>4,4 mil</b> curtidas</span><span><b>2,5 mil</b> enviados</span><span><b>3,4 mil</b> salvos</span></div>
+          <span class="proof-go">ver post <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+    </div>
+    <p class="proof-note">Dados do Instagram Insights de @psi.entre.mentes. Toque em um card para abrir o post.</p>
   </div>
 </section>
 
@@ -650,178 +905,6 @@
   </div>
 </section>
 
-<!-- RESULTADOS -->
-<section class="section section--navy" id="resultados">
-  <div class="wrap">
-    <div class="reveal" style="max-width:66ch">
-      <p class="eyebrow">Resultados reais</p>
-      <h2 class="title">Os posts saíram desse sistema</h2>
-      <p class="lede">Os carrosséis abaixo passaram por esse fluxo de produção, do tema verificado à publicação. Juntos, ultrapassam um milhão de visualizações.</p>
-    </div>
-    <div class="proof-grid">
-      <a class="proof" href="https://www.instagram.com/psi.entre.mentes/p/DVdp6CBEZ9X/" target="_blank" rel="noopener">
-        <p class="proof-t">As 10 ideias que sabotaram a psicologia</p>
-        <div>
-          <div class="proof-hero"><b>281 mil</b><span>visualizações</span></div>
-          <div class="proof-sub"><span><b>27 mil</b> curtidas</span><span><b>11 mil</b> enviados</span><span><b>14 mil</b> salvos</span></div>
-          <span class="proof-go">ver post <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-        </div>
-      </a>
-      <a class="proof" href="https://www.instagram.com/psi.entre.mentes/p/DWcMBEAkYQJ/" target="_blank" rel="noopener">
-        <p class="proof-t">10 ferramentas de IA para psicólogos</p>
-        <div>
-          <div class="proof-hero"><b>240 mil</b><span>visualizações</span></div>
-          <div class="proof-sub"><span><b>8,4 mil</b> curtidas</span><span><b>13 mil</b> enviados</span><span><b>13 mil</b> salvos</span></div>
-          <span class="proof-go">ver post <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-        </div>
-      </a>
-      <a class="proof" href="https://www.instagram.com/psi.entre.mentes/p/DWpMObrkZk0/" target="_blank" rel="noopener">
-        <p class="proof-t">10 pseudociências da red pill</p>
-        <div>
-          <div class="proof-hero"><b>179 mil</b><span>visualizações</span></div>
-          <div class="proof-sub"><span><b>9,1 mil</b> curtidas</span><span><b>5,4 mil</b> enviados</span><span><b>3,4 mil</b> salvos</span></div>
-          <span class="proof-go">ver post <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-        </div>
-      </a>
-      <a class="proof" href="https://www.instagram.com/psi.entre.mentes/p/DU8X4TKkX2J/" target="_blank" rel="noopener">
-        <p class="proof-t">10 cientistas que nenhum psicólogo jamais leu, mas deveria</p>
-        <div>
-          <div class="proof-hero"><b>139 mil</b><span>visualizações</span></div>
-          <div class="proof-sub"><span><b>7,8 mil</b> curtidas</span><span><b>5,5 mil</b> enviados</span><span><b>6,7 mil</b> salvos</span></div>
-          <span class="proof-go">ver post <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-        </div>
-      </a>
-      <a class="proof" href="https://www.instagram.com/psi.entre.mentes/p/DVuKIMFEYun/" target="_blank" rel="noopener">
-        <p class="proof-t">11 áreas que todo psicólogo deveria estudar, mas não estuda</p>
-        <div>
-          <div class="proof-hero"><b>132 mil</b><span>visualizações</span></div>
-          <div class="proof-sub"><span><b>5,6 mil</b> curtidas</span><span><b>3,5 mil</b> enviados</span><span><b>4,3 mil</b> salvos</span></div>
-          <span class="proof-go">ver post <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-        </div>
-      </a>
-      <a class="proof" href="https://www.instagram.com/psi.entre.mentes/p/DV4Q2l4ETiJ/" target="_blank" rel="noopener">
-        <p class="proof-t">12 filósofos que definiram o que a psicologia entende por ciência</p>
-        <div>
-          <div class="proof-hero"><b>121 mil</b><span>visualizações</span></div>
-          <div class="proof-sub"><span><b>7,8 mil</b> curtidas</span><span><b>3,4 mil</b> enviados</span><span><b>4,9 mil</b> salvos</span></div>
-          <span class="proof-go">ver post <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-        </div>
-      </a>
-      <a class="proof" href="https://www.instagram.com/psi.entre.mentes/p/DWyyeVSkREn/" target="_blank" rel="noopener">
-        <p class="proof-t">10 conceitos que a psicologia usa errado</p>
-        <div>
-          <div class="proof-hero"><b>102 mil</b><span>visualizações</span></div>
-          <div class="proof-sub"><span><b>4,4 mil</b> curtidas</span><span><b>2,5 mil</b> enviados</span><span><b>3,4 mil</b> salvos</span></div>
-          <span class="proof-go">ver post <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-        </div>
-      </a>
-    </div>
-    <p class="proof-note">Dados do Instagram Insights de @psi.entre.mentes. Toque em um card para abrir o post.</p>
-  </div>
-</section>
-
-<!-- CURSO -->
-<section class="section section--cream2" id="curso">
-  <div class="wrap">
-    <div class="reveal" style="max-width:70ch">
-      <p class="eyebrow">Os cursos</p>
-      <h2 class="title">Duas trilhas. Escolha a sua.</h2>
-      <p class="lede">São dois pipelines, e a sequência abaixo segue o fluxo real de produção, etapa por etapa. Cada etapa é apoiada por uma ferramenta específica, e a cor indica a camada a que ela pertence. A Trilha 1 inclui os 8 volumes do ebook do curso e videoaulas, e atende qualquer psicólogo ou estudante, independentemente da abordagem.</p>
-      <div class="curso-legend">
-        <span class="lg"><span class="dot dot--proj"></span>Project do claude.ai</span>
-        <span class="lg"><span class="dot dot--skill"></span>Skill do Cowork</span>
-        <span class="lg"><span class="dot dot--ext"></span>Ferramenta externa</span>
-        <span class="lg"><span class="dot dot--gate"></span>Gate de auditoria</span>
-      </div>
-    </div>
-
-    <!-- BOTOES DAS TRILHAS -->
-    <div class="track-tabs reveal" role="tablist" aria-label="Trilhas do curso">
-      <button class="track-tab" id="tab-1" role="tab" aria-selected="true" aria-controls="trilha-1" tabindex="0" type="button">
-        <span class="tt-tag">Trilha 1</span>
-        <span class="tt-name">Conteúdo para Instagram</span>
-        <span class="tt-meta">Do tema à publicação · 9 etapas</span>
-      </button>
-      <button class="track-tab" id="tab-2" role="tab" aria-selected="false" aria-controls="trilha-2" tabindex="-1" type="button">
-        <span class="tt-tag">Trilha 2</span>
-        <span class="tt-name">Pesquisa científica e acadêmica</span>
-        <span class="tt-meta">Outro produto · em breve</span>
-      </button>
-    </div>
-
-    <!-- PAINEL TRILHA 1 -->
-    <div class="track-panel" id="trilha-1" role="tabpanel" aria-labelledby="tab-1" tabindex="0">
-      <div class="track-head">
-        <h3>Conteúdo para Instagram</h3>
-        <p>O pipeline de posts em nove etapas, da pesquisa do tema à publicação. Nada é publicado sem passar pelos pontos de verificação. Ao fim, você produz conteúdo que aguenta o escrutínio de quem confere fontes. Lança em 3 de agosto por R$ 97,90. A compra entrega na hora os 8 volumes do ebook e o kit de skills. As videoaulas entram até 20 de agosto no mesmo acesso, sem pagar de novo, e o que for adicionado depois também entra.</p>
-      </div>
-      <div class="track-incl">
-        <span class="incl"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5a2 2 0 0 1 2-2h6v16H6a2 2 0 0 0-2 2V5Z"/><path d="M20 5a2 2 0 0 0-2-2h-6v16h6a2 2 0 0 1 2 2V5Z"/></svg>8 volumes de ebook · entrega imediata</span>
-        <span class="incl"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M10 8.5 16 12l-6 3.5v-7Z"/></svg>Videoaulas até 20/08 · inclusas</span>
-        <span class="incl"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 3 8l9 5 9-5-9-5Z"/><path d="M3 13l9 5 9-5"/></svg>Pipeline de 9 etapas</span>
-      </div>
-      <div class="mods mods--flow">
-        <article class="mod mod--proj"><p class="step-n">Etapa 0</p><h4>Pesquisa de temas</h4><p>Avalia temas candidatos e consulta o Notion para não repetir o que já foi publicado. Prioriza assuntos com tensão interna e entrega um briefing com as referências-candidatas nomeadas; a triangulação determinística de cada DOI acontece na Etapa 2, antes de qualquer referência virar compromisso.</p><div class="skills"><span class="sk-badge sk-badge--proj">pesquisa-temas-posts</span><span class="sk-badge sk-badge--ext">Notion</span></div></article>
-        <article class="mod mod--ext"><p class="step-n">Etapa 1</p><h4>Deep Research</h4><p>Levantamento amplo da literatura pelo Consensus, em modo de descoberta. Nenhum DOI daqui é tratado como confiável antes da verificação.</p><div class="skills"><span class="sk-badge sk-badge--ext">Consensus</span></div></article>
-        <article class="mod mod--proj"><p class="step-n">Etapa 2</p><h4>Pesquisa acadêmica</h4><p>Levanta as referências e confere cada DOI por triangulação em Crossref, OpenAlex e Semantic Scholar, com regra de duas fontes em três e checagem de retratação. Meta-análises e ensaios têm prioridade sobre estudos observacionais.</p><div class="skills"><span class="sk-badge sk-badge--proj">pesquisa-academica-posts</span><span class="sk-badge">pesquisa-academica</span></div></article>
-        <article class="mod"><p class="step-n">Etapa 2b</p><h4>Corpus</h4><p>Baixa os PDFs por DOI percorrendo uma cadeia de dezesseis estratégias de acesso aberto, converte cada um em Markdown e gera os arquivos prontos para o NotebookLM.</p><div class="skills"><span class="sk-badge">baixar-papers</span></div></article>
-        <article class="mod mod--ext"><p class="step-n">Etapa 3</p><h4>NotebookLM em modo extração</h4><p>Camada de fidelidade em livro-fechado: de 15 a 20 conceitos por notebook, cada um em até 80 palavras, com citação inline da passagem exata e o dado empírico separado do teórico. Nenhum framework entra aqui; ele só aparece depois, no Claude.</p><div class="skills"><span class="sk-badge sk-badge--ext">NotebookLM</span></div></article>
-        <article class="mod"><p class="step-n">Etapa 4</p><h4>Fábrica de posts</h4><p>Monta o carrossel em prosa, a legenda, as referências com DOIs e o prompt de capa, restritos ao que as fontes sustentam, sem preencher lacuna com memória do modelo.</p><div class="skills"><span class="sk-badge">fabrica-de-posts</span></div></article>
-        <article class="mod mod--ext"><p class="step-n">Etapa 5</p><h4>NotebookLM, segunda passada</h4><p>Confronto do rascunho com as fontes, conferindo a correspondência entre cada afirmação e a passagem que a sustenta.</p><div class="skills"><span class="sk-badge sk-badge--ext">NotebookLM</span></div></article>
-        <article class="mod"><p class="step-n">Etapa 6</p><h4>Verificação</h4><p>Seis etapas adversariais. Cada DOI é conferido individualmente, cada alegação é confrontada com a fonte e a calibração retórica é medida contra a força real da evidência.</p><div class="skills"><span class="sk-badge">verificacao-posts</span></div></article>
-        <article class="mod"><p class="step-n">Etapa 6a</p><h4>Remoção de marcas de IA</h4><p>Passagem do humanizer sobre o texto já verificado: remove os padrões de escrita de IA catalogados no guia da Wikipédia e preserva a voz, antes do gate.</p><div class="skills"><span class="sk-badge">humanizer</span></div></article>
-        <article class="mod mod--gate"><p class="step-n">Etapa 6b · Gate</p><h4>Gate de publicação</h4><p>Filtro classificatório final em Opus, que lê o post e o relatório da verificação e devolve um único veredito: PUBLISH, REVISE ou BLOCK.</p><div class="skills"><span class="sk-badge">auditor-p</span></div><p class="gate-return"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 10 4 15 9 20"/><path d="M20 4v7a4 4 0 0 1-4 4H4"/></svg><span><b>BLOCK</b> retorna à Etapa 4 · Fábrica de posts</span></p></article>
-        <article class="mod mod--ext"><p class="step-n">Etapa 7</p><h4>Diagramação</h4><p>Montagem visual do carrossel, com a identidade do perfil preservada.</p><div class="skills"><span class="sk-badge sk-badge--ext">Gamma</span></div></article>
-        <article class="mod mod--ext"><p class="step-n">Etapa 8</p><h4>Publicação</h4><p>Publicação no Instagram e registro no quadro do Notion.</p><div class="skills"><span class="sk-badge sk-badge--ext">Instagram</span><span class="sk-badge sk-badge--ext">Notion</span></div></article>
-      </div>
-    </div>
-
-    <!-- PAINEL TRILHA 2 -->
-    <div class="track-panel" id="trilha-2" role="tabpanel" aria-labelledby="tab-2" tabindex="0" hidden>
-      <div class="track-head">
-        <h3>Pesquisa científica e acadêmica</h3>
-        <p>O pipeline de artigos em seis etapas e dois gates bloqueantes, da pesquisa bibliográfica ao manuscrito pronto para submissão. Em seguida, as trilhas paralelas: pôster, defesa e análise de dados. Ao fim, você submete um manuscrito com cada referência auditada e cada alegação rastreável à fonte. Essa trilha é outro produto e não entra no lançamento de 3 de agosto. Quem está na lista fica sabendo primeiro quando ela abrir.</p>
-      </div>
-      <div class="track-incl">
-        <span class="incl"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5a2 2 0 0 1 2-2h6v16H6a2 2 0 0 0-2 2V5Z"/><path d="M20 5a2 2 0 0 0-2-2h-6v16h6a2 2 0 0 1 2 2V5Z"/></svg>Ebook do curso</span>
-        <span class="incl"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M10 8.5 16 12l-6 3.5v-7Z"/></svg>Videoaulas</span>
-        <span class="incl"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 3 8l9 5 9-5-9-5Z"/><path d="M3 13l9 5 9-5"/></svg>6 etapas + 2 gates</span>
-      </div>
-      <div class="mods mods--flow">
-        <article class="mod mod--proj"><p class="step-n">Etapa 1</p><h4>Tema e levantamento</h4><p>Reúne os três primeiros estágios do pipeline: tema, deep research e a checagem dirigida de citações que antecede a redação. Nenhum item entra sem verificação determinística do DOI.</p><div class="skills"><span class="sk-badge sk-badge--proj">pipeline-artigos</span><span class="sk-badge">pesquisa-academica</span><span class="sk-badge sk-badge--ext">Consensus</span></div></article>
-        <article class="mod"><p class="step-n">Etapa 2</p><h4>Corpus</h4><p>Baixa os PDFs por DOI percorrendo uma cadeia de dezesseis estratégias de acesso aberto, converte cada um em Markdown e gera os arquivos prontos para o NotebookLM.</p><div class="skills"><span class="sk-badge">baixar-papers</span></div></article>
-        <article class="mod mod--ext"><p class="step-n">Etapa 3</p><h4>NotebookLM em modo extração</h4><p>Camada de fidelidade em livro-fechado: de 15 a 20 conceitos por notebook, cada um em até 80 palavras, com citação inline da passagem exata e o dado empírico separado do teórico. Nenhum framework entra aqui; ele só aparece depois, no Claude.</p><div class="skills"><span class="sk-badge sk-badge--ext">NotebookLM</span></div></article>
-        <article class="mod"><p class="step-n">Etapa 4</p><h4>Redação</h4><p>Escreve uma seção por vez, a partir de um outline, nos modos empírico, revisão ou psicométrico, com verificação em cadeia embutida e sem preencher lacuna com memória do modelo.</p><div class="skills"><span class="sk-badge">fabrica-de-artigo</span></div></article>
-        <article class="mod mod--ext"><p class="step-n">Etapa 4b</p><h4>NotebookLM, segunda passada</h4><p>Confronto do rascunho com as fontes, conferindo a correspondência entre cada afirmação e a passagem que a sustenta.</p><div class="skills"><span class="sk-badge sk-badge--ext">NotebookLM</span></div></article>
-        <article class="mod mod--gate"><p class="step-n">Etapa 4.5 · Gate</p><h4>Auditoria do rascunho</h4><p>Primeira passagem do auditor-c, um revisor cego em modo de editor de periódico Q1, que audita a integridade do rascunho e devolve uma rubrica numérica com veredito.</p><div class="skills"><span class="sk-badge sk-badge--proj">auditor-c</span></div></article>
-        <article class="mod"><p class="step-n">Etapa 5</p><h4>Verificação</h4><p>Cinco camadas adversariais, da checagem automatizada de referências ao Reviewer 2 e ao Devil's Advocate, com rubrica de 0 a 100 e decisão. Em modo somente-leitura: produz relatório, nunca altera o manuscrito.</p><div class="skills"><span class="sk-badge">verificacao-artigo</span></div></article>
-        <article class="mod mod--gate"><p class="step-n">Etapa 5.5 · Gate</p><h4>Auditoria final</h4><p>Segunda passagem do auditor-c, o gate de integridade final, posterior à verificação e anterior à submissão. Mesmo revisor cego, mesma rubrica numérica.</p><div class="skills"><span class="sk-badge sk-badge--proj">auditor-c</span></div><p class="gate-return"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 10 4 15 9 20"/><path d="M20 4v7a4 4 0 0 1-4 4H4"/></svg><span><b>BLOCK</b> retorna à Etapa 4 · Redação</span></p></article>
-        <article class="mod mod--ext"><p class="step-n">Etapa 6</p><h4>Submissão</h4><p>Manuscrito pronto para submissão ao periódico.</p><div class="skills"><span class="sk-badge sk-badge--ext">manuscrito</span></div></article>
-      </div>
-
-      <p class="sub-track"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10M7 12h10M7 17h6"/></svg>Trilhas paralelas</p>
-      <div class="mods">
-        <article class="mod"><p class="step-n">Pôster</p><h4>Pôster de congresso</h4><p>Do esqueleto estratégico ao PPTX final, com auditoria do painel em oito domínios antes da impressão.</p><div class="skills"><span class="sk-badge">poster-estrategista</span><span class="sk-badge">poster-auditor</span></div></article>
-        <article class="mod"><p class="step-n">Defesa</p><h4>Material de defesa</h4><p>O material para a defesa oral, ancorado em trechos literais dos PDFs: visão geral, um documento por construto, o método e um caderno de flashcards, cada peça antecipando as perguntas da banca. Sai em PDF e em deck Anki.</p><div class="skills"><span class="sk-badge">fabrica-material-estudo</span></div></article>
-        <article class="mod mod--guest">
-          <div>
-            <span class="guest-flag">★ Curso extra</span>
-            <h4>IA para análise de dados na ciência</h4>
-            <p>Como usar um assistente de IA para executar análises no JASP e Python, interpretar outputs, checar pressupostos e redigir resultados em padrão APA 7, sem abrir mão do julgamento metodológico. Módulo à parte, com ebook e videoaulas próprios.</p>
-          </div>
-          <div class="guest-who">
-            <p class="who-label">Com</p>
-            <p class="who-name">Henrique Dias</p>
-            <p class="who-note">Convidado da trilha acadêmica</p>
-          </div>
-        </article>
-      </div>
-    </div>
-
-    <p class="prose reveal" style="margin-top:2.4rem">O método é o crivo; o conteúdo é seu. Cadastre-se na lista abaixo para ser avisado na abertura.</p>
-  </div>
-</section>
-
 <!-- CLAUDE DO ZERO (material gratuito) -->
 <section class="section section--cream2" id="claude-do-zero">
   <div class="wrap">
@@ -868,9 +951,9 @@
 <!-- CTA FINAL -->
 <section class="section section--navy cta-final" id="lista">
   <div class="wrap reveal">
-    <p class="eyebrow">Lista de espera do curso</p>
+    <p class="eyebrow">Ebook gratuito</p>
     <h2 class="title">Cadastre-se na lista e receba o ebook</h2>
-    <p class="lede" style="margin-inline:auto">Informe seu e-mail. O ebook IA para psicólogos e estudantes, com 38 páginas, é baixado imediatamente e sem custo. No dia 3 de agosto você fica sabendo da abertura antes de todo mundo. Preço de lançamento: R$ 97,90 pelos 8 volumes e o kit de skills, entregues na hora. As videoaulas entram até 20 de agosto sem pagar nada a mais.</p>
+    <p class="lede" style="margin-inline:auto">Informe seu e-mail. O ebook IA para psicólogos e estudantes, com 38 páginas, é baixado imediatamente e sem custo. O curso completo já está no ar: 8 volumes e o kit de skills entregues na hora, por R$ 97,90 nas primeiras 24 horas em vez de R$ 199,90. As videoaulas entram até 20 de agosto sem pagar nada a mais.</p>
     <form class="waitlist" id="waitlist" novalidate>
       <label for="email" class="skip">Seu e-mail</label>
       <input type="email" id="email" name="email" placeholder="seu e-mail" required autocomplete="email">
@@ -1055,10 +1138,31 @@
   }
 </script>
 <script>
+  // Contador da oferta de lancamento (card de compra).
+  // Para mudar o prazo, ajuste a data em OFFER_END e em DEADLINE, no mesmo fuso (-03:00).
+  (function(){
+    var OFFER_END = new Date('2026-08-04T16:00:00-03:00').getTime();
+    var box = document.getElementById('buy-timer');
+    if(!box) return;
+    var H=document.getElementById('bt-h'),M=document.getElementById('bt-m'),S=document.getElementById('bt-s');
+    function p(n){return (n<10?'0':'')+n}
+    function tick(){
+      var ms = OFFER_END - Date.now();
+      if(ms<0) ms=0;
+      var t=Math.floor(ms/1000);
+      H.textContent=p(Math.floor(t/3600));
+      M.textContent=p(Math.floor((t%3600)/60));
+      S.textContent=p(t%60);
+      if(ms===0){clearInterval(iv);box.classList.add('bt-done');box.querySelector('.bt-clock').textContent='O desconto de lançamento foi encerrado. O curso segue disponível por R$ 199,90.';}
+    }
+    tick();
+    var iv=setInterval(tick,1000);
+  })();
+
   // Contagem regressiva do hero.
   // Para mudar o prazo, ajuste apenas a data abaixo (fuso de Brasília, -03:00).
   (function(){
-    var DEADLINE = new Date('2026-08-03T10:00:00-03:00').getTime();
+    var DEADLINE = new Date('2026-08-04T16:00:00-03:00').getTime();
     var box = document.getElementById('hero-count');
     if(!box) return;
     var d=document.getElementById('cd-d'),h=document.getElementById('cd-h'),
@@ -1072,7 +1176,7 @@
       h.textContent=pad(Math.floor((t%86400)/3600));
       m.textContent=pad(Math.floor((t%3600)/60));
       s.textContent=pad(t%60);
-      if(ms===0){clearInterval(iv);box.classList.add('count-done');box.querySelector('.count-label').textContent='No ar';}
+      if(ms===0){clearInterval(iv);box.classList.add('count-done');box.querySelector('.count-label').textContent='Oferta encerrada';}
     }
     tick();
     var iv=setInterval(tick,1000);
