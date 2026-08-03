@@ -509,6 +509,26 @@
   .buy-timer.bt-done .bt-clock{font-size:1rem;font-family:Inter,system-ui,sans-serif;font-weight:600;color:var(--gold-bright);line-height:1.5;display:block}
 
 </style>
+<!-- Ancoragem: impede o navegador de restaurar a rolagem antiga e abrir a pagina no fim -->
+<script>
+  if('scrollRestoration' in history){ history.scrollRestoration='manual'; }
+  (function(){
+    function jump(){
+      var root=document.documentElement, prev=root.style.scrollBehavior;
+      root.style.scrollBehavior='auto';
+      if(location.hash){
+        var el=null;
+        try{ el=document.querySelector(location.hash); }catch(e){}
+        if(el){ el.scrollIntoView(); } else { window.scrollTo(0,0); }
+      } else {
+        window.scrollTo(0,0);
+      }
+      root.style.scrollBehavior=prev;
+    }
+    window.addEventListener('load',function(){ jump(); setTimeout(jump,120); });
+    window.addEventListener('pageshow',function(e){ if(e.persisted){ jump(); } });
+  })();
+</script>
 </head>
 <body>
 <a class="skip" href="#conteudo">Pular para o conteúdo</a>
