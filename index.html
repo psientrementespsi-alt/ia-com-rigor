@@ -569,7 +569,7 @@
         <span class="cta-cap">Kit inicial gratuito</span>
       </span>
       <a class="btn btn--ghost" href="#curso">Ver os cursos</a>
-      <a class="btn btn--ghost" href="#lista">Receber o ebook gratuito</a>
+      <a class="btn btn--ghost" href="#lista">Trilha acad&ecirc;mica &middot; lista de espera</a>
     </div>
     <p class="hero-meta">Psicologia informada por evidências</p>
   </div>
@@ -800,7 +800,7 @@
     <div class="track-panel" id="trilha-2" role="tabpanel" aria-labelledby="tab-2" tabindex="0" hidden>
       <div class="track-head">
         <h3>Pesquisa científica e acadêmica</h3>
-        <p>O pipeline de artigos em seis etapas e dois gates bloqueantes, da pesquisa bibliográfica ao manuscrito pronto para submissão. Em seguida, as trilhas paralelas: pôster, defesa e análise de dados. Ao fim, você submete um manuscrito com cada referência auditada e cada alegação rastreável à fonte. Essa trilha é outro produto e ainda não tem data de abertura. Quem está na lista fica sabendo primeiro quando ela abrir.</p>
+        <p>O pipeline de artigos em seis etapas e dois gates bloqueantes, da pesquisa bibliográfica ao manuscrito pronto para submissão. Em seguida, as trilhas paralelas: pôster, defesa e análise de dados. Ao fim, você submete um manuscrito com cada referência auditada e cada alegação rastreável à fonte. Essa trilha é outro produto e ainda não tem data de abertura. Quem está na <a href="#lista" style="color:var(--gold-deep);font-weight:600">lista de espera</a> fica sabendo primeiro quando ela abrir.</p>
       </div>
       <div class="track-incl">
         <span class="incl"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5a2 2 0 0 1 2-2h6v16H6a2 2 0 0 0-2 2V5Z"/><path d="M20 5a2 2 0 0 0-2-2h-6v16h6a2 2 0 0 1 2 2V5Z"/></svg>Ebook do curso</span>
@@ -950,16 +950,16 @@
       </div>
     </div>
 
-    <p class="dz-after reveal">Esse é o ponto de partida. Quando quiser ir além, o guia IA para psicólogos e estudantes traz o ecossistema inteiro em trinta e oito páginas, e fica logo abaixo, na <a href="#lista">lista de espera</a>.</p>
+    <p class="dz-after reveal">Esse é o ponto de partida. Quando quiser ir além, o guia IA para psicólogos e estudantes, com trinta e oito páginas, sai de graça na <a href="#lista">lista de espera da Trilha 2</a>, logo abaixo.</p>
   </div>
 </section>
 
 <!-- CTA FINAL -->
 <section class="section section--navy cta-final" id="lista">
   <div class="wrap reveal">
-    <p class="eyebrow">Ebook gratuito</p>
-    <h2 class="title">Cadastre-se na lista e receba o ebook</h2>
-    <p class="lede" style="margin-inline:auto">Informe seu e-mail. O ebook IA para psicólogos e estudantes, com 38 páginas, é baixado imediatamente e sem custo. O curso completo já está no ar: 8 volumes e o kit de skills entregues na hora, por R$ 97,90 para quem acompanha o @psi.entre.mentes, em vez de R$ 199,90. As videoaulas entram até 20 de agosto sem pagar nada a mais.</p>
+    <p class="eyebrow">Trilha 2 &middot; pr&eacute;-lan&ccedil;amento</p>
+    <h2 class="title">A trilha acad&ecirc;mica vem a&iacute;</h2>
+    <p class="lede" style="margin-inline:auto">Pesquisa cient&iacute;fica e acad&ecirc;mica: o pipeline de artigos com gates bloqueantes, da pesquisa bibliogr&aacute;fica ao manuscrito pronto para submiss&atilde;o, mais p&ocirc;ster, defesa e an&aacute;lise de dados. &Eacute; outro produto e ainda n&atilde;o tem data de abertura. Entre na lista de espera: voc&ecirc; recebe na hora o guia IA para psic&oacute;logos e estudantes, com 38 p&aacute;ginas e o ecossistema inteiro, e fica sabendo primeiro quando a trilha abrir.</p>
     <form class="waitlist" id="waitlist" novalidate>
       <label for="email" class="skip">Seu e-mail</label>
       <input type="email" id="email" name="email" placeholder="seu e-mail" required autocomplete="email">
@@ -969,7 +969,7 @@
     </form>
     <p class="form-ok" id="formOk" role="status" aria-live="polite"></p>
     <a id="dl" download="IA-para-psicologos-e-estudantes.pdf" hidden aria-hidden="true"></a>
-    <p class="form-note">Sem spam. O e-mail é usado apenas para enviar o ebook e avisar sobre o curso, conforme a LGPD. Não compartilhamos seu e-mail com terceiros e você pode pedir a remoção a qualquer momento pelo direct.</p>
+    <p class="form-note">Sem spam. O e-mail é usado apenas para enviar o ebook e avisar sobre a abertura da Trilha 2, conforme a LGPD. Não compartilhamos seu e-mail com terceiros e você pode pedir a remoção a qualquer momento pelo direct.</p>
     <p class="or">ou entre em contato pelo Instagram <a href="https://instagram.com/psi.entre.mentes" target="_blank" rel="noopener">@psi.entre.mentes</a></p>
   </div>
 </section>
@@ -1064,7 +1064,7 @@
   if(loadedAt){ loadedAt.value = new Date().toISOString(); }
   email.addEventListener('input', function(){ email.removeAttribute('aria-invalid'); });
   function fail(msg){ ok.style.color="#ff9b9b"; ok.textContent=msg; }
-  function done(){ form.reset(); var dl=document.getElementById('dl'); if(dl){ dl.href='ebook-ia-com-rigor.pdf'; try{dl.click();}catch(e){} } ok.style.color=""; ok.innerHTML='Cadastro concluído. O download do ebook iniciará automaticamente. Caso não inicie, <a href="ebook-ia-com-rigor.pdf" download="IA-para-psicologos-e-estudantes.pdf" style="color:var(--gold-bright);font-weight:600;text-decoration:underline">clique aqui</a>.'; }
+  function done(){ form.reset(); var dl=document.getElementById('dl'); if(dl){ dl.href='ebook-ia-com-rigor.pdf'; try{dl.click();}catch(e){} } ok.style.color=""; ok.innerHTML='Cadastro concluído. O download do guia iniciará automaticamente; caso não inicie, <a href="ebook-ia-com-rigor.pdf" download="IA-para-psicologos-e-estudantes.pdf" style="color:var(--gold-bright);font-weight:600;text-decoration:underline">clique aqui</a>. Você será avisado em primeira mão quando a Trilha 2 abrir.'; }
   form.addEventListener('submit', function(e){
     e.preventDefault();
     var bot = document.getElementById('botcheck');
@@ -1078,7 +1078,7 @@
       ok.innerHTML='A lista ainda não está conectada. Entre em contato pelo direct <a href="https://instagram.com/psi.entre.mentes" target="_blank" rel="noopener" style="color:var(--gold-bright);font-weight:600;text-decoration:underline">@psi.entre.mentes</a>.';
       return;
     }
-    fetch(ENDPOINT,{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify({access_key:ACCESS_KEY, email:val, botcheck:(bot&&bot.value)||"", form_loaded_at:(loadedAt&&loadedAt.value)||"", origem:"Lista IA com Rigor (site)"})})
+    fetch(ENDPOINT,{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify({access_key:ACCESS_KEY, email:val, botcheck:(bot&&bot.value)||"", form_loaded_at:(loadedAt&&loadedAt.value)||"", origem:"Lista de espera Trilha 2 (site)"})})
       .then(function(r){ if(r.ok){done();} else {fail("Erro: falha no envio. Tente novamente em instantes.");} })
       .catch(function(){ fail("Erro: sem conexão no momento. Tente novamente."); });
   });
