@@ -497,6 +497,7 @@
   .buy-tag{display:inline-flex;align-items:center;gap:.5rem;background:linear-gradient(var(--gold-bright),var(--gold-deep));color:var(--navy);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;padding:.4rem .8rem;border-radius:999px;margin-bottom:1rem;align-self:flex-start}
   .buy-from{font-size:1rem;color:rgba(246,237,221,.55);margin-bottom:.15rem}
   .buy-from s{text-decoration-thickness:2px;text-decoration-color:rgba(207,159,60,.85)}
+  .price-old s{text-decoration:line-through;text-decoration-thickness:2.5px;text-decoration-color:#c31d10}
   .buy-save{font-size:.9rem;font-weight:600;color:var(--gold-bright);margin:.55rem 0 0}
   .buy-timer{margin:1.1rem 0 1.3rem;padding:.85rem 1rem;border:1px solid rgba(207,159,60,.35);border-radius:12px;background:rgba(207,159,60,.09);text-align:center}
   .buy-timer .bt-label{display:block;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:rgba(246,237,221,.7);margin-bottom:.4rem}
@@ -508,13 +509,6 @@
   @media (prefers-reduced-motion: reduce){.bt-off,.count-off{animation:none}}
   .buy-timer.bt-done .bt-clock{font-size:1rem;font-family:Inter,system-ui,sans-serif;font-weight:600;color:var(--gold-bright);line-height:1.5;display:block}
 
-  /* Estado da oferta: passado o prazo, a prosa de lancamento da lugar a de preco integral */
-  [data-offer="ended"]{display:none}
-  .offer-ended span[data-offer="ended"]{display:inline}
-  .offer-ended p[data-offer="ended"]{display:block}
-  .offer-ended a[data-offer="ended"]{display:inline-flex}
-  .offer-ended [data-offer="live"]{display:none}
-  .offer-ended #hero-count,.offer-ended #buy-timer{display:none}
 </style>
 <!-- Ancoragem: impede o navegador de restaurar a rolagem antiga e abrir a pagina no fim -->
 <script>
@@ -560,25 +554,16 @@
 <!-- HERO -->
 <section class="hero">
   <div class="wrap hero-inner">
-    <div class="hero-count" id="hero-count" role="timer" aria-live="off">
-      <span class="count-label">Oferta termina em</span>
-      <span class="count-units">
-        <span class="count-unit"><b id="cd-d">00</b><span>dias</span></span>
-        <span class="count-sep" aria-hidden="true">:</span>
-        <span class="count-unit"><b id="cd-h">--</b><span>horas</span></span>
-        <span class="count-sep" aria-hidden="true">:</span>
-        <span class="count-unit"><b id="cd-m">--</b><span>min</span></span>
-        <span class="count-sep" aria-hidden="true">:</span>
-        <span class="count-unit"><b id="cd-s">--</b><span>seg</span></span>
-      </span>
+    <div class="hero-count">
+      <span class="count-label">Exclusivo para seguidores</span>
       <span class="count-off">+50% de desconto</span>
     </div>
     <img class="mark-lg" src="assets/logo-completa.png" alt="Entre Mentes" width="900" height="579">
-    <p class="eyebrow"><span data-offer="live">No ar hoje &middot; desconto de lan&ccedil;amento at&eacute; a meia-noite</span><span data-offer="ended">No ar &middot; curso dispon&iacute;vel e guia gratuito</span></p>
+    <p class="eyebrow">No ar &middot; desconto exclusivo para quem acompanha o @psi.entre.mentes</p>
     <h1><span class="em">IA</span> para psicólogos e estudantes</h1>
     <p class="sub">Um método para usar IA com rigor na psicologia, do post no Instagram à pesquisa acadêmica, com cada referência verificada e cada afirmação conferida na fonte. Guia gratuito.</p>
     <div class="cta-row">
-      <a class="btn btn--primary" href="#comprar"><span data-offer="live">Comprar por R$ 97,90 <span style="opacity:.72;font-weight:500">(de R$ 199,90)</span></span><span data-offer="ended">Comprar por R$ 199,90</span></a>
+      <a class="btn btn--primary" href="#comprar">Comprar <span class="price-old" style="opacity:.82;font-weight:500">de <s>R$ 199,90</s></span> por R$ 97,90</a>
       <span class="cta-stack">
         <a class="btn btn--ghost" href="#claude-do-zero">Começar do zero</a>
         <span class="cta-cap">Kit inicial gratuito</span>
@@ -610,21 +595,17 @@
 
     <div class="buy-grid reveal">
       <article class="buy-card">
-        <p class="buy-tag"><span data-offer="live">Desconto de lan&ccedil;amento &middot; at&eacute; a meia-noite de hoje</span><span data-offer="ended">Curso dispon&iacute;vel &middot; acesso imediato</span></p>
+        <p class="buy-tag">Desconto exclusivo &middot; seguidores do @psi.entre.mentes</p>
         <p class="buy-kicker">Acesso imediato e vital&iacute;cio</p>
-        <p class="buy-from" data-offer="live">de <s>R$&nbsp;199,90</s> por</p>
-        <p class="buy-price" data-offer="live"><b>R$&nbsp;97,90</b><span>&agrave; vista</span></p>
-        <p class="buy-price" data-offer="ended"><b>R$&nbsp;199,90</b><span>&agrave; vista</span></p>
-        <p class="buy-save" data-offer="live">Economia de R$&nbsp;102,00 at&eacute; a meia-noite de hoje.</p>
-        <p class="buy-save" data-offer="ended">Atualiza&ccedil;&otilde;es futuras inclusas, sem custo adicional.</p>
+        <p class="buy-from">de <s>R$&nbsp;199,90</s> por</p>
+        <p class="buy-price"><b>R$&nbsp;97,90</b><span>&agrave; vista</span></p>
+        <p class="buy-save">Economia de R$&nbsp;102,00 para quem acompanha o perfil, com atualiza&ccedil;&otilde;es futuras inclusas.</p>
         <p class="buy-parc">ou parcelado em at&eacute; 12x no cart&atilde;o. Pix e cart&atilde;o liberam o acesso na hora.</p>
-        <div class="buy-timer" id="buy-timer" role="timer" aria-live="off">
-          <span class="bt-label">A oferta de lan&ccedil;amento termina em</span>
-          <span class="bt-clock"><b id="bt-h">--</b>h <b id="bt-m">--</b>m <b id="bt-s">--</b>s</span>
-          <span class="bt-off">Oferta de +50% de desconto</span>
+        <div class="buy-timer">
+          <span class="bt-label">Condi&ccedil;&atilde;o reservada a quem vem do @psi.entre.mentes</span>
+          <span class="bt-off">+50% de desconto</span>
         </div>
-        <a class="btn btn--primary" data-offer="live" href="https://pay.kiwify.com.br/jDqoJH1" target="_blank" rel="noopener">Garantir por R$&nbsp;97,90</a>
-        <a class="btn btn--primary" data-offer="ended" href="https://pay.kiwify.com.br/dS3D2VQ" target="_blank" rel="noopener">Garantir por R$&nbsp;199,90</a>
+        <a class="btn btn--primary" href="https://pay.kiwify.com.br/jDqoJH1" target="_blank" rel="noopener">Garantir por R$&nbsp;97,90</a>
         <p class="buy-pay">Pagamento processado pela Kiwify. Assim que o pagamento &eacute; aprovado, voc&ecirc; recebe por e-mail o acesso &agrave; &aacute;rea de membros com todos os arquivos.</p>
         <p class="buy-seal"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v6c0 4.4-3 7.6-7 9-4-1.4-7-4.6-7-9V6l7-3Z"/><path d="m9 12 2 2 4-4"/></svg><span>Garantia incondicional de 7 dias. N&atilde;o gostou, pede o reembolso integral, conforme o C&oacute;digo de Defesa do Consumidor.</span></p>
       </article>
@@ -642,7 +623,7 @@
       </div>
     </div>
 
-    <p class="buy-note reveal">O sistema roda no Claude, que exige plano pago &agrave; parte e n&atilde;o est&aacute; inclu&iacute;do neste pre&ccedil;o. As ferramentas de verifica&ccedil;&atilde;o de refer&ecirc;ncias (Crossref, OpenAlex e Semantic Scholar) s&atilde;o gratuitas. Voc&ecirc; n&atilde;o precisa programar: sobe arquivos prontos e conversa em portugu&ecirc;s. A Trilha 2, de pesquisa cient&iacute;fica e acad&ecirc;mica, &eacute; outro produto e ainda n&atilde;o abriu. <span data-offer="live">Depois da meia-noite de hoje, o curso volta ao pre&ccedil;o de R$&nbsp;199,90, com o mesmo conte&uacute;do e as mesmas atualiza&ccedil;&otilde;es inclusas.</span><span data-offer="ended">O curso custa R$&nbsp;199,90, com o mesmo conte&uacute;do e as mesmas atualiza&ccedil;&otilde;es inclusas.</span></p>
+    <p class="buy-note reveal">O sistema roda no Claude, que exige plano pago &agrave; parte e n&atilde;o est&aacute; inclu&iacute;do neste pre&ccedil;o. As ferramentas de verifica&ccedil;&atilde;o de refer&ecirc;ncias (Crossref, OpenAlex e Semantic Scholar) s&atilde;o gratuitas. Voc&ecirc; n&atilde;o precisa programar: sobe arquivos prontos e conversa em portugu&ecirc;s. A Trilha 2, de pesquisa cient&iacute;fica e acad&ecirc;mica, &eacute; outro produto e ainda n&atilde;o abriu. O pre&ccedil;o cheio do curso &eacute; R$&nbsp;199,90. Os R$&nbsp;97,90 desta p&aacute;gina s&atilde;o a condi&ccedil;&atilde;o reservada a quem acompanha o @psi.entre.mentes, com o mesmo conte&uacute;do e as mesmas atualiza&ccedil;&otilde;es inclusas.</p>
   </div>
 </section>
 
@@ -860,7 +841,7 @@
     <div class="track-panel" id="trilha-1" role="tabpanel" aria-labelledby="tab-1" tabindex="0">
       <div class="track-head">
         <h3>Conteúdo para Instagram</h3>
-        <p>O pipeline de posts em nove etapas, da pesquisa do tema à publicação. Nada é publicado sem passar pelos pontos de verificação. Ao fim, você produz conteúdo que aguenta o escrutínio de quem confere fontes. Já está disponível: <span data-offer="live">R$ 97,90 até a meia-noite de hoje, depois R$ 199,90.</span><span data-offer="ended">R$ 199,90.</span> A compra entrega na hora os 8 volumes do ebook e o kit de skills. As videoaulas entram até 20 de agosto no mesmo acesso, sem pagar de novo, e o que for adicionado depois também entra.</p>
+        <p>O pipeline de posts em nove etapas, da pesquisa do tema à publicação. Nada é publicado sem passar pelos pontos de verificação. Ao fim, você produz conteúdo que aguenta o escrutínio de quem confere fontes. Já está disponível: R$ 97,90 para quem acompanha o @psi.entre.mentes, em vez de R$ 199,90. A compra entrega na hora os 8 volumes do ebook e o kit de skills. As videoaulas entram até 20 de agosto no mesmo acesso, sem pagar de novo, e o que for adicionado depois também entra.</p>
       </div>
       <div class="track-incl">
         <span class="incl"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5a2 2 0 0 1 2-2h6v16H6a2 2 0 0 0-2 2V5Z"/><path d="M20 5a2 2 0 0 0-2-2h-6v16h6a2 2 0 0 1 2 2V5Z"/></svg>8 volumes de ebook · entrega imediata</span>
@@ -977,7 +958,7 @@
   <div class="wrap reveal">
     <p class="eyebrow">Ebook gratuito</p>
     <h2 class="title">Cadastre-se na lista e receba o ebook</h2>
-    <p class="lede" style="margin-inline:auto">Informe seu e-mail. O ebook IA para psicólogos e estudantes, com 38 páginas, é baixado imediatamente e sem custo. O curso completo já está no ar: 8 volumes e o kit de skills entregues na hora, <span data-offer="live">por R$ 97,90 até a meia-noite de hoje em vez de R$ 199,90</span><span data-offer="ended">por R$ 199,90</span>. As videoaulas entram até 20 de agosto sem pagar nada a mais.</p>
+    <p class="lede" style="margin-inline:auto">Informe seu e-mail. O ebook IA para psicólogos e estudantes, com 38 páginas, é baixado imediatamente e sem custo. O curso completo já está no ar: 8 volumes e o kit de skills entregues na hora, por R$ 97,90 para quem acompanha o @psi.entre.mentes, em vez de R$ 199,90. As videoaulas entram até 20 de agosto sem pagar nada a mais.</p>
     <form class="waitlist" id="waitlist" novalidate>
       <label for="email" class="skip">Seu e-mail</label>
       <input type="email" id="email" name="email" placeholder="seu e-mail" required autocomplete="email">
@@ -1162,65 +1143,6 @@
   }
 </script>
 <script>
-  // Prazo unico da oferta. Para mudar, ajuste apenas esta data (fuso de Brasilia, -03:00).
-  var OFFER_DEADLINE = new Date('2026-08-05T00:00:00-03:00').getTime();
-
-  // Estado da oferta: passado o prazo, o body recebe .offer-ended e a prosa de lancamento
-  // da lugar a de preco integral, no mesmo instante em que os contadores zeram.
-  (function(){
-    function aplica(){
-      if(Date.now()<OFFER_DEADLINE) return;
-      document.body.classList.add('offer-ended');
-      // Durante a promocao o card de compra abre a pagina; encerrada, volta para a posicao de funil.
-      var c=document.getElementById('comprar'), k=document.getElementById('curso');
-      if(c&&k&&k.nextElementSibling!==c){ k.after(c); }
-    }
-    aplica();
-    var ms = OFFER_DEADLINE - Date.now();
-    if(ms>0 && ms<2147483647){ setTimeout(aplica, ms+1000); }
-  })();
-
-  // Contador da oferta de lancamento (card de compra).
-  (function(){
-    var OFFER_END = OFFER_DEADLINE;
-    var box = document.getElementById('buy-timer');
-    if(!box) return;
-    var H=document.getElementById('bt-h'),M=document.getElementById('bt-m'),S=document.getElementById('bt-s');
-    function p(n){return (n<10?'0':'')+n}
-    function tick(){
-      var ms = OFFER_END - Date.now();
-      if(ms<0) ms=0;
-      var t=Math.floor(ms/1000);
-      H.textContent=p(Math.floor(t/3600));
-      M.textContent=p(Math.floor((t%3600)/60));
-      S.textContent=p(t%60);
-      if(ms===0){clearInterval(iv);box.classList.add('bt-done');box.querySelector('.bt-clock').textContent='O desconto de lançamento foi encerrado. O curso segue disponível por R$ 199,90.';}
-    }
-    tick();
-    var iv=setInterval(tick,1000);
-  })();
-
-  // Contagem regressiva do hero (usa o mesmo prazo unico).
-  (function(){
-    var DEADLINE = OFFER_DEADLINE;
-    var box = document.getElementById('hero-count');
-    if(!box) return;
-    var d=document.getElementById('cd-d'),h=document.getElementById('cd-h'),
-        m=document.getElementById('cd-m'),s=document.getElementById('cd-s');
-    function pad(n){return (n<10?'0':'')+n}
-    function tick(){
-      var ms = DEADLINE - Date.now();
-      if(ms<0) ms=0;
-      var t=Math.floor(ms/1000);
-      d.textContent=pad(Math.floor(t/86400));
-      h.textContent=pad(Math.floor((t%86400)/3600));
-      m.textContent=pad(Math.floor((t%3600)/60));
-      s.textContent=pad(t%60);
-      if(ms===0){clearInterval(iv);box.classList.add('count-done');box.querySelector('.count-label').textContent='Oferta encerrada';}
-    }
-    tick();
-    var iv=setInterval(tick,1000);
-  })();
 </script>
 </body>
 </html>
